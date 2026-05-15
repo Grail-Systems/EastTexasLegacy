@@ -1,0 +1,30 @@
+# --- SYSTEM TRASH ---
+# Ignore Mac system files
+.DS_Store
+# Ignore Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- PYTHON TRASH ---
+# Ignore compiled Python files (the engine's exhaust)
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+ENV/
+
+# --- FRONTEND TRASH ---
+# Ignore log files (the shop's receipts)
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- SECURITY (CRITICAL) ---
+# Never upload files containing your secrets/passwords
+secrets.txt
+config.json
+*.pem
+*.key
