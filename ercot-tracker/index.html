@@ -1,39 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERCOT Tracker | East Texas Legacy</title>
+    <title>Project Lufkin | Geospatial Command Center</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        body { background-color: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; padding: 20px; }
-        h1 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; }
-        .mission-brief { background-color: #161b22; border-left: 4px solid #ff7b72; padding: 15px; margin-bottom: 20px; border-radius: 4px; line-height: 1.5; font-size: 15px; }
+        body { background-color: #0d1117; color: #c9d1d9; font-family: sans-serif; margin: 0; padding: 20px; }
+        h1 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        h2 { color: #ff7b72; margin-top: 40px; border-bottom: 1px dashed #30363d; padding-bottom: 5px; font-size: 18px; text-transform: uppercase;}
         #map { height: 400px; border-radius: 8px; border: 1px solid #30363d; margin-bottom: 20px; }
-        .stats-banner { background-color: #21262d; border: 1px solid #30363d; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 1.1em; text-align: center; }
-        .highlight { color: #ff7b72; font-weight: bold; font-size: 1.2em; }
-        table { width: 100%; border-collapse: collapse; background-color: #161b22; font-size: 14px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #30363d; }
-        th { background-color: #21262d; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stats-banner { background-color: #161b22; border: 1px solid #30363d; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 16px; }
+        .highlight { color: #ff7b72; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; background-color: #161b22; font-size: 14px; margin-bottom: 30px;}
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #30363d; }
+        th { background-color: #21262d; color: #8b949e; text-transform: uppercase; }
         tr:hover { background-color: #21262d; }
     </style>
 </head>
 <body>
 
-    <h1>East Texas Legacy: ERCOT Tracker</h1>
-    
-    <div class="mission-brief">
-        <strong style="color: #ff7b72;">MISSION BRIEF:</strong> Industrial developers are aggressively targeting East Texas for massive, high-draw power projects—often negotiating quietly behind closed doors. This tracker pulls live, state-level ERCOT grid data to map the true scale of the industrial invasion. This is an early-warning radar system designed to expose the "Domino Effect" threatening our aquifers, rural infrastructure, and local legacy.
-    </div>
-    
+    <h1>Project Lufkin: East Texas Resistance Zone</h1>
+
     <div id="map"></div>
 
     <div class="stats-banner">
-        Industrial Invasion Intensity: <span class="highlight" id="projectCount">Scanning...</span> Major Projects Detected
+        State Grid Invasion Intensity: <span class="highlight" id="projectCount">Scanning...</span> Projects Detected
     </div>
 
-    <table>
+    <h2>🔒 Secure Citizen Intake Portal</h2>
+    <div style="background-color: #161b22; padding: 20px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 30px;">
+        <input type="text" id="tip-subject" placeholder="Intel Subject (e.g., Amp Z Substation Activity)" style="width: 100%; padding: 10px; margin-bottom: 15px; background: #0d1117; color: #c9d1d9; border: 1px solid #30363d; border-radius: 4px; box-sizing: border-box; font-family: sans-serif;">
+        
+        <textarea id="tip-details" placeholder="Provide raw details here... (Connection is secure)" style="width: 100%; padding: 10px; height: 100px; margin-bottom: 15px; background: #0d1117; color: #c9d1d9; border: 1px solid #30363d; border-radius: 4px; box-sizing: border-box; font-family: sans-serif;"></textarea>
+        
+        <button onclick="transmitPayload()" style="background-color: #238636; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">Transmit Payload</button>
+        
+        <span id="tip-status" style="margin-left: 15px; font-weight: bold;"></span>
+    </div>
+
+    <h2>📡 ERCOT State Interconnection Requests</h2>
+    <table>                                                                                                                                         
         <thead>
             <tr>
                 <th>County</th>
@@ -46,11 +53,23 @@
         <tbody id="targetTable"></tbody>
     </table>
 
+    <h2>⚠️ Verified Angelina County Industrial Leases</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Property ID</th>
+                <th>Corporate Entity</th>
+                <th>Acreage</th>
+            </tr>
+        </thead>
+        <tbody id="cadTable"></tbody>
+    </table>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // County Coordinates for the Resistance Zone
+        // --- MAP INITIALIZATION ---
         const countyCoords = {
-            "ANGELINA": [31.25, -94.61],
+            "ANGELINA": [31.25, -94.61],                                                                                              
             "NACOGDOCHES": [31.61, -94.61],
             "ANDERSON": [31.81, -95.65],
             "HENDERSON": [32.21, -95.85],
@@ -64,24 +83,23 @@
         const map = L.map('map').setView([31.8, -95.3], 8);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
 
+        // --- FETCH ENGINE 1: ERCOT STATE DATA ---
         fetch('east_texas_interconnections.json')
             .then(res => res.json())
             .then(data => {
                 document.getElementById('projectCount').innerText = data.length;
                 const tableBody = document.getElementById('targetTable');
-                
+
                 data.forEach(project => {
                     const county = (project.county || "").toUpperCase();
                     const name = project.project_name || "Unknown";
                     const mw = project['capacity_(mw)'] || "N/A";
                     const status = project.gim_study_phase || "N/A";
 
-                    // Add to Table
                     const row = tableBody.insertRow();
                     row.innerHTML = `<td><b style="color: #a5d6ff;">${county}</b></td><td>${name}</td><td>${project.fuel}</td><td>${mw}</td><td style="color: #3fb950;">${status}</td>`;
 
-                    // Add to Map if county is mapped
-                    if (countyCoords[county]) {
+                    if (countyCoords[county]) {                                                                                              
                         L.circleMarker(countyCoords[county], {
                             radius: 8,
                             fillColor: project.fuel === 'SOL' ? "#e3b341" : (project.fuel === 'WIN' ? "#58a6ff" : "#ff7b72"),
@@ -90,7 +108,65 @@
                     }
                 });
             })
-            .catch(error => console.error("Could not load grid data. Ensure JSON is in the same folder.", error));
+            .catch(err => console.error("ERCOT Data failed to load:", err));
+
+        // --- FETCH ENGINE 2: VERIFIED LOCAL CAD DATA ---
+        fetch('verified_targets.json')
+            .then(res => res.json())
+            .then(data => {
+                const cadTableBody = document.getElementById('cadTable');
+
+                data.forEach(target => {
+                    const row = cadTableBody.insertRow();
+                    row.innerHTML = `
+                        <td style="color: #8b949e; font-family: monospace;">${target.property_id}</td>
+                        <td style="color: #3fb950; font-weight: bold;">${target.owner_name}</td>
+                        <td style="color: #e3b341;">${target.acres.toFixed(2)} Acres</td>
+                    `;
+                });
+            })
+            .catch(err => console.error("CAD Data failed to load:", err));
+
+        // --- TRANSMISSION ENGINE: SECURE INTAKE ---
+        function transmitPayload() {
+            const subject = document.getElementById('tip-subject').value;
+            const details = document.getElementById('tip-details').value;
+            const statusText = document.getElementById('tip-status');
+
+            if (!subject || !details) {
+                statusText.innerText = "⚠️ Error: Subject and Details are required.";
+                statusText.style.color = "#ff7b72";
+                return;
+            }
+
+            statusText.innerText = "Transmitting...";
+            statusText.style.color = "#c9d1d9";
+
+            const payload = {
+                subject: subject,
+                details: details
+            };
+
+            fetch('fetch('https://script.google.com/macros/s/AKfycbyDs86x8sxgVEe95iSCGpTLA3RxoQNlGnVvqF_8l7s46a4qDXyHWV-_bnPd11pobXsd/exec', {', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === "SECURE_PAYLOAD_RECEIVED") {
+                    statusText.innerText = "✅ Payload Successfully Intercepted by Command Center";
+                    statusText.style.color = "#3fb950";
+                    document.getElementById('tip-subject').value = '';
+                    document.getElementById('tip-details').value = '';
+                }
+            })
+            .catch(error => {
+                statusText.innerText = "❌ Transmission Failed. Connection Refused.";
+                statusText.style.color = "#ff7b72";
+                console.error("Transmission Error:", error);
+            });
+        }
     </script>
 </body>
 </html>
