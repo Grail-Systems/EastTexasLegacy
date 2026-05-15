@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Intake Portal | East Texas Legacy</title>
+    <style>
+        body { background-color: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; padding: 40px 20px; }
+        .container { max-width: 700px; margin: 0 auto; }
+        .header { border-bottom: 1px solid #30363d; padding-bottom: 20px; margin-bottom: 30px; text-align: center; }
+        h1 { color: #3fb950; margin: 0 0 10px 0; }
+        .nav-link { color: #8b949e; text-decoration: none; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 20px; text-align: left; }
+        .nav-link:hover { color: #58a6ff; }
+        
+        .form-card { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 35px; }
+        
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #e6edf3; }
+        input[type="text"], input[type="email"], select, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            background-color: #0d1117; 
+            border: 1px solid #30363d; 
+            border-radius: 4px; 
+            color: #c9d1d9; 
+            font-size: 16px;
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #58a6ff; }
+        
+        .submit-btn {
+            background-color: #238636;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        .submit-btn:hover { background-color: #2ea043; }
+        .disclaimer { margin-top: 15px; font-size: 0.85em; color: #8b949e; text-align: center; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="nav-link">← Return to Command Hub</a>
+        
+        <div class="header">
+            <h1>Secure Intake Portal</h1>
+            <p>Submit public records, utility tips, or environmental data directly to the East Texas Legacy repository.</p>
+        </div>
+
+        <div class="form-card">
+            <form action="https://grailsystems.io/project_lufkin/intake" method="POST">
+                
+                <div class="form-group">
+                    <label for="submitter_name">Name (Leave blank to remain anonymous)</label>
+                    <input type="text" id="submitter_name" name="submitter_name" placeholder="Anonymous">
+                </div>
+
+                <div class="form-group">
+                    <label for="data_type">Type of Intelligence</label>
+                    <select id="data_type" name="data_type">
+                        <option value="utility_agreement">Utility Agreement / Contract</option>
+                        <option value="environmental_impact">Environmental Impact Data</option>
+                        <option value="land_lease">CAD Property / Land Lease Record</option>
+                        <option value="general_tip">General Tip / Observation</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message_payload">Intelligence Details</label>
+                    <textarea id="message_payload" name="message_payload" rows="6" placeholder="Provide context, file links, or detailed observations here..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Securely Transmit Payload</button>
+                
+                <div class="disclaimer">
+                    All transmissions are logged strictly for community defense mapping. Your data will be vetted by the coalition before any public release.
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
