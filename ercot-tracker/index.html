@@ -1,1 +1,96 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERCOT Tracker | East Texas Legacy</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { background-color: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; padding: 20px; }
+        h1 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; }
+        .mission-brief { background-color: #161b22; border-left: 4px solid #ff7b72; padding: 15px; margin-bottom: 20px; border-radius: 4px; line-height: 1.5; font-size: 15px; }
+        #map { height: 400px; border-radius: 8px; border: 1px solid #30363d; margin-bottom: 20px; }
+        .stats-banner { background-color: #21262d; border: 1px solid #30363d; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 1.1em; text-align: center; }
+        .highlight { color: #ff7b72; font-weight: bold; font-size: 1.2em; }
+        table { width: 100%; border-collapse: collapse; background-color: #161b22; font-size: 14px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #30363d; }
+        th { background-color: #21262d; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; }
+        tr:hover { background-color: #21262d; }
+    </style>
+</head>
+<body>
+
+    <h1>East Texas Legacy: ERCOT Tracker</h1>
+    
+    <div class="mission-brief">
+        <strong style="color: #ff7b72;">MISSION BRIEF:</strong> Industrial developers are aggressively targeting East Texas for massive, high-draw power projects—often negotiating quietly behind closed doors. This tracker pulls live, state-level ERCOT grid data to map the true scale of the industrial invasion. This is an early-warning radar system designed to expose the "Domino Effect" threatening our aquifers, rural infrastructure, and local legacy.
+    </div>
+    
+    <div id="map"></div>
+
+    <div class="stats-banner">
+        Industrial Invasion Intensity: <span class="highlight" id="projectCount">Scanning...</span> Major Projects Detected
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>County</th>
+                <th>Project Name</th>
+                <th>Fuel</th>
+                <th>MW</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="targetTable"></tbody>
+    </table>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // County Coordinates for the Resistance Zone
+        const countyCoords = {
+            "ANGELINA": [31.25, -94.61],
+            "NACOGDOCHES": [31.61, -94.61],
+            "ANDERSON": [31.81, -95.65],
+            "HENDERSON": [32.21, -95.85],
+            "CHEROKEE": [31.84, -95.17],
+            "RUSK": [32.10, -94.75],
+            "NAVARRO": [32.05, -96.47],
+            "HOUSTON": [31.32, -95.43],
+            "SMITH": [32.38, -95.27]
+        };
+
+        const map = L.map('map').setView([31.8, -95.3], 8);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
+
+        fetch('east_texas_interconnections.json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('projectCount').innerText = data.length;
+                const tableBody = document.getElementById('targetTable');
+                
+                data.forEach(project => {
+                    const county = (project.county || "").toUpperCase();
+                    const name = project.project_name || "Unknown";
+                    const mw = project['capacity_(mw)'] || "N/A";
+                    const status = project.gim_study_phase || "N/A";
+
+                    // Add to Table
+                    const row = tableBody.insertRow();
+                    row.innerHTML = `<td><b style="color: #a5d6ff;">${county}</b></td><td>${name}</td><td>${project.fuel}</td><td>${mw}</td><td style="color: #3fb950;">${status}</td>`;
+
+                    // Add to Map if county is mapped
+                    if (countyCoords[county]) {
+                        L.circleMarker(countyCoords[county], {
+                            radius: 8,
+                            fillColor: project.fuel === 'SOL' ? "#e3b341" : (project.fuel === 'WIN' ? "#58a6ff" : "#ff7b72"),
+                            color: "#000", weight: 1, opacity: 1, fillOpacity: 0.8
+                        }).addTo(map).bindPopup(`<b>${name}</b><br>${mw} MW ${project.fuel}<br>${county} County`);
+                    }
+                });
+            })
+            .catch(error => console.error("Could not load grid data. Ensure JSON is in the same folder.", error));
+    </script>
+</body>
+</html>
