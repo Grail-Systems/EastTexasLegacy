@@ -89,6 +89,7 @@
     .badge-win  { background: rgba(0,200,255,0.1);   color: #00ccff;        border: 1px solid rgba(0,200,255,0.3); }
     .badge-gas  { background: rgba(255,64,64,0.12);  color: var(--accent2); border: 1px solid rgba(255,64,64,0.3); }
     .badge-batt { background: rgba(0,255,106,0.1);   color: var(--accent);  border: 1px solid rgba(0,255,106,0.3); }
+    .badge-wat  { background: rgba(0,150,255,0.1);   color: #0096ff;        border: 1px solid rgba(0,150,255,0.3); }
     .badge-oth  { background: rgba(128,128,128,0.1); color: #888;           border: 1px solid rgba(128,128,128,0.3); }
     .badge-ia   { background: rgba(0,255,106,0.1);   color: var(--accent);  border: 1px solid rgba(0,255,106,0.3); }
     .badge-noia { background: rgba(255,64,64,0.1);   color: var(--accent2); border: 1px solid rgba(255,64,64,0.3); }
@@ -129,7 +130,7 @@
 <header>
   <div class="header-tag">&#9656; East Texas Legacy Coalition // Grail Systems // Active</div>
   <h1>&#9889; Project Lufkin: East Texas Resistance Zone</h1>
-  <div class="header-sub">ERCOT State Grid Interconnection Queue + Angelina County Industrial Land Registry</div>
+  <div class="header-sub">ERCOT State Grid Interconnection Queue + Angelina County Industrial Land Registry &mdash; April 2026 Data</div>
 </header>
 
 <div class="stats-bar" id="statsBar">
@@ -141,7 +142,7 @@
   <section>
     <div class="section-header">
       <span class="section-icon">&#128506;</span>
-      <span class="section-title">Deployment Map &#8212; East Texas Grid Intrusion</span>
+      <span class="section-title">Deployment Map &mdash; East Texas Grid Intrusion</span>
     </div>
     <div id="map"></div>
   </section>
@@ -213,7 +214,7 @@
 
 </main>
 
-<footer>&#169; 2026 East Texas Legacy Coalition &middot; Powered by Grail Systems &middot; &#8220;Map the truth.&#8221;</footer>
+<footer>&#169; 2026 East Texas Legacy Coalition &middot; Powered by Grail Systems &middot; &#8220;Map the truth.&#8221; &middot; Source: ERCOT GIS Report April 2026</footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -222,10 +223,13 @@
     "ANDERSON":    [31.81, -95.65], "HENDERSON":   [32.21, -95.85],
     "CHEROKEE":    [31.84, -95.17], "RUSK":        [32.10, -94.75],
     "NAVARRO":     [32.05, -96.47], "HOUSTON":     [31.32, -95.43],
-    "SMITH":       [32.38, -95.27]
+    "SMITH":       [32.38, -95.27], "DELTA":       [33.38, -95.67],
+    "FREESTONE":   [31.70, -96.14], "LEON":        [31.29, -95.97],
+    "LAMAR":       [33.67, -95.55], "RED RIVER":   [33.62, -94.97],
+    "RAINS":       [32.87, -95.79]
   };
 
-  const map = L.map('map').setView([31.8, -95.3], 8);
+  const map = L.map('map').setView([32.0, -95.5], 7);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
   }).addTo(map);
@@ -235,122 +239,151 @@
     try { const d = new Date(iso); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0'); }
     catch { return '&#8212;'; }
   }
+
   function fuelKey(fuel, tech) {
-    if (fuel==='SOL') return 'SOL'; if (fuel==='WIN') return 'WIN';
-    if (fuel==='GAS') return 'GAS'; if (tech==='BA'||fuel==='OTH') return 'BA';
+    if (fuel === 'SOL') return 'SOL';
+    if (fuel === 'WIN') return 'WIN';
+    if (fuel === 'GAS') return 'GAS';
+    if (fuel === 'WAT') return 'WAT';
+    if (tech === 'BA' || fuel === 'OTH') return 'BA';
     return 'OTH';
   }
+
   function fuelBadge(fuel, tech) {
     const k = fuelKey(fuel, tech);
-    const labels = {SOL:'Solar',WIN:'Wind',GAS:'Gas',BA:'Battery',OTH:fuel||'?'};
-    const cls    = {SOL:'badge-sol',WIN:'badge-win',GAS:'badge-gas',BA:'badge-batt',OTH:'badge-oth'};
+    const labels = { SOL:'Solar', WIN:'Wind', GAS:'Gas', BA:'Battery', WAT:'Hydro', OTH: fuel||'?' };
+    const cls    = { SOL:'badge-sol', WIN:'badge-win', GAS:'badge-gas', BA:'badge-batt', WAT:'badge-wat', OTH:'badge-oth' };
     return '<span class="badge '+(cls[k]||'badge-oth')+'">'+(labels[k]||fuel)+'</span>';
   }
+
   function iaBadge(ia) {
     return ia ? '<span class="badge badge-ia">IA Signed</span>' : '<span class="badge badge-noia">No IA</span>';
   }
+
   function mwBar(mw, maxMw) {
-    const pct = maxMw>0 ? Math.min(100,(mw/maxMw)*100) : 0;
-    return '<div class="mw-bar"><span>'+(mw>0?mw.toFixed(0):'&#8212;')+'</span><div class="mw-track"><div class="mw-fill" style="width:'+pct+'%"></div></div></div>';
+    const pct = maxMw > 0 ? Math.min(100, (mw / maxMw) * 100) : 0;
+    return '<div class="mw-bar"><span>' + (mw > 0 ? mw.toFixed(0) : '&#8212;') + '</span>'
+      + '<div class="mw-track"><div class="mw-fill" style="width:' + pct + '%"></div></div></div>';
   }
+
   function markerColor(fuel, tech) {
-    return {SOL:'#ffcc00',WIN:'#00ccff',GAS:'#ff4040',BA:'#00ff6a',OTH:'#888'}[fuelKey(fuel,tech)]||'#888';
+    return { SOL:'#ffcc00', WIN:'#00ccff', GAS:'#ff4040', BA:'#00ff6a', WAT:'#0096ff', OTH:'#888' }[fuelKey(fuel, tech)] || '#888';
   }
 
   let ercotAll = [], activeFuel = 'ALL';
 
   function renderErcot(data) {
-    const maxMw = Math.max(...data.map(d => d['capacity_(mw)']||0), 1);
+    const maxMw = Math.max(...data.map(d => d.capacity_mw || 0), 1);
     const tbody = document.getElementById('ercotBody');
-    if (!data.length) { tbody.innerHTML = '<tr class="empty-row"><td colspan="9">No records match filter.</td></tr>'; return; }
+    if (!data.length) {
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="9">No records match filter.</td></tr>';
+      return;
+    }
     tbody.innerHTML = data.map(d => {
-      const county = (d.county||'').trim();
-      const isA = county.toLowerCase()==='angelina';
-      return '<tr data-fuel="'+fuelKey(d.fuel,d.technology)+'">'
-        +'<td style="color:var(--subtext);font-size:0.65rem">'+(d.inr||'&#8212;')+'</td>'
-        +'<td style="font-family:var(--font-ui);font-weight:600;font-size:0.8rem">'+(d.project_name||'&#8212;')+'</td>'
-        +'<td class="'+(isA?'county-angelina':'')+'">'+(county||'&#8212;')+'</td>'
-        +'<td>'+fuelBadge(d.fuel,d.technology)+'</td>'
-        +'<td>'+mwBar(d['capacity_(mw)']||0,maxMw)+'</td>'
-        +'<td style="font-size:0.68rem">'+fmtDate(d.projected_cod)+'</td>'
-        +'<td>'+iaBadge(d.ia_signed)+'</td>'
-        +'<td style="font-size:0.65rem;color:var(--subtext);max-width:200px;white-space:normal;line-height:1.4">'+(d.gim_study_phase||'&#8212;')+'</td>'
-        +'<td style="font-size:0.65rem;max-width:180px;white-space:normal;line-height:1.4">'+(d.interconnecting_entity||'&#8212;')+'</td>'
-        +'</tr>';
+      const county = (d.county || '').trim();
+      const isA = county.toLowerCase() === 'angelina';
+      return '<tr data-fuel="' + fuelKey(d.fuel, d.technology) + '">'
+        + '<td style="color:var(--subtext);font-size:0.65rem">' + (d.inr || '&#8212;') + '</td>'
+        + '<td style="font-family:var(--font-ui);font-weight:600;font-size:0.8rem">' + (d.project_name || '&#8212;') + '</td>'
+        + '<td class="' + (isA ? 'county-angelina' : '') + '">' + (county || '&#8212;') + '</td>'
+        + '<td>' + fuelBadge(d.fuel, d.technology) + '</td>'
+        + '<td>' + mwBar(d.capacity_mw || 0, maxMw) + '</td>'
+        + '<td style="font-size:0.68rem">' + fmtDate(d.projected_cod) + '</td>'
+        + '<td>' + iaBadge(d.ia_signed) + '</td>'
+        + '<td style="font-size:0.65rem;color:var(--subtext);max-width:200px;white-space:normal;line-height:1.4">' + (d.gim_study_phase || '&#8212;') + '</td>'
+        + '<td style="font-size:0.65rem;max-width:180px;white-space:normal;line-height:1.4">' + (d.interconnecting_entity || '&#8212;') + '</td>'
+        + '</tr>';
     }).join('');
   }
 
   function applyFuelFilter() {
-    const filtered = activeFuel==='ALL' ? ercotAll : ercotAll.filter(d=>fuelKey(d.fuel,d.technology)===activeFuel);
+    const filtered = activeFuel === 'ALL'
+      ? ercotAll
+      : ercotAll.filter(d => fuelKey(d.fuel, d.technology) === activeFuel);
     renderErcot(filtered);
-    document.getElementById('ercotCount').textContent = filtered.length+' of '+ercotAll.length+' records';
+    document.getElementById('ercotCount').textContent = filtered.length + ' of ' + ercotAll.length + ' records';
   }
 
   document.getElementById('fuelFilters').addEventListener('click', e => {
-    const btn = e.target.closest('.filter-btn'); if (!btn) return;
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active'); activeFuel = btn.dataset.fuel; applyFuelFilter();
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFuel = btn.dataset.fuel;
+    applyFuelFilter();
   });
 
   function renderCad(data) {
     const tbody = document.getElementById('cadBody');
-    if (!data.length) { tbody.innerHTML = '<tr class="empty-row"><td colspan="3">No CAD records found.</td></tr>'; return; }
-    const total = data.reduce((s,d)=>s+(d.acres||0),0);
+    if (!data.length) {
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="3">No CAD records found.</td></tr>';
+      return;
+    }
+    const total = data.reduce((s, d) => s + (d.acres || 0), 0);
     tbody.innerHTML = data.map(d =>
       '<tr>'
-      +'<td style="color:var(--subtext);font-size:0.68rem;font-family:var(--font-mono)">'+(d.property_id||'&#8212;')+'</td>'
-      +'<td style="font-family:var(--font-ui);font-weight:600">'+(d.owner_name||'&#8212;')+'</td>'
-      +'<td style="color:var(--accent3)">'+(d.acres||0).toFixed(2)+' ac</td>'
-      +'</tr>'
+      + '<td style="color:var(--subtext);font-size:0.68rem;font-family:var(--font-mono)">' + (d.property_id || '&#8212;') + '</td>'
+      + '<td style="font-family:var(--font-ui);font-weight:600">' + (d.owner_name || '&#8212;') + '</td>'
+      + '<td style="color:var(--accent3)">' + (d.acres || 0).toFixed(2) + ' ac</td>'
+      + '</tr>'
     ).join('')
-    +'<tr style="border-top:1px solid var(--accent);background:rgba(0,255,106,0.03)">'
-    +'<td colspan="2" style="font-family:var(--font-ui);font-weight:700;color:var(--subtext);font-size:0.65rem;letter-spacing:0.1em">TOTAL DOCUMENTED ACREAGE</td>'
-    +'<td style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">'+total.toFixed(2)+' ac</td>'
-    +'</tr>';
-    document.getElementById('cadCount').textContent = data.length+' records';
+    + '<tr style="border-top:1px solid var(--accent);background:rgba(0,255,106,0.03)">'
+    + '<td colspan="2" style="font-family:var(--font-ui);font-weight:700;color:var(--subtext);font-size:0.65rem;letter-spacing:0.1em">TOTAL DOCUMENTED ACREAGE</td>'
+    + '<td style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">' + total.toFixed(2) + ' ac</td>'
+    + '</tr>';
+    document.getElementById('cadCount').textContent = data.length + ' records';
   }
 
   function buildStats(ercot, cad) {
-    const totalMw  = ercot.reduce((s,d)=>s+(d['capacity_(mw)']||0),0);
-    const iaSigned = ercot.filter(d=>d.ia_signed).length;
-    const gasMw    = ercot.filter(d=>d.fuel==='GAS').reduce((s,d)=>s+(d['capacity_(mw)']||0),0);
-    const ang      = ercot.filter(d=>(d.county||'').toLowerCase()==='angelina').length;
-    const acres    = cad.reduce((s,d)=>s+(d.acres||0),0);
+    const totalMw  = ercot.reduce((s, d) => s + (d.capacity_mw || 0), 0);
+    const iaSigned = ercot.filter(d => d.ia_signed).length;
+    const gasMw    = ercot.filter(d => d.fuel === 'GAS').reduce((s, d) => s + (d.capacity_mw || 0), 0);
+    const ang      = ercot.filter(d => (d.county || '').toLowerCase() === 'angelina').length;
+    const acres    = cad.reduce((s, d) => s + (d.acres || 0), 0);
     document.getElementById('statsBar').innerHTML =
-      '<div class="stat-chip">Projects Detected<span>'+ercot.length+'</span></div>'
-      +'<div class="stat-chip warn">Total Queued Capacity<span>'+(totalMw/1000).toFixed(1)+' GW</span></div>'
-      +'<div class="stat-chip">IA Signed<span>'+iaSigned+'</span></div>'
-      +'<div class="stat-chip alert">Gas Plants<span>'+gasMw.toFixed(0)+' MW</span></div>'
-      +'<div class="stat-chip alert">Angelina Co. Projects<span>'+ang+'</span></div>'
-      +'<div class="stat-chip warn">Documented Lease Acreage<span>'+acres.toFixed(0)+' ac</span></div>';
+        '<div class="stat-chip">Projects Detected<span>' + ercot.length + '</span></div>'
+      + '<div class="stat-chip warn">Total Queued Capacity<span>' + (totalMw / 1000).toFixed(1) + ' GW</span></div>'
+      + '<div class="stat-chip">IA Signed<span>' + iaSigned + '</span></div>'
+      + '<div class="stat-chip alert">Gas Plants<span>' + gasMw.toFixed(0) + ' MW</span></div>'
+      + '<div class="stat-chip alert">Angelina Co. Projects<span>' + ang + '</span></div>'
+      + '<div class="stat-chip warn">Documented Lease Acreage<span>' + acres.toFixed(0) + ' ac</span></div>';
   }
 
   Promise.all([
-    fetch('./east_texas_interconnections.json').then(r=>{ if(!r.ok) throw new Error('ERCOT '+r.status); return r.json(); }),
-    fetch('./verified_targets.json').then(r=>{ if(!r.ok) throw new Error('CAD '+r.status); return r.json(); })
-  ]).then(([ercot, cad]) => {
+    fetch('./east_texas_interconnections.json').then(r => { if (!r.ok) throw new Error('ERCOT ' + r.status); return r.json(); }),
+    fetch('./verified_targets.json').then(r => { if (!r.ok) throw new Error('CAD ' + r.status); return r.json(); })
+  ])
+  .then(([ercot, cad]) => {
     ercotAll = ercot;
     buildStats(ercot, cad);
     applyFuelFilter();
     renderCad(cad);
+
     ercot.forEach(d => {
-      const key = (d.county||'').toUpperCase().trim();
-      const coords = countyCoords[key]; if (!coords) return;
-      const jitter = () => (Math.random()-0.5)*0.18;
-      L.circleMarker([coords[0]+jitter(), coords[1]+jitter()], {
-        radius:7, fillColor: markerColor(d.fuel,d.technology),
-        color:'#000', weight:1, opacity:1, fillOpacity:0.85
+      const key = (d.county || '').toUpperCase().trim();
+      const coords = countyCoords[key];
+      if (!coords) return;
+      const jitter = () => (Math.random() - 0.5) * 0.22;
+      L.circleMarker([coords[0] + jitter(), coords[1] + jitter()], {
+        radius: 7,
+        fillColor: markerColor(d.fuel, d.technology),
+        color: '#000', weight: 1, opacity: 1, fillOpacity: 0.85
       }).addTo(map).bindPopup(
-        '<b>'+(d.project_name||'Unknown')+'</b><br>'
-        +(d['capacity_(mw)']||0).toFixed(0)+' MW &mdash; '+(d.fuel||'?')+'<br>'
-        +key+' County'
+        '<b>' + (d.project_name || 'Unknown') + '</b><br>'
+        + (d.capacity_mw || 0).toFixed(0) + ' MW &mdash; ' + (d.fuel || '?') + '<br>'
+        + key + ' County<br>'
+        + '<span style="font-size:11px;color:#aaa">COD: ' + fmtDate(d.projected_cod).replace(/<[^>]+>/g, '') + '</span>'
       );
     });
-  }).catch(err => {
+  })
+  .catch(err => {
     console.error(err);
-    document.getElementById('ercotBody').innerHTML = '<tr class="empty-row"><td colspan="9" style="color:var(--accent2)">&#9888; Failed to load: '+err.message+'</td></tr>';
-    document.getElementById('cadBody').innerHTML   = '<tr class="empty-row"><td colspan="3"  style="color:var(--accent2)">&#9888; Failed to load: '+err.message+'</td></tr>';
-    document.getElementById('statsBar').innerHTML  = '<div class="stat-chip alert">&#9888; Data load failed<span>'+err.message+'</span></div>';
+    document.getElementById('ercotBody').innerHTML =
+      '<tr class="empty-row"><td colspan="9" style="color:var(--accent2)">&#9888; Failed to load: ' + err.message + '</td></tr>';
+    document.getElementById('cadBody').innerHTML =
+      '<tr class="empty-row"><td colspan="3" style="color:var(--accent2)">&#9888; Failed to load: ' + err.message + '</td></tr>';
+    document.getElementById('statsBar').innerHTML =
+      '<div class="stat-chip alert">&#9888; Data load failed<span>' + err.message + '</span></div>';
   });
 
   function transmitPayload() {
@@ -359,16 +392,19 @@
     const statusEl = document.getElementById('tip-status');
     if (!subject || !details) {
       statusEl.style.color = 'var(--accent2)';
-      statusEl.textContent = '&#9888; Error: Subject and Details are required.'; return;
+      statusEl.textContent = '&#9888; Error: Subject and Details are required.';
+      return;
     }
-    statusEl.style.color = 'var(--subtext)'; statusEl.textContent = 'Transmitting securely&#8230;';
+    statusEl.style.color = 'var(--subtext)';
+    statusEl.textContent = 'Transmitting securely&#8230;';
     fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/', {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({subject, details})
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subject, details })
     })
-    .then(r=>r.json())
+    .then(r => r.json())
     .then(data => {
-      if (data.status==='SECURE_PAYLOAD_RECEIVED') {
+      if (data.status === 'SECURE_PAYLOAD_RECEIVED') {
         statusEl.style.color = 'var(--accent)';
         statusEl.textContent = '&#10003; Payload Successfully Intercepted by Command Center';
         document.getElementById('tip-subject').value = '';
