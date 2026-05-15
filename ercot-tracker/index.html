@@ -127,7 +127,7 @@
             })
             .catch(err => console.error("CAD Data failed to load:", err));
 
-        // --- TRANSMISSION ENGINE: SECURE INTAKE ---
+        // --- TRANSMISSION ENGINE: SECURE INTAKE VIA CLOUDFLARE PROXY ---
         function transmitPayload() {
             const subject = document.getElementById('tip-subject').value;
             const details = document.getElementById('tip-details').value;
@@ -139,7 +139,7 @@
                 return;
             }
 
-            statusText.innerText = "Transmitting...";
+            statusText.innerText = "Transmitting securely...";
             statusText.style.color = "#c9d1d9";
 
             const payload = {
@@ -147,7 +147,7 @@
                 details: details
             };
 
-            fetch('fetch('https://script.google.com/macros/s/AKfycbyDs86x8sxgVEe95iSCGpTLA3RxoQNlGnVvqF_8l7s46a4qDXyHWV-_bnPd11pobXsd/exec', {', {
+            fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -159,10 +159,12 @@
                     statusText.style.color = "#3fb950";
                     document.getElementById('tip-subject').value = '';
                     document.getElementById('tip-details').value = '';
+                } else {
+                    throw new Error("Invalid response from server");
                 }
             })
             .catch(error => {
-                statusText.innerText = "❌ Transmission Failed. Connection Refused.";
+                statusText.innerText = "❌ Transmission Failed. Secure connection dropped.";
                 statusText.style.color = "#ff7b72";
                 console.error("Transmission Error:", error);
             });
