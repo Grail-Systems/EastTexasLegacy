@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>East Texas Legacy Coalition</title>
+    <style>
+        /* CORE RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* FULL SCREEN PINEY WOODS BACKGROUND */
+        body, html {
+            height: 100%;
+            background-color: #1a1a1a;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            /* The dark gradient overlay ensures text is readable over the trees */
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('piney_woods.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        /* BRANDING & TYPOGRAPHY */
+        h1 {
+            color: #ffffff;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .mission-statement {
+            color: #e0e0e0;
+            font-size: 1.3rem;
+            max-width: 800px;
+            line-height: 1.6;
+            margin-bottom: 50px;
+            font-weight: 300;
+            border-left: 4px solid #4CAF50;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        /* THE SWITCHBOARD (LINKS) */
+        .hub-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .spoke-card {
+            flex: 1 1 280px;
+            background-color: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 30px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            text-align: left;
+        }
+
+        .spoke-card:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #4CAF50;
+            transform: translateY(-4px);
+        }
+
+        .spoke-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .spoke-desc {
+            font-size: 0.95rem;
+            color: #b3b3b3;
+            line-height: 1.5;
+        }
+
+        /* HIGHLIGHT FOR THE INTAKE FORM */
+        .intake-card {
+            border-color: #4CAF50;
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .mission-statement { font-size: 1.1rem; padding-left: 15px; text-align: left;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <h1>East Texas Legacy Coalition</h1>
+        
+        <div class="mission-statement">
+            <strong>Our Mission:</strong> To protect our regional resources, demand absolute transparency in utility agreements, and hold industrial development accountable. We are mapping the footprint of heavy industry to defend the future of East Texas infrastructure.
+        </div>
+
+        <div class="hub-grid">
+            <!-- TARGET 1: Amp Z Investigation -->
+            <a href="amp-z-investigation.html" class="spoke-card">
+                <div class="spoke-title">Amp Z / Lufkin Investigation</div>
+                <div class="spoke-desc">Tracking utility agreements and industrial impact data regarding Amp Z's 'Project Lufkin'.</div>
+            </a>
+
+            <!-- TARGET 2: Aquifer Defense Grid -->
+            <a href="aquifer-defense.html" class="spoke-card">
+                <div class="spoke-title">Carrizo-Wilcox Aquifer Grid</div>
+                <div class="spoke-desc">Monitoring water table integrity and resource protection parameters across the region.</div>
+            </a>
+
+            <!-- INTAKE PORTAL -->
+            <a href="secure-intake.html" class="spoke-card intake-card">
+                <div class="spoke-title">Secure Intake Portal</div>
+                <div class="spoke-desc">Submit public records, environmental data, or statements directly to our central repository.</div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
