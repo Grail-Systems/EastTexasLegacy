@@ -1,145 +1,813 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>East Texas Legacy Coalition</title>
-    <style>
-        /* CORE RESET */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>East Texas Legacy Coalition | Protecting Our Land, Water & Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:     #1B4332;
+      --green-mid: #2D6A4F;
+      --green-lt:  #D8F3DC;
+      --white:     #FFFFFF;
+      --offwhite:  #FAFAF8;
+      --border:    #E7E5E4;
+      --text:      #1C1917;
+      --subtext:   #78716C;
+      --light:     #A8A29E;
+      --red:       #DC2626;
+      --amber:     #D97706;
+      --font-serif:'Playfair Display', Georgia, serif;
+      --font-sans: 'Source Sans 3', system-ui, sans-serif;
+      --shadow:    0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+    }
 
-        /* FULL SCREEN PINEY WOODS BACKGROUND */
-        body, html {
-            height: 100%;
-            background-color: #1a1a1a;
-        }
+```
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            /* The dark gradient overlay ensures text is readable over the trees */
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('piney_woods.jpeg') no-repeat center center/cover;
-            background-attachment: fixed;
-        }
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--offwhite);
+  -webkit-font-smoothing: antialiased;
+}
 
-        /* BRANDING & TYPOGRAPHY */
-        h1 {
-            color: #ffffff;
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  position: relative;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0.35) 40%,
+      rgba(10,30,20,0.88) 100%
+    ),
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80')
+    no-repeat center center / cover;
+}
 
-        .mission-statement {
-            color: #e0e0e0;
-            font-size: 1.3rem;
-            max-width: 800px;
-            line-height: 1.6;
-            margin-bottom: 50px;
-            font-weight: 300;
-            border-left: 4px solid #4CAF50;
-            padding-left: 20px;
-            text-align: left;
-        }
+.hero-content {
+  max-width: 900px;
+  padding: 0 2rem 4rem;
+  margin: 0 auto;
+  width: 100%;
+}
 
-        /* THE SWITCHBOARD (LINKS) */
-        .hub-grid {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-            max-width: 1000px;
-        }
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #86efac;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(134,239,172,0.4);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
 
-        .spoke-card {
-            flex: 1 1 280px;
-            background-color: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 30px 25px;
-            border-radius: 6px;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
-            text-align: left;
-        }
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
 
-        .spoke-card:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: #4CAF50;
-            transform: translateY(-4px);
-        }
+.hero h1 em {
+  font-style: italic;
+  color: #86efac;
+}
 
-        .spoke-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #ffffff;
-        }
+.hero-mission {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255,255,255,0.85);
+  max-width: 680px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  border-left: 3px solid #86efac;
+  padding-left: 1.25rem;
+}
 
-        .spoke-desc {
-            font-size: 0.95rem;
-            color: #b3b3b3;
-            line-height: 1.5;
-        }
+/* ── STAT STRIP IN HERO ── */
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+.hero-stat {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  color: white;
+  font-size: 0.8rem;
+}
+.hero-stat strong {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  display: block;
+  color: #86efac;
+  line-height: 1;
+  margin-bottom: 0.15rem;
+}
+.hero-stat.danger strong { color: #fca5a5; }
 
-        /* HIGHLIGHT FOR THE INTAKE FORM */
-        .intake-card {
-            border-color: #4CAF50;
-            background-color: rgba(76, 175, 80, 0.1);
-        }
+/* ── CTA BUTTONS ── */
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.btn-primary {
+  padding: 0.8rem 2rem;
+  background: #86efac;
+  color: var(--green);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: #4ade80; }
+.btn-outline {
+  padding: 0.8rem 2rem;
+  background: transparent;
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
 
-        /* MOBILE ADJUSTMENTS */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .mission-statement { font-size: 1.1rem; padding-left: 15px; text-align: left;}
-        }
-    </style>
+/* ── SCROLL INDICATOR ── */
+.scroll-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.scroll-arrow {
+  width: 20px; height: 20px;
+  border-right: 2px solid rgba(255,255,255,0.3);
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: rotate(45deg) translateY(0); }
+  50%      { transform: rotate(45deg) translateY(4px); }
+}
+
+/* ── MAIN CONTENT ── */
+.page { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+
+/* ── DOMINO EFFECT SECTION ── */
+.domino-section {
+  background: var(--green);
+  color: white;
+  padding: 4rem 1.5rem;
+}
+.domino-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.domino-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #86efac;
+  margin-bottom: 0.75rem;
+}
+.domino-inner h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: white;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.domino-inner p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 700px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+.domino-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  align-items: stretch;
+}
+.domino-step {
+  flex: 1 1 180px;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+}
+.domino-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #86efac;
+  font-size: 1.2rem;
+  z-index: 1;
+}
+.domino-num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: rgba(134,239,172,0.3);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.domino-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #86efac;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.domino-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+
+/* ── HUB GRID ── */
+.hub-section { background: var(--offwhite); }
+.hub-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 0.75rem;
+}
+.hub-section h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+.hub-section .lead {
+  font-size: 1rem;
+  color: var(--subtext);
+  max-width: 600px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.hub-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
+  display: block;
+}
+.hub-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--green-mid);
+}
+.hub-card.featured {
+  border-top: 3px solid var(--red);
+}
+.hub-card.featured:hover { border-color: var(--red); }
+.hub-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.hub-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+.hub-card.featured .hub-title { color: var(--red); }
+.hub-desc {
+  font-size: 0.82rem;
+  color: var(--subtext);
+  line-height: 1.55;
+}
+.hub-tag {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+}
+.hub-card.featured .hub-tag { color: var(--red); }
+
+/* ── COALITION SECTION ── */
+.coalition-section {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.coalition-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.coalition-text .eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 0.75rem;
+}
+.coalition-text h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--green);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.coalition-text p {
+  font-size: 0.95rem;
+  color: var(--subtext);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.county-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+}
+.county-tag {
+  background: var(--green-lt);
+  color: var(--green);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+.coalition-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.c-stat {
+  background: var(--offwhite);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+.c-stat-num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.c-stat-num.danger { color: var(--red); }
+.c-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--subtext);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── INTAKE ── */
+.intake-section { background: var(--offwhite); }
+.intake-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.intake-inner .eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 0.75rem;
+}
+.intake-inner h2 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--green);
+  margin-bottom: 0.75rem;
+}
+.intake-inner p {
+  font-size: 0.95rem;
+  color: var(--subtext);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.intake-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.form-grid input,
+.form-grid textarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text);
+  background: var(--offwhite);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.form-grid input:focus,
+.form-grid textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(27,67,50,0.08);
+}
+.form-grid input::placeholder,
+.form-grid textarea::placeholder { color: var(--light); }
+.form-grid textarea { grid-column: 1 / -1; resize: vertical; min-height: 100px; }
+.form-actions { display: flex; align-items: center; gap: 1rem; }
+.btn-green {
+  padding: 0.7rem 1.75rem;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-green:hover { background: var(--green-mid); }
+#tip-status { font-size: 0.8rem; color: var(--subtext); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--green);
+  color: rgba(255,255,255,0.65);
+  padding: 2.5rem 1.5rem;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.footer-brand strong {
+  display: block;
+  color: white;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+.footer-brand p { font-size: 0.78rem; line-height: 1.6; max-width: 280px; }
+.footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
+.footer-links a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: #86efac; }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 1.5rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .hero-content { padding: 0 1.25rem 3rem; }
+  .domino-step:not(:last-child)::after { display: none; }
+  .domino-step { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .coalition-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+  .scroll-hint { display: none; }
+}
+```
+
+  </style>
 </head>
 <body>
 
-    <div class="hero-section">
-        <h1>East Texas Legacy Coalition</h1>
-        
-        <div class="mission-statement">
-            <strong>Our Mission:</strong> To protect our regional resources, demand absolute transparency in utility agreements, and hold industrial development accountable. We are mapping the footprint of heavy industry to defend the future of East Texas infrastructure.
-        </div>
+<!-- ── HERO ── -->
 
-        <div class="hub-grid">
-            <a href="amp-z-investigation.html" class="spoke-card">
-                <div class="spoke-title">Amp Z / Lufkin Investigation</div>
-                <div class="spoke-desc">Tracking utility agreements and industrial impact data regarding Amp Z's 'Project Lufkin'.</div>
-            </a>
-
-            <a href="aquifer-defense.html" class="spoke-card">
-                <div class="spoke-title">Carrizo-Wilcox Aquifer Grid</div>
-                <div class="spoke-desc">Monitoring water table integrity and resource protection parameters across the region.</div>
-            </a>
-            
-            <a href="ercot-tracker/" class="spoke-card">
-                <div class="spoke-title">ERCOT Industrial Radar</div>
-                <div class="spoke-desc">Live state-level grid tracking of massive power developments targeting the Piney Woods.</div>
-            </a>
-
-            <a href="secure-intake.html" class="spoke-card intake-card">
-                <div class="spoke-title">Secure Intake Portal</div>
-                <div class="spoke-desc">Submit public records, environmental data, or statements directly to our central repository.</div>
-            </a>
-        </div>
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">East Texas Legacy Coalition</span>
+    <h1>They're Coming<br>for Our <em>Piney Woods.</em></h1>
+    <p class="hero-mission">
+      Fifty-eight major industrial energy projects are quietly lining up across East Texas — 
+      solar arrays, battery storage facilities, gas plants, and data centers targeting our forests, 
+      our aquifers, and our communities. Once built, the damage is permanent. We are mapping 
+      the truth before it is too late.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat danger">
+        <strong>30.3 GW</strong>
+        Queued for East Texas
+      </div>
+      <div class="hero-stat danger">
+        <strong>6,836 MW</strong>
+        Gas plants threatening air &amp; water
+      </div>
+      <div class="hero-stat">
+        <strong>15</strong>
+        Counties under threat
+      </div>
+      <div class="hero-stat">
+        <strong>136</strong>
+        Projects tracked &amp; classified
+      </div>
     </div>
+    <div class="hero-ctas">
+      <a href="ercot-tracker/" class="btn-primary">View the Full Tracker &#8594;</a>
+      <a href="secure-intake.html" class="btn-outline">Submit a Tip</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Learn More</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ── DOMINO EFFECT ── -->
+
+<section class="domino-section">
+  <div class="domino-inner">
+    <div class="domino-eyebrow">The Industrial Domino Effect</div>
+    <h2>Solar is Just the Beginning</h2>
+    <p>
+      Industrial developers are using "green energy" as a Trojan Horse. The solar panels come first, 
+      securing grid connections and tax incentives. Data centers follow — bringing massive water 
+      demands, industrial infrastructure, and permanent transformation of our rural landscape. 
+      Our region is being targeted before residents even know what's happening.
+    </p>
+    <div class="domino-chain">
+      <div class="domino-step">
+        <div class="domino-num">01</div>
+        <div class="domino-title">Solar &amp; BESS</div>
+        <div class="domino-desc">Developers lease thousands of acres of timberland under "green energy" branding. PFAS-laden panels clear-cut pine forests.</div>
+      </div>
+      <div class="domino-step">
+        <div class="domino-num">02</div>
+        <div class="domino-title">Grid Connection</div>
+        <div class="domino-desc">Power Purchase Agreements are quietly signed with undisclosed tech companies. The grid infrastructure is now in place.</div>
+      </div>
+      <div class="domino-step">
+        <div class="domino-num">03</div>
+        <div class="domino-title">Data Centers</div>
+        <div class="domino-desc">Data centers follow the power. Each facility consumes up to 5 million gallons of water per day, draining the Carrizo-Wilcox Aquifer.</div>
+      </div>
+      <div class="domino-step">
+        <div class="domino-num">04</div>
+        <div class="domino-title">Irreversible</div>
+        <div class="domino-desc">Once our groundwater is depleted and our forests are cleared, our agricultural economy and rural way of life cannot recover.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HUB ── -->
+
+<section class="hub-section">
+  <div class="page">
+    <div class="hub-eyebrow">Coalition Resources</div>
+    <h2>Our Command Center</h2>
+    <p class="lead">Data, maps, and verified records — the tools we need to fight back at the state level.</p>
+    <div class="hub-grid">
+      <a href="ercot-tracker/" class="hub-card featured">
+        <span class="hub-icon">📡</span>
+        <div class="hub-title">ERCOT Industrial Tracker</div>
+        <div class="hub-desc">Live database of every energy project in the interconnection queue targeting our 15-county region. Threat-classified and filterable.</div>
+        <div class="hub-tag">136 Projects &#8594;</div>
+      </a>
+      <a href="amp-z-investigation.html" class="hub-card">
+        <span class="hub-icon">🔍</span>
+        <div class="hub-title">Amp Z / Project Lufkin</div>
+        <div class="hub-desc">Tracking utility agreements and industrial impact data tied to Amp Z's operations targeting Angelina County.</div>
+        <div class="hub-tag">Investigation &#8594;</div>
+      </a>
+      <a href="aquifer-defense.html" class="hub-card">
+        <span class="hub-icon">💧</span>
+        <div class="hub-title">Carrizo-Wilcox Defense</div>
+        <div class="hub-desc">Monitoring the aquifer that supplies drinking water to East Texas communities — and the industrial threats to its integrity.</div>
+        <div class="hub-tag">Water Defense &#8594;</div>
+      </a>
+      <a href="secure-intake.html" class="hub-card">
+        <span class="hub-icon">🔒</span>
+        <div class="hub-title">Secure Intake Portal</div>
+        <div class="hub-desc">Witnessed construction activity, received a lease offer, or have documents to share? Submit directly to coalition researchers.</div>
+        <div class="hub-tag">Submit a Tip &#8594;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── COALITION ── -->
+
+<section class="coalition-section">
+  <div class="coalition-inner">
+    <div class="coalition-text">
+      <div class="eyebrow">United We Stand</div>
+      <h2>A 15-County Coalition Fighting Back</h2>
+      <p>
+        The East Texas Legacy Coalition was formed by farmers, families, and neighbors who refused 
+        to watch the destruction of our ecosystem happen in silence. We are a data-driven grassroots 
+        movement united across county lines — because these developers don't stop at county borders, 
+        and neither do we.
+      </p>
+      <p>
+        Working alongside Protect Our Piney Woods and allied coalitions, we are building the verified 
+        record needed to take this fight to Austin — to the PUCT, the Senate Committee on Water, 
+        Agriculture &amp; Rural Affairs, and the House Committee on State Affairs.
+      </p>
+      <div class="county-list" id="countyList">
+        <!-- filled by JS -->
+      </div>
+    </div>
+    <div class="coalition-stats">
+      <div class="c-stat">
+        <div class="c-stat-num danger">31</div>
+        <div class="c-stat-label">Critical Threat Projects</div>
+      </div>
+      <div class="c-stat">
+        <div class="c-stat-num">54</div>
+        <div class="c-stat-label">Committed Developments</div>
+      </div>
+      <div class="c-stat">
+        <div class="c-stat-num danger">123</div>
+        <div class="c-stat-label">PFAS / Water Risk Sites</div>
+      </div>
+      <div class="c-stat">
+        <div class="c-stat-num">2,827</div>
+        <div class="c-stat-label">Documented Lease Acres</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INTAKE ── -->
+
+<section class="intake-section">
+  <div class="intake-inner">
+    <div class="eyebrow">Secure Citizen Intake</div>
+    <h2>Your Information Builds the Record</h2>
+    <p>
+      If you've seen construction activity, received a lease offer, or have documents related to 
+      industrial development in your community — we need to hear from you. Every submission helps 
+      build the verified public record we bring to Austin.
+    </p>
+    <div class="intake-card">
+      <div class="form-grid">
+        <input type="text" id="tip-subject" placeholder="Subject (e.g., new construction on FM 1818)" />
+        <input type="text" id="tip-county" placeholder="County / Location" />
+        <textarea id="tip-details" placeholder="Describe what you've observed — company name, activity, dates, location details…"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn-green" onclick="transmitPayload()">Submit Report</button>
+        <span id="tip-status"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>East Texas Legacy Coalition</strong>
+      <p>Defending our land, water, and communities from unchecked industrial development in the Piney Woods region.</p>
+    </div>
+    <div class="footer-links">
+      <a href="ercot-tracker/">ERCOT Industrial Tracker</a>
+      <a href="amp-z-investigation.html">Amp Z Investigation</a>
+      <a href="aquifer-defense.html">Carrizo-Wilcox Aquifer Defense</a>
+      <a href="secure-intake.html">Secure Intake Portal</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.protectourpineywoods.com" target="_blank">Protect Our Piney Woods &#8599;</a>
+      <a href="https://www.change.org/p/protect-our-piney-woods-demand-a-moratorium-on-industrial-solar-bess" target="_blank">Sign the Petition &#8599;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 East Texas Legacy Coalition &nbsp;&middot;&nbsp; Built by Grail Systems &nbsp;&middot;&nbsp; &ldquo;Map the truth.&rdquo;
+  </div>
+</footer>
+
+<script>
+  // County tags
+  const counties = [
+    'Angelina','Nacogdoches','Anderson','Henderson','Cherokee',
+    'Rusk','Navarro','Houston','Smith','Delta',
+    'Freestone','Leon','Lamar','Red River','Rains'
+  ];
+  document.getElementById('countyList').innerHTML =
+    counties.map(c => `<span class="county-tag">${c}</span>`).join('');
+
+  // Intake form
+  function transmitPayload() {
+    const subject  = document.getElementById('tip-subject').value.trim();
+    const county   = document.getElementById('tip-county').value.trim();
+    const details  = document.getElementById('tip-details').value.trim();
+    const statusEl = document.getElementById('tip-status');
+    if (!subject || !details) {
+      statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Please fill in the subject and details.';
+      return;
+    }
+    statusEl.style.color = '#78716C';
+    statusEl.textContent = 'Sending…';
+    fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subject: subject + (county ? ' [' + county + ']' : ''), details })
+    }).then(r => r.json()).then(data => {
+      if (data.status === 'SECURE_PAYLOAD_RECEIVED') {
+        statusEl.style.color = '#2D6A4F';
+        statusEl.textContent = '✓ Report received. Thank you.';
+        document.getElementById('tip-subject').value = '';
+        document.getElementById('tip-county').value = '';
+        document.getElementById('tip-details').value = '';
+      } else { throw new Error(); }
+    }).catch(() => {
+      statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Submission failed. Please try again.';
+    });
+  }
+</script>
 
 </body>
 </html>
