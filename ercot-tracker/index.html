@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -22,25 +23,15 @@
       --font-ui:   'Rajdhani', sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-mono);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-mono); min-height: 100vh; overflow-x: hidden; }
     body::before {
-      content: '';
-      position: fixed; inset: 0;
+      content: ''; position: fixed; inset: 0;
       background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
-      pointer-events: none;
-      z-index: 9999;
+      pointer-events: none; z-index: 9999;
     }
     header {
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      display: flex; flex-direction: column; gap: 0.4rem;
-      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border); padding: 1.5rem 2rem;
+      display: flex; flex-direction: column; gap: 0.4rem; position: relative; overflow: hidden;
     }
     header::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
@@ -53,76 +44,120 @@
       text-shadow: 0 0 20px rgba(0,255,106,0.4);
     }
     .header-sub { font-size: 0.75rem; color: var(--subtext); letter-spacing: 0.15em; }
-    .stats-bar {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-      padding: 1rem 2rem; border-bottom: 1px solid var(--border); background: var(--surface);
-    }
-    .stat-chip { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 2px; font-size: 0.7rem; color: var(--subtext); white-space: nowrap; }
-    .stat-chip span       { color: var(--accent);  font-weight: bold; margin-left: 0.4rem; }
-    .stat-chip.warn span  { color: var(--accent3); }
-    .stat-chip.alert span { color: var(--accent2); }
-    main { padding: 2rem; display: flex; flex-direction: column; gap: 2.5rem; max-width: 1400px; margin: 0 auto; }
-    #map { width: 100%; height: 420px; border: 1px solid var(--border); border-radius: 2px; background: #060a08; }
-    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-    .section-icon  { font-size: 1rem; }
-    .section-title { font-family: var(--font-ui); font-size: 1rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.2em; }
-    .section-count { margin-left: auto; font-size: 0.65rem; color: var(--subtext); border: 1px solid var(--border); padding: 0.2rem 0.5rem; }
-    .filter-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .filter-btn {
-      background: transparent; border: 1px solid var(--border); color: var(--subtext);
-      font-family: var(--font-mono); font-size: 0.65rem; padding: 0.3rem 0.7rem;
-      cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.15s;
-    }
-    .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(0,255,106,0.05); }
-    .table-wrap { overflow-x: auto; border: 1px solid var(--border); }
-    table { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
-    thead th {
-      background: var(--surface); color: var(--subtext); text-transform: uppercase;
-      letter-spacing: 0.12em; font-size: 0.6rem; padding: 0.65rem 0.9rem;
-      text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
-    }
-    tbody tr { border-bottom: 1px solid rgba(26,51,34,0.5); transition: background 0.1s; }
-    tbody tr:hover { background: rgba(0,255,106,0.04); }
-    td { padding: 0.6rem 0.9rem; color: var(--text); vertical-align: middle; }
-    .badge { display: inline-block; padding: 0.15rem 0.45rem; font-size: 0.6rem; letter-spacing: 0.1em; border-radius: 1px; font-family: var(--font-ui); font-weight: 700; text-transform: uppercase; }
-    .badge-sol  { background: rgba(255,204,0,0.15);  color: var(--accent3); border: 1px solid rgba(255,204,0,0.3); }
-    .badge-win  { background: rgba(0,200,255,0.1);   color: #00ccff;        border: 1px solid rgba(0,200,255,0.3); }
-    .badge-gas  { background: rgba(255,64,64,0.12);  color: var(--accent2); border: 1px solid rgba(255,64,64,0.3); }
-    .badge-batt { background: rgba(0,255,106,0.1);   color: var(--accent);  border: 1px solid rgba(0,255,106,0.3); }
-    .badge-wat  { background: rgba(0,150,255,0.1);   color: #0096ff;        border: 1px solid rgba(0,150,255,0.3); }
-    .badge-oth  { background: rgba(128,128,128,0.1); color: #888;           border: 1px solid rgba(128,128,128,0.3); }
-    .badge-ia   { background: rgba(0,255,106,0.1);   color: var(--accent);  border: 1px solid rgba(0,255,106,0.3); }
-    .badge-noia { background: rgba(255,64,64,0.1);   color: var(--accent2); border: 1px solid rgba(255,64,64,0.3); }
-    .mw-bar { display: flex; align-items: center; gap: 0.5rem; }
-    .mw-track { flex: 1; height: 3px; background: var(--border); border-radius: 1px; min-width: 40px; max-width: 80px; }
-    .mw-fill  { height: 100%; background: var(--accent); border-radius: 1px; opacity: 0.6; }
-    td.county-angelina { color: var(--accent2); font-weight: bold; }
-    .loading-row td, .empty-row td { text-align: center; color: var(--subtext); padding: 2rem; font-size: 0.75rem; }
-    .pulse { animation: pulse 1.2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-    .portal-box { border: 1px solid var(--border); padding: 1.5rem; background: var(--surface); }
-    .portal-box p { font-size: 0.75rem; color: var(--subtext); margin-bottom: 1rem; line-height: 1.6; }
-    .portal-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
-    .portal-fields input, .portal-fields textarea {
-      width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
-      font-family: var(--font-mono); font-size: 0.72rem; padding: 0.5rem 0.75rem; outline: none; transition: border-color 0.15s;
-    }
-    .portal-fields input:focus, .portal-fields textarea:focus { border-color: var(--accent); }
-    .portal-fields textarea { grid-column: 1 / -1; resize: vertical; min-height: 90px; }
-    .portal-fields input::placeholder, .portal-fields textarea::placeholder { color: var(--dim); }
-    .portal-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-    .btn-transmit {
-      background: transparent; border: 1px solid var(--accent); color: var(--accent);
-      font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; padding: 0.6rem 1.5rem; cursor: pointer; transition: all 0.15s;
-    }
-    .btn-transmit:hover { background: rgba(0,255,106,0.1); box-shadow: 0 0 12px rgba(0,255,106,0.2); }
-    #tip-status { font-size: 0.72rem; font-family: var(--font-mono); }
-    footer { text-align: center; padding: 1.5rem; font-size: 0.6rem; color: var(--dim); border-top: 1px solid var(--border); letter-spacing: 0.15em; }
-    @media (max-width: 600px) {
-      main { padding: 1rem; } .stats-bar { padding: 0.75rem 1rem; } header { padding: 1rem; }
-      td, th { padding: 0.5rem 0.6rem; font-size: 0.65rem; } #map { height: 280px; }
-    }
+
+```
+/* stats bar */
+.stats-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1rem 2rem; border-bottom: 1px solid var(--border); background: var(--surface); }
+.stat-chip { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 2px; font-size: 0.7rem; color: var(--subtext); white-space: nowrap; }
+.stat-chip span       { color: var(--accent);  font-weight: bold; margin-left: 0.4rem; }
+.stat-chip.warn span  { color: var(--accent3); }
+.stat-chip.alert span { color: var(--accent2); }
+.stat-chip.crit span  { color: #ff4040; font-size: 0.8rem; }
+
+main { padding: 2rem; display: flex; flex-direction: column; gap: 2.5rem; max-width: 1400px; margin: 0 auto; }
+
+/* map */
+#map { width: 100%; height: 420px; border: 1px solid var(--border); border-radius: 2px; background: #060a08; }
+
+/* section */
+.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.section-icon  { font-size: 1rem; }
+.section-title { font-family: var(--font-ui); font-size: 1rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.2em; }
+.section-count { margin-left: auto; font-size: 0.65rem; color: var(--subtext); border: 1px solid var(--border); padding: 0.2rem 0.5rem; }
+
+/* filter rows */
+.filter-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.filter-label { font-size: 0.58rem; color: var(--dim); letter-spacing: 0.2em; text-transform: uppercase; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.filter-btn {
+  background: transparent; border: 1px solid var(--border); color: var(--subtext);
+  font-family: var(--font-mono); font-size: 0.63rem; padding: 0.25rem 0.65rem;
+  cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,255,106,0.05); }
+.filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(0,255,106,0.08); }
+/* threat level active states */
+.filter-btn[data-threat="CRITICAL"].active  { border-color: #ff4040; color: #ff4040; background: rgba(255,64,64,0.08); }
+.filter-btn[data-threat="HIGH"].active      { border-color: #ff8800; color: #ff8800; background: rgba(255,136,0,0.08); }
+.filter-btn[data-threat="ELEVATED"].active  { border-color: var(--accent3); color: var(--accent3); background: rgba(255,204,0,0.08); }
+/* threat type active states */
+.filter-btn[data-ttype="THERMAL"].active    { border-color: #ff4040; color: #ff4040; background: rgba(255,64,64,0.08); }
+.filter-btn[data-ttype="PFAS"].active       { border-color: #cc44ff; color: #cc44ff; background: rgba(204,68,255,0.08); }
+.filter-btn[data-ttype="GRID"].active       { border-color: #00ccff; color: #00ccff; background: rgba(0,204,255,0.08); }
+
+/* table */
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
+thead th {
+  background: var(--surface); color: var(--subtext); text-transform: uppercase;
+  letter-spacing: 0.12em; font-size: 0.6rem; padding: 0.65rem 0.9rem;
+  text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid rgba(26,51,34,0.5); transition: background 0.1s; }
+tbody tr:hover { background: rgba(0,255,106,0.04); }
+tbody tr.threat-critical { border-left: 2px solid #ff4040; }
+tbody tr.threat-high     { border-left: 2px solid #ff8800; }
+tbody tr.threat-elevated { border-left: 2px solid var(--accent3); }
+td { padding: 0.6rem 0.9rem; color: var(--text); vertical-align: middle; }
+
+/* badges */
+.badge { display: inline-block; padding: 0.15rem 0.45rem; font-size: 0.58rem; letter-spacing: 0.08em; border-radius: 1px; font-family: var(--font-ui); font-weight: 700; text-transform: uppercase; }
+.badge-sol      { background: rgba(255,204,0,0.15);  color: var(--accent3); border: 1px solid rgba(255,204,0,0.3); }
+.badge-win      { background: rgba(0,200,255,0.1);   color: #00ccff;        border: 1px solid rgba(0,200,255,0.3); }
+.badge-gas      { background: rgba(255,64,64,0.12);  color: var(--accent2); border: 1px solid rgba(255,64,64,0.3); }
+.badge-batt     { background: rgba(0,255,106,0.1);   color: var(--accent);  border: 1px solid rgba(0,255,106,0.3); }
+.badge-wat      { background: rgba(0,150,255,0.1);   color: #0096ff;        border: 1px solid rgba(0,150,255,0.3); }
+.badge-oth      { background: rgba(128,128,128,0.1); color: #888;           border: 1px solid rgba(128,128,128,0.3); }
+.badge-ia       { background: rgba(0,255,106,0.1);   color: var(--accent);  border: 1px solid rgba(0,255,106,0.3); }
+.badge-noia     { background: rgba(255,64,64,0.1);   color: var(--accent2); border: 1px solid rgba(255,64,64,0.3); }
+/* threat level badges */
+.badge-critical  { background: rgba(255,64,64,0.15);  color: #ff4040; border: 1px solid rgba(255,64,64,0.4);  font-size: 0.6rem; }
+.badge-high      { background: rgba(255,136,0,0.15);  color: #ff8800; border: 1px solid rgba(255,136,0,0.4);  }
+.badge-elevated  { background: rgba(255,204,0,0.12);  color: var(--accent3); border: 1px solid rgba(255,204,0,0.3); }
+.badge-monitoring{ background: rgba(90,138,106,0.1);  color: var(--subtext); border: 1px solid var(--border); }
+/* threat type badges */
+.badge-thermal  { background: rgba(255,64,64,0.1);   color: #ff6655; border: 1px solid rgba(255,64,64,0.25); }
+.badge-pfas     { background: rgba(204,68,255,0.1);  color: #cc44ff; border: 1px solid rgba(204,68,255,0.25); }
+.badge-grid     { background: rgba(0,204,255,0.1);   color: #00ccff; border: 1px solid rgba(0,204,255,0.25); }
+.badge-combined { background: rgba(255,64,64,0.15);  color: #ff4040; border: 1px solid rgba(255,64,64,0.4); }
+
+.mw-bar { display: flex; align-items: center; gap: 0.5rem; }
+.mw-track { flex: 1; height: 3px; background: var(--border); border-radius: 1px; min-width: 40px; max-width: 80px; }
+.mw-fill  { height: 100%; background: var(--accent); border-radius: 1px; opacity: 0.6; }
+td.county-core { color: var(--accent2); font-weight: bold; }
+
+.loading-row td, .empty-row td { text-align: center; color: var(--subtext); padding: 2rem; font-size: 0.75rem; }
+.pulse { animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* portal */
+.portal-box { border: 1px solid var(--border); padding: 1.5rem; background: var(--surface); }
+.portal-box p { font-size: 0.75rem; color: var(--subtext); margin-bottom: 1rem; line-height: 1.6; }
+.portal-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+.portal-fields input, .portal-fields textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
+  font-family: var(--font-mono); font-size: 0.72rem; padding: 0.5rem 0.75rem; outline: none; transition: border-color 0.15s;
+}
+.portal-fields input:focus, .portal-fields textarea:focus { border-color: var(--accent); }
+.portal-fields textarea { grid-column: 1 / -1; resize: vertical; min-height: 90px; }
+.portal-fields input::placeholder, .portal-fields textarea::placeholder { color: var(--dim); }
+.portal-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.btn-transmit {
+  background: transparent; border: 1px solid var(--accent); color: var(--accent);
+  font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; padding: 0.6rem 1.5rem; cursor: pointer; transition: all 0.15s;
+}
+.btn-transmit:hover { background: rgba(0,255,106,0.1); box-shadow: 0 0 12px rgba(0,255,106,0.2); }
+#tip-status { font-size: 0.72rem; font-family: var(--font-mono); }
+
+footer { text-align: center; padding: 1.5rem; font-size: 0.6rem; color: var(--dim); border-top: 1px solid var(--border); letter-spacing: 0.15em; }
+
+@media (max-width: 600px) {
+  main { padding: 1rem; } .stats-bar { padding: 0.75rem 1rem; } header { padding: 1rem; }
+  td, th { padding: 0.5rem 0.6rem; font-size: 0.65rem; } #map { height: 280px; }
+}
+```
+
   </style>
 </head>
 <body>
@@ -139,6 +174,8 @@
 
 <main>
 
+  <!-- MAP -->
+
   <section>
     <div class="section-header">
       <span class="section-icon">&#128506;</span>
@@ -147,34 +184,73 @@
     <div id="map"></div>
   </section>
 
+  <!-- ERCOT TABLE -->
+
   <section>
     <div class="section-header">
       <span class="section-icon">&#128225;</span>
       <span class="section-title">ERCOT State Interconnection Requests</span>
       <span class="section-count" id="ercotCount">loading&#8230;</span>
     </div>
-    <div class="filter-row" id="fuelFilters">
-      <button class="filter-btn active" data-fuel="ALL">All</button>
-      <button class="filter-btn" data-fuel="SOL">&#9728; Solar</button>
-      <button class="filter-btn" data-fuel="WIN">&#128168; Wind</button>
-      <button class="filter-btn" data-fuel="GAS">&#128293; Gas</button>
-      <button class="filter-btn" data-fuel="BA">&#128267; Battery</button>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>INR #</th><th>Project Name</th><th>County</th><th>Fuel</th>
-            <th>Capacity (MW)</th><th>Proj. COD</th><th>IA Signed</th>
-            <th>Status Phase</th><th>Entity</th>
-          </tr>
-        </thead>
-        <tbody id="ercotBody">
-          <tr class="loading-row"><td colspan="9"><span class="pulse">&#9656; Loading interconnection data&#8230;</span></td></tr>
-        </tbody>
-      </table>
-    </div>
+
+```
+<div class="filter-group">
+  <div class="filter-label">&#9656; Filter by Fuel Type</div>
+  <div class="filter-row" id="fuelFilters">
+    <button class="filter-btn active" data-fuel="ALL">All Fuels</button>
+    <button class="filter-btn" data-fuel="SOL">&#9728; Solar</button>
+    <button class="filter-btn" data-fuel="WIN">&#128168; Wind</button>
+    <button class="filter-btn" data-fuel="GAS">&#128293; Gas</button>
+    <button class="filter-btn" data-fuel="BA">&#128267; Battery</button>
+  </div>
+</div>
+
+<div class="filter-group">
+  <div class="filter-label">&#9656; Filter by Threat Level</div>
+  <div class="filter-row" id="threatFilters">
+    <button class="filter-btn active" data-threat="ALL">All Levels</button>
+    <button class="filter-btn" data-threat="CRITICAL">&#128308; Critical</button>
+    <button class="filter-btn" data-threat="HIGH">&#128992; High</button>
+    <button class="filter-btn" data-threat="ELEVATED">&#128993; Elevated</button>
+  </div>
+</div>
+
+<div class="filter-group">
+  <div class="filter-label">&#9656; Filter by Threat Type</div>
+  <div class="filter-row" id="typeFilters">
+    <button class="filter-btn active" data-ttype="ALL">All Types</button>
+    <button class="filter-btn" data-ttype="THERMAL">&#128293; Thermal / Air</button>
+    <button class="filter-btn" data-ttype="PFAS">&#9888; PFAS / Groundwater</button>
+    <button class="filter-btn" data-ttype="GRID">&#9889; Grid Strain</button>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Threat</th>
+        <th>Type</th>
+        <th>Project Name</th>
+        <th>County</th>
+        <th>Fuel</th>
+        <th>MW</th>
+        <th>Proj. COD</th>
+        <th>IA Signed</th>
+        <th>Status Phase</th>
+        <th>Entity</th>
+      </tr>
+    </thead>
+    <tbody id="ercotBody">
+      <tr class="loading-row"><td colspan="10"><span class="pulse">&#9656; Loading interconnection data&#8230;</span></td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
   </section>
+
+  <!-- CAD TABLE -->
 
   <section>
     <div class="section-header">
@@ -193,6 +269,8 @@
       </table>
     </div>
   </section>
+
+  <!-- INTAKE -->
 
   <section>
     <div class="section-header">
@@ -217,206 +295,214 @@
 <footer>&#169; 2026 East Texas Legacy Coalition &middot; Powered by Grail Systems &middot; &#8220;Map the truth.&#8221; &middot; Source: ERCOT GIS Report April 2026</footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script>
   const countyCoords = {
-    "ANGELINA":    [31.25, -94.61], "NACOGDOCHES": [31.61, -94.61],
-    "ANDERSON":    [31.81, -95.65], "HENDERSON":   [32.21, -95.85],
-    "CHEROKEE":    [31.84, -95.17], "RUSK":        [32.10, -94.75],
-    "NAVARRO":     [32.05, -96.47], "HOUSTON":     [31.32, -95.43],
-    "SMITH":       [32.38, -95.27], "DELTA":       [33.38, -95.67],
-    "FREESTONE":   [31.70, -96.14], "LEON":        [31.29, -95.97],
-    "LAMAR":       [33.67, -95.55], "RED RIVER":   [33.62, -94.97],
-    "RAINS":       [32.87, -95.79]
+    "ANGELINA":   [31.25,-94.61], "NACOGDOCHES":[31.61,-94.61],
+    "ANDERSON":   [31.81,-95.65], "HENDERSON":  [32.21,-95.85],
+    "CHEROKEE":   [31.84,-95.17], "RUSK":       [32.10,-94.75],
+    "NAVARRO":    [32.05,-96.47], "HOUSTON":    [31.32,-95.43],
+    "SMITH":      [32.38,-95.27], "DELTA":      [33.38,-95.67],
+    "FREESTONE":  [31.70,-96.14], "LEON":       [31.29,-95.97],
+    "LAMAR":      [33.67,-95.55], "RED RIVER":  [33.62,-94.97],
+    "RAINS":      [32.87,-95.79]
   };
+  const coreCounties = ['angelina','nacogdoches','cherokee','houston','rusk'];
 
-  const map = L.map('map').setView([32.0, -95.5], 7);
+  const map = L.map('map').setView([32.0,-95.5], 7);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    attribution:'&copy; OpenStreetMap contributors &copy; CARTO'
   }).addTo(map);
 
+  // ── helpers ──────────────────────────────────────────────────
   function fmtDate(iso) {
     if (!iso) return '<span style="color:var(--dim)">&#8212;</span>';
-    try { const d = new Date(iso); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0'); }
+    try { const d=new Date(iso); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); }
     catch { return '&#8212;'; }
   }
-
   function fuelKey(fuel, tech) {
-    if (fuel === 'SOL') return 'SOL';
-    if (fuel === 'WIN') return 'WIN';
-    if (fuel === 'GAS') return 'GAS';
-    if (fuel === 'WAT') return 'WAT';
-    if (tech === 'BA' || fuel === 'OTH') return 'BA';
-    return 'OTH';
+    if (fuel==='SOL') return 'SOL'; if (fuel==='WIN') return 'WIN';
+    if (fuel==='GAS') return 'GAS'; if (fuel==='WAT') return 'WAT';
+    if (tech==='BA'||fuel==='OTH') return 'BA'; return 'OTH';
   }
-
   function fuelBadge(fuel, tech) {
-    const k = fuelKey(fuel, tech);
-    const labels = { SOL:'Solar', WIN:'Wind', GAS:'Gas', BA:'Battery', WAT:'Hydro', OTH: fuel||'?' };
-    const cls    = { SOL:'badge-sol', WIN:'badge-win', GAS:'badge-gas', BA:'badge-batt', WAT:'badge-wat', OTH:'badge-oth' };
-    return '<span class="badge '+(cls[k]||'badge-oth')+'">'+(labels[k]||fuel)+'</span>';
+    const k=fuelKey(fuel,tech);
+    const L2={SOL:'Solar',WIN:'Wind',GAS:'Gas',BA:'Battery',WAT:'Hydro',OTH:fuel||'?'};
+    const C={SOL:'badge-sol',WIN:'badge-win',GAS:'badge-gas',BA:'badge-batt',WAT:'badge-wat',OTH:'badge-oth'};
+    return '<span class="badge '+(C[k]||'badge-oth')+'">'+(L2[k]||fuel)+'</span>';
   }
-
+  function threatBadge(level) {
+    const map2={CRITICAL:'badge-critical',HIGH:'badge-high',ELEVATED:'badge-elevated',MONITORING:'badge-monitoring'};
+    const icons={CRITICAL:'&#128308;',HIGH:'&#128992;',ELEVATED:'&#128993;',MONITORING:'&#9898;'};
+    return '<span class="badge '+(map2[level]||'badge-monitoring')+'">'+(icons[level]||'')+(level||'?')+'</span>';
+  }
+  function typeBadge(type) {
+    const map2={THERMAL:'badge-thermal',PFAS:'badge-pfas',GRID:'badge-grid',COMBINED:'badge-combined'};
+    const icons={THERMAL:'&#128293;',PFAS:'&#9888;',GRID:'&#9889;',COMBINED:'&#9760;'};
+    return '<span class="badge '+(map2[type]||'badge-oth')+'">'+(icons[type]||'')+(type||'?')+'</span>';
+  }
   function iaBadge(ia) {
-    return ia ? '<span class="badge badge-ia">IA Signed</span>' : '<span class="badge badge-noia">No IA</span>';
+    return ia?'<span class="badge badge-ia">IA Signed</span>':'<span class="badge badge-noia">No IA</span>';
   }
-
   function mwBar(mw, maxMw) {
-    const pct = maxMw > 0 ? Math.min(100, (mw / maxMw) * 100) : 0;
-    return '<div class="mw-bar"><span>' + (mw > 0 ? mw.toFixed(0) : '&#8212;') + '</span>'
-      + '<div class="mw-track"><div class="mw-fill" style="width:' + pct + '%"></div></div></div>';
+    const pct=maxMw>0?Math.min(100,(mw/maxMw)*100):0;
+    return '<div class="mw-bar"><span>'+(mw>0?mw.toFixed(0):'&#8212;')+'</span>'
+      +'<div class="mw-track"><div class="mw-fill" style="width:'+pct+'%"></div></div></div>';
+  }
+  function markerColor(tl) {
+    return {CRITICAL:'#ff4040',HIGH:'#ff8800',ELEVATED:'#ffcc00',MONITORING:'#3a5c48'}[tl]||'#888';
+  }
+  function threatRowClass(tl) {
+    return {CRITICAL:'threat-critical',HIGH:'threat-high',ELEVATED:'threat-elevated',MONITORING:''}[tl]||'';
   }
 
-  function markerColor(fuel, tech) {
-    return { SOL:'#ffcc00', WIN:'#00ccff', GAS:'#ff4040', BA:'#00ff6a', WAT:'#0096ff', OTH:'#888' }[fuelKey(fuel, tech)] || '#888';
+  // ── filter state ──────────────────────────────────────────────
+  let ercotAll=[], activeFuel='ALL', activeThreat='ALL', activeType='ALL';
+
+  function applyFilters() {
+    let data = ercotAll;
+    if (activeFuel!=='ALL')   data=data.filter(d=>fuelKey(d.fuel,d.technology)===activeFuel);
+    if (activeThreat!=='ALL') data=data.filter(d=>d.threat_level===activeThreat);
+    if (activeType!=='ALL')   data=data.filter(d=>d.threat_type===activeType);
+    renderErcot(data);
+    document.getElementById('ercotCount').textContent=data.length+' of '+ercotAll.length+' records';
   }
 
-  let ercotAll = [], activeFuel = 'ALL';
+  function wireFilters(groupId, stateSetter) {
+    document.getElementById(groupId).addEventListener('click', e=>{
+      const btn=e.target.closest('.filter-btn'); if(!btn) return;
+      document.querySelectorAll('#'+groupId+' .filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      stateSetter(btn.dataset.fuel||btn.dataset.threat||btn.dataset.ttype);
+      applyFilters();
+    });
+  }
+  // wire up after DOM ready — called below after data loads
 
+  // ── render ────────────────────────────────────────────────────
   function renderErcot(data) {
-    const maxMw = Math.max(...data.map(d => d.capacity_mw || 0), 1);
-    const tbody = document.getElementById('ercotBody');
-    if (!data.length) {
-      tbody.innerHTML = '<tr class="empty-row"><td colspan="9">No records match filter.</td></tr>';
-      return;
-    }
-    tbody.innerHTML = data.map(d => {
-      const county = (d.county || '').trim();
-      const isA = county.toLowerCase() === 'angelina';
-      return '<tr data-fuel="' + fuelKey(d.fuel, d.technology) + '">'
-        + '<td style="color:var(--subtext);font-size:0.65rem">' + (d.inr || '&#8212;') + '</td>'
-        + '<td style="font-family:var(--font-ui);font-weight:600;font-size:0.8rem">' + (d.project_name || '&#8212;') + '</td>'
-        + '<td class="' + (isA ? 'county-angelina' : '') + '">' + (county || '&#8212;') + '</td>'
-        + '<td>' + fuelBadge(d.fuel, d.technology) + '</td>'
-        + '<td>' + mwBar(d.capacity_mw || 0, maxMw) + '</td>'
-        + '<td style="font-size:0.68rem">' + fmtDate(d.projected_cod) + '</td>'
-        + '<td>' + iaBadge(d.ia_signed) + '</td>'
-        + '<td style="font-size:0.65rem;color:var(--subtext);max-width:200px;white-space:normal;line-height:1.4">' + (d.gim_study_phase || '&#8212;') + '</td>'
-        + '<td style="font-size:0.65rem;max-width:180px;white-space:normal;line-height:1.4">' + (d.interconnecting_entity || '&#8212;') + '</td>'
-        + '</tr>';
+    const maxMw=Math.max(...data.map(d=>d.capacity_mw||0),1);
+    const tbody=document.getElementById('ercotBody');
+    if(!data.length){tbody.innerHTML='<tr class="empty-row"><td colspan="10">No records match current filters.</td></tr>';return;}
+    // sort: CRITICAL first, then HIGH, then ELEVATED
+    const order={CRITICAL:0,HIGH:1,ELEVATED:2,MONITORING:3};
+    data=[...data].sort((a,b)=>(order[a.threat_level]||3)-(order[b.threat_level]||3));
+    tbody.innerHTML=data.map(d=>{
+      const county=(d.county||'').trim();
+      const isCore=coreCounties.includes(county.toLowerCase());
+      return '<tr class="'+threatRowClass(d.threat_level)+'">'
+        +'<td>'+threatBadge(d.threat_level)+'</td>'
+        +'<td>'+typeBadge(d.threat_type)+'</td>'
+        +'<td style="font-family:var(--font-ui);font-weight:600;font-size:0.8rem">'+(d.project_name||'&#8212;')+'</td>'
+        +'<td class="'+(isCore?'county-core':'')+'">'+(county||'&#8212;')+'</td>'
+        +'<td>'+fuelBadge(d.fuel,d.technology)+'</td>'
+        +'<td>'+mwBar(d.capacity_mw||0,maxMw)+'</td>'
+        +'<td style="font-size:0.68rem">'+fmtDate(d.projected_cod)+'</td>'
+        +'<td>'+iaBadge(d.ia_signed)+'</td>'
+        +'<td style="font-size:0.65rem;color:var(--subtext);max-width:180px;white-space:normal;line-height:1.4">'+(d.gim_study_phase||'&#8212;')+'</td>'
+        +'<td style="font-size:0.65rem;max-width:160px;white-space:normal;line-height:1.4">'+(d.interconnecting_entity||'&#8212;')+'</td>'
+        +'</tr>';
     }).join('');
   }
 
-  function applyFuelFilter() {
-    const filtered = activeFuel === 'ALL'
-      ? ercotAll
-      : ercotAll.filter(d => fuelKey(d.fuel, d.technology) === activeFuel);
-    renderErcot(filtered);
-    document.getElementById('ercotCount').textContent = filtered.length + ' of ' + ercotAll.length + ' records';
-  }
-
-  document.getElementById('fuelFilters').addEventListener('click', e => {
-    const btn = e.target.closest('.filter-btn');
-    if (!btn) return;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFuel = btn.dataset.fuel;
-    applyFuelFilter();
-  });
-
   function renderCad(data) {
-    const tbody = document.getElementById('cadBody');
-    if (!data.length) {
-      tbody.innerHTML = '<tr class="empty-row"><td colspan="3">No CAD records found.</td></tr>';
-      return;
-    }
-    const total = data.reduce((s, d) => s + (d.acres || 0), 0);
-    tbody.innerHTML = data.map(d =>
+    const tbody=document.getElementById('cadBody');
+    if(!data.length){tbody.innerHTML='<tr class="empty-row"><td colspan="3">No CAD records found.</td></tr>';return;}
+    const total=data.reduce((s,d)=>s+(d.acres||0),0);
+    tbody.innerHTML=data.map(d=>
       '<tr>'
-      + '<td style="color:var(--subtext);font-size:0.68rem;font-family:var(--font-mono)">' + (d.property_id || '&#8212;') + '</td>'
-      + '<td style="font-family:var(--font-ui);font-weight:600">' + (d.owner_name || '&#8212;') + '</td>'
-      + '<td style="color:var(--accent3)">' + (d.acres || 0).toFixed(2) + ' ac</td>'
-      + '</tr>'
+      +'<td style="color:var(--subtext);font-size:0.68rem;font-family:var(--font-mono)">'+(d.property_id||'&#8212;')+'</td>'
+      +'<td style="font-family:var(--font-ui);font-weight:600">'+(d.owner_name||'&#8212;')+'</td>'
+      +'<td style="color:var(--accent3)">'+(d.acres||0).toFixed(2)+' ac</td>'
+      +'</tr>'
     ).join('')
-    + '<tr style="border-top:1px solid var(--accent);background:rgba(0,255,106,0.03)">'
-    + '<td colspan="2" style="font-family:var(--font-ui);font-weight:700;color:var(--subtext);font-size:0.65rem;letter-spacing:0.1em">TOTAL DOCUMENTED ACREAGE</td>'
-    + '<td style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">' + total.toFixed(2) + ' ac</td>'
-    + '</tr>';
-    document.getElementById('cadCount').textContent = data.length + ' records';
+    +'<tr style="border-top:1px solid var(--accent);background:rgba(0,255,106,0.03)">'
+    +'<td colspan="2" style="font-family:var(--font-ui);font-weight:700;color:var(--subtext);font-size:0.65rem;letter-spacing:0.1em">TOTAL DOCUMENTED ACREAGE</td>'
+    +'<td style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">'+total.toFixed(2)+' ac</td>'
+    +'</tr>';
+    document.getElementById('cadCount').textContent=data.length+' records';
   }
 
   function buildStats(ercot, cad) {
-    const totalMw  = ercot.reduce((s, d) => s + (d.capacity_mw || 0), 0);
-    const iaSigned = ercot.filter(d => d.ia_signed).length;
-    const gasMw    = ercot.filter(d => d.fuel === 'GAS').reduce((s, d) => s + (d.capacity_mw || 0), 0);
-    const ang      = ercot.filter(d => (d.county || '').toLowerCase() === 'angelina').length;
-    const acres    = cad.reduce((s, d) => s + (d.acres || 0), 0);
-    document.getElementById('statsBar').innerHTML =
-        '<div class="stat-chip">Projects Detected<span>' + ercot.length + '</span></div>'
-      + '<div class="stat-chip warn">Total Queued Capacity<span>' + (totalMw / 1000).toFixed(1) + ' GW</span></div>'
-      + '<div class="stat-chip">IA Signed<span>' + iaSigned + '</span></div>'
-      + '<div class="stat-chip alert">Gas Plants<span>' + gasMw.toFixed(0) + ' MW</span></div>'
-      + '<div class="stat-chip alert">Angelina Co. Projects<span>' + ang + '</span></div>'
-      + '<div class="stat-chip warn">Documented Lease Acreage<span>' + acres.toFixed(0) + ' ac</span></div>';
+    const totalMw   = ercot.reduce((s,d)=>s+(d.capacity_mw||0),0);
+    const critical  = ercot.filter(d=>d.threat_level==='CRITICAL').length;
+    const iaSigned  = ercot.filter(d=>d.ia_signed).length;
+    const gasMw     = ercot.filter(d=>d.fuel==='GAS').reduce((s,d)=>s+(d.capacity_mw||0),0);
+    const pfasCount = ercot.filter(d=>d.threat_type==='PFAS').length;
+    const acres     = cad.reduce((s,d)=>s+(d.acres||0),0);
+    document.getElementById('statsBar').innerHTML=
+        '<div class="stat-chip crit">&#128308; Critical Threats<span>'+critical+'</span></div>'
+      +'<div class="stat-chip warn">Total Queued Capacity<span>'+(totalMw/1000).toFixed(1)+' GW</span></div>'
+      +'<div class="stat-chip">IA Signed / Committed<span>'+iaSigned+'</span></div>'
+      +'<div class="stat-chip alert">Gas / Thermal MW<span>'+gasMw.toFixed(0)+'</span></div>'
+      +'<div class="stat-chip">PFAS Risk Projects<span>'+pfasCount+'</span></div>'
+      +'<div class="stat-chip warn">Documented Lease Acreage<span>'+acres.toFixed(0)+' ac</span></div>';
   }
 
+  // ── fetch ─────────────────────────────────────────────────────
   Promise.all([
-    fetch('./east_texas_interconnections.json').then(r => { if (!r.ok) throw new Error('ERCOT ' + r.status); return r.json(); }),
-    fetch('./verified_targets.json').then(r => { if (!r.ok) throw new Error('CAD ' + r.status); return r.json(); })
-  ])
-  .then(([ercot, cad]) => {
-    ercotAll = ercot;
-    buildStats(ercot, cad);
-    applyFuelFilter();
+    fetch('./east_texas_interconnections.json').then(r=>{if(!r.ok)throw new Error('ERCOT '+r.status);return r.json();}),
+    fetch('./verified_targets.json').then(r=>{if(!r.ok)throw new Error('CAD '+r.status);return r.json();})
+  ]).then(([ercot,cad])=>{
+    ercotAll=ercot;
+    buildStats(ercot,cad);
+    applyFilters();
     renderCad(cad);
 
-    ercot.forEach(d => {
-      const key = (d.county || '').toUpperCase().trim();
-      const coords = countyCoords[key];
-      if (!coords) return;
-      const jitter = () => (Math.random() - 0.5) * 0.22;
-      L.circleMarker([coords[0] + jitter(), coords[1] + jitter()], {
-        radius: 7,
-        fillColor: markerColor(d.fuel, d.technology),
-        color: '#000', weight: 1, opacity: 1, fillOpacity: 0.85
+    // wire filters now that data is loaded
+    wireFilters('fuelFilters',   v=>{ activeFuel=v; });
+    wireFilters('threatFilters', v=>{ activeThreat=v; });
+    wireFilters('typeFilters',   v=>{ activeType=v; });
+
+    // map markers — color by threat level
+    ercot.forEach(d=>{
+      const key=(d.county||'').toUpperCase().trim();
+      const coords=countyCoords[key]; if(!coords) return;
+      const jitter=()=>(Math.random()-0.5)*0.22;
+      L.circleMarker([coords[0]+jitter(),coords[1]+jitter()],{
+        radius: d.threat_level==='CRITICAL'?9:d.threat_level==='HIGH'?7:5,
+        fillColor: markerColor(d.threat_level),
+        color:'#000', weight:1, opacity:1, fillOpacity:0.85
       }).addTo(map).bindPopup(
-        '<b>' + (d.project_name || 'Unknown') + '</b><br>'
-        + (d.capacity_mw || 0).toFixed(0) + ' MW &mdash; ' + (d.fuel || '?') + '<br>'
-        + key + ' County<br>'
-        + '<span style="font-size:11px;color:#aaa">COD: ' + fmtDate(d.projected_cod).replace(/<[^>]+>/g, '') + '</span>'
+        '<b>'+(d.project_name||'Unknown')+'</b><br>'
+        +(d.capacity_mw||0).toFixed(0)+' MW &mdash; '+(d.fuel||'?')+'<br>'
+        +key+' County<br>'
+        +'<b style="color:'+markerColor(d.threat_level)+'">'+(d.threat_level||'')+'</b>'
+        +' &mdash; '+(d.threat_type||'')+'<br>'
+        +'<span style="font-size:11px;color:#aaa">COD: '+fmtDate(d.projected_cod).replace(/<[^>]+>/g,'')+'</span>'
       );
     });
-  })
-  .catch(err => {
+  }).catch(err=>{
     console.error(err);
-    document.getElementById('ercotBody').innerHTML =
-      '<tr class="empty-row"><td colspan="9" style="color:var(--accent2)">&#9888; Failed to load: ' + err.message + '</td></tr>';
-    document.getElementById('cadBody').innerHTML =
-      '<tr class="empty-row"><td colspan="3" style="color:var(--accent2)">&#9888; Failed to load: ' + err.message + '</td></tr>';
-    document.getElementById('statsBar').innerHTML =
-      '<div class="stat-chip alert">&#9888; Data load failed<span>' + err.message + '</span></div>';
+    document.getElementById('ercotBody').innerHTML='<tr class="empty-row"><td colspan="10" style="color:var(--accent2)">&#9888; Failed to load: '+err.message+'</td></tr>';
+    document.getElementById('cadBody').innerHTML='<tr class="empty-row"><td colspan="3" style="color:var(--accent2)">&#9888; Failed to load: '+err.message+'</td></tr>';
+    document.getElementById('statsBar').innerHTML='<div class="stat-chip alert">&#9888; Data load failed<span>'+err.message+'</span></div>';
   });
 
+  // ── intake ────────────────────────────────────────────────────
   function transmitPayload() {
-    const subject  = document.getElementById('tip-subject').value.trim();
-    const details  = document.getElementById('tip-details').value.trim();
-    const statusEl = document.getElementById('tip-status');
-    if (!subject || !details) {
-      statusEl.style.color = 'var(--accent2)';
-      statusEl.textContent = '&#9888; Error: Subject and Details are required.';
-      return;
-    }
-    statusEl.style.color = 'var(--subtext)';
-    statusEl.textContent = 'Transmitting securely&#8230;';
-    fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ subject, details })
-    })
-    .then(r => r.json())
-    .then(data => {
-      if (data.status === 'SECURE_PAYLOAD_RECEIVED') {
-        statusEl.style.color = 'var(--accent)';
-        statusEl.textContent = '&#10003; Payload Successfully Intercepted by Command Center';
-        document.getElementById('tip-subject').value = '';
-        document.getElementById('tip-details').value = '';
+    const subject=document.getElementById('tip-subject').value.trim();
+    const details=document.getElementById('tip-details').value.trim();
+    const statusEl=document.getElementById('tip-status');
+    if(!subject||!details){statusEl.style.color='var(--accent2)';statusEl.textContent='&#9888; Subject and Details required.';return;}
+    statusEl.style.color='var(--subtext)';statusEl.textContent='Transmitting securely&#8230;';
+    fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({subject,details})
+    }).then(r=>r.json()).then(data=>{
+      if(data.status==='SECURE_PAYLOAD_RECEIVED'){
+        statusEl.style.color='var(--accent)';
+        statusEl.textContent='&#10003; Payload Successfully Intercepted by Command Center';
+        document.getElementById('tip-subject').value='';
+        document.getElementById('tip-details').value='';
       } else { throw new Error('Invalid response'); }
-    })
-    .catch(err => {
-      statusEl.style.color = 'var(--accent2)';
-      statusEl.textContent = '&#10008; Transmission Failed. Secure connection dropped.';
-      console.error('Transmission Error:', err);
+    }).catch(err=>{
+      statusEl.style.color='var(--accent2)';
+      statusEl.textContent='&#10008; Transmission Failed. Secure connection dropped.';
+      console.error(err);
     });
   }
 </script>
+
 </body>
 </html>
