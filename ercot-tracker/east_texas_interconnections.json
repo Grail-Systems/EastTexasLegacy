@@ -22,7 +22,9 @@
     "construction_start": "2026-01-30T00:00:00",
     "construction_end": "2028-08-14T00:00:00",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "THERMAL"
   },
   {
     "inr": "19INR0110",
@@ -47,7 +49,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2025-01-29T00:00:00",
-    "approved_for_synchronization": "2025-02-11T00:00:00"
+    "approved_for_synchronization": "2025-02-11T00:00:00",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "21INR0221",
@@ -72,7 +76,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2021-06-30T00:00:00",
-    "approved_for_synchronization": "2021-08-31T00:00:00"
+    "approved_for_synchronization": "2021-08-31T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "21INR0324",
@@ -97,7 +103,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2022-09-19T00:00:00",
-    "approved_for_synchronization": "2022-10-06T00:00:00"
+    "approved_for_synchronization": "2022-10-06T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "GRID"
   },
   {
     "inr": "21INR0371",
@@ -122,7 +130,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "21INR0421",
@@ -147,7 +157,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "21INR0428",
@@ -172,7 +184,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "21INR0490",
@@ -197,7 +211,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2024-08-19T00:00:00",
-    "approved_for_synchronization": "2024-10-14T00:00:00"
+    "approved_for_synchronization": "2024-10-14T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "21INR0491",
@@ -222,7 +238,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2021-06-30T00:00:00",
-    "approved_for_synchronization": "2021-10-26T00:00:00"
+    "approved_for_synchronization": "2021-10-26T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "22INR0202",
@@ -247,7 +265,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2023-07-11T00:00:00",
-    "approved_for_synchronization": "2024-03-21T00:00:00"
+    "approved_for_synchronization": "2024-03-21T00:00:00",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "22INR0203",
@@ -272,7 +292,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2024-10-29T00:00:00",
-    "approved_for_synchronization": "2025-01-13T00:00:00"
+    "approved_for_synchronization": "2025-01-13T00:00:00",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "22INR0314",
@@ -297,7 +319,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "22INR0332",
@@ -322,7 +346,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "22INR0437",
@@ -347,7 +373,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "22INR0541",
@@ -372,7 +400,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0026",
@@ -397,7 +427,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2024-04-01T00:00:00",
-    "approved_for_synchronization": "2024-04-10T00:00:00"
+    "approved_for_synchronization": "2024-04-10T00:00:00",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0171",
@@ -422,7 +454,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0211",
@@ -447,7 +481,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0225",
@@ -472,7 +508,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2026-02-06T00:00:00",
-    "approved_for_synchronization": "2026-03-27T00:00:00"
+    "approved_for_synchronization": "2026-03-27T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0286",
@@ -497,7 +535,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2025-05-08T00:00:00",
-    "approved_for_synchronization": "2025-05-19T00:00:00"
+    "approved_for_synchronization": "2025-05-19T00:00:00",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0289",
@@ -522,7 +562,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0324",
@@ -547,7 +589,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0439",
@@ -572,7 +616,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0441",
@@ -597,7 +643,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "GRID"
   },
   {
     "inr": "23INR0464",
@@ -622,7 +670,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "23INR0486",
@@ -647,7 +697,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "THERMAL"
   },
   {
     "inr": "24INR0086",
@@ -672,7 +724,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0087",
@@ -697,7 +751,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0117",
@@ -722,7 +778,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0120",
@@ -747,7 +805,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0136",
@@ -772,7 +832,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0137",
@@ -797,7 +859,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0140",
@@ -822,7 +886,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2025-12-18T00:00:00",
-    "approved_for_synchronization": "2026-01-08T00:00:00"
+    "approved_for_synchronization": "2026-01-08T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0141",
@@ -847,7 +913,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2025-12-18T00:00:00",
-    "approved_for_synchronization": "2026-01-08T00:00:00"
+    "approved_for_synchronization": "2026-01-08T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0174",
@@ -872,7 +940,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0186",
@@ -897,7 +967,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0188",
@@ -922,7 +994,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0205",
@@ -947,7 +1021,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0206",
@@ -972,7 +1048,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0207",
@@ -997,7 +1075,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0256",
@@ -1022,7 +1102,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0262",
@@ -1047,7 +1129,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0269",
@@ -1072,7 +1156,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0271",
@@ -1097,7 +1183,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0289",
@@ -1122,7 +1210,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0305",
@@ -1147,7 +1237,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "2026-02-06T00:00:00",
-    "approved_for_synchronization": "2026-03-27T00:00:00"
+    "approved_for_synchronization": "2026-03-27T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0355",
@@ -1172,7 +1264,9 @@
     "construction_start": "2026-06-01T00:00:00",
     "construction_end": "2027-04-01T00:00:00",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0391",
@@ -1197,7 +1291,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0412",
@@ -1222,7 +1318,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0420",
@@ -1247,7 +1345,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0422",
@@ -1272,7 +1372,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0450",
@@ -1297,7 +1399,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0477",
@@ -1322,7 +1426,9 @@
     "construction_start": "2024-11-15T00:00:00",
     "construction_end": "NaT",
     "approved_for_energization": "2025-11-20T00:00:00",
-    "approved_for_synchronization": "2025-12-31T00:00:00"
+    "approved_for_synchronization": "2025-12-31T00:00:00",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "24INR0532",
@@ -1347,7 +1453,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0018",
@@ -1372,7 +1480,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "GRID"
   },
   {
     "inr": "25INR0029",
@@ -1397,7 +1507,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0134",
@@ -1422,7 +1534,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0164",
@@ -1447,7 +1561,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0168",
@@ -1472,7 +1588,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0169",
@@ -1497,7 +1615,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0220",
@@ -1522,7 +1642,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0221",
@@ -1547,7 +1669,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0227",
@@ -1572,7 +1696,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0230",
@@ -1597,7 +1723,9 @@
     "construction_start": "2026-10-20T00:00:00",
     "construction_end": "2027-12-20T00:00:00",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0247",
@@ -1622,7 +1750,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "GRID"
   },
   {
     "inr": "25INR0334",
@@ -1647,7 +1777,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0342",
@@ -1672,7 +1804,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0368",
@@ -1697,7 +1831,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0370",
@@ -1722,7 +1858,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0414",
@@ -1747,7 +1885,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0432",
@@ -1772,7 +1912,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0505",
@@ -1797,7 +1939,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0507",
@@ -1822,7 +1966,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0513",
@@ -1847,7 +1993,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0590",
@@ -1872,7 +2020,9 @@
     "construction_start": "2026-07-01T00:00:00",
     "construction_end": "2027-04-29T00:00:00",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0591",
@@ -1897,7 +2047,9 @@
     "construction_start": "2026-07-01T00:00:00",
     "construction_end": "2027-04-29T00:00:00",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "25INR0693",
@@ -1922,7 +2074,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0023",
@@ -1947,7 +2101,9 @@
     "construction_start": "2024-12-06T00:00:00",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0033",
@@ -1972,7 +2128,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0082",
@@ -1997,7 +2155,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0084",
@@ -2022,7 +2182,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0098",
@@ -2047,7 +2209,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0130",
@@ -2072,7 +2236,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0131",
@@ -2097,7 +2263,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0161",
@@ -2122,7 +2290,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0162",
@@ -2147,7 +2317,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0176",
@@ -2172,7 +2344,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0177",
@@ -2197,7 +2371,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0180",
@@ -2222,7 +2398,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0184",
@@ -2247,7 +2425,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0228",
@@ -2272,7 +2452,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0256",
@@ -2297,7 +2479,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0257",
@@ -2322,7 +2506,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0294",
@@ -2347,7 +2533,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "THERMAL"
   },
   {
     "inr": "26INR0363",
@@ -2372,7 +2560,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0394",
@@ -2397,7 +2587,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0469",
@@ -2422,7 +2614,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0470",
@@ -2447,7 +2641,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0506",
@@ -2472,7 +2668,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0543",
@@ -2497,7 +2695,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "26INR0632",
@@ -2522,7 +2722,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0014",
@@ -2547,7 +2749,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0092",
@@ -2572,7 +2776,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0186",
@@ -2597,7 +2803,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0187",
@@ -2622,7 +2830,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0196",
@@ -2647,7 +2857,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0198",
@@ -2672,7 +2884,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0226",
@@ -2697,7 +2911,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0228",
@@ -2722,7 +2938,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0247",
@@ -2747,7 +2965,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0292",
@@ -2772,7 +2992,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0293",
@@ -2797,7 +3019,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0313",
@@ -2822,7 +3046,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0316",
@@ -2847,7 +3073,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0354",
@@ -2872,7 +3100,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0409",
@@ -2897,7 +3127,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "27INR0488",
@@ -2922,7 +3154,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0029",
@@ -2947,7 +3181,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0055",
@@ -2972,7 +3208,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0075",
@@ -2997,7 +3235,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0080",
@@ -3022,7 +3262,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0087",
@@ -3047,7 +3289,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "THERMAL"
   },
   {
     "inr": "28INR0094",
@@ -3072,7 +3316,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0124",
@@ -3097,7 +3343,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0125",
@@ -3122,7 +3370,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0182",
@@ -3147,7 +3397,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0238",
@@ -3172,7 +3424,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0292",
@@ -3197,7 +3451,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0335",
@@ -3222,7 +3478,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "28INR0467",
@@ -3247,7 +3505,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "ELEVATED",
+    "threat_type": "PFAS"
   },
   {
     "inr": "29INR0119",
@@ -3272,7 +3532,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "PFAS"
   },
   {
     "inr": "29INR0150",
@@ -3297,7 +3559,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "THERMAL"
   },
   {
     "inr": "29INR0298",
@@ -3322,7 +3586,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "THERMAL"
   },
   {
     "inr": "30INR0002",
@@ -3347,7 +3613,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "HIGH",
+    "threat_type": "GRID"
   },
   {
     "inr": "30INR0091",
@@ -3372,7 +3640,9 @@
     "construction_start": "NaT",
     "construction_end": "NaT",
     "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
+    "approved_for_synchronization": "NaT",
+    "threat_level": "CRITICAL",
+    "threat_type": "THERMAL"
   },
   {
     "inr": "32INR0003",
@@ -3396,7 +3666,3 @@
     "water_availability": null,
     "construction_start": "NaT",
     "construction_end": "NaT",
-    "approved_for_energization": "NaT",
-    "approved_for_synchronization": "NaT"
-  }
-]
