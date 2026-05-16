@@ -4,157 +4,453 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Lufkin | Geospatial Command Center</title>
+  <title>East Texas Industrial Development Tracker | East Texas Legacy Coalition</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root {
-      --bg:        #060a08;
-      --surface:   #0c130f;
-      --border:    #1a3322;
-      --accent:    #00ff6a;
-      --accent2:   #ff4040;
-      --accent3:   #ffcc00;
-      --dim:       #3a5c48;
-      --text:      #c8e8d4;
-      --subtext:   #5a8a6a;
-      --font-mono: 'Share Tech Mono', monospace;
-      --font-ui:   'Rajdhani', sans-serif;
+      --bg:         #FAFAF8;
+      --white:      #FFFFFF;
+      --border:     #E7E5E4;
+      --border-med: #D6D3D1;
+      --text:       #1C1917;
+      --subtext:    #78716C;
+      --light:      #A8A29E;
+      --green:      #1B4332;
+      --green-mid:  #2D6A4F;
+      --green-lt:   #D8F3DC;
+      --red:        #DC2626;
+      --red-lt:     #FEE2E2;
+      --amber:      #D97706;
+      --amber-lt:   #FEF3C7;
+      --gold:       #CA8A04;
+      --gold-lt:    #FEF9C3;
+      --blue:       #1D4ED8;
+      --blue-lt:    #DBEAFE;
+      --purple:     #7C3AED;
+      --purple-lt:  #EDE9FE;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Source Sans 3', system-ui, sans-serif;
+      --radius:     8px;
+      --shadow:     0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md:  0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: var(--font-mono); min-height: 100vh; overflow-x: hidden; }
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
-      pointer-events: none; z-index: 9999;
-    }
-    header {
-      border-bottom: 1px solid var(--border); padding: 1.5rem 2rem;
-      display: flex; flex-direction: column; gap: 0.4rem; position: relative; overflow: hidden;
-    }
-    header::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-    .header-tag { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.25em; text-transform: uppercase; }
-    h1 {
-      font-family: var(--font-ui); font-size: clamp(1.4rem, 4vw, 2.4rem); font-weight: 700;
-      color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;
-      text-shadow: 0 0 20px rgba(0,255,106,0.4);
-    }
-    .header-sub { font-size: 0.75rem; color: var(--subtext); letter-spacing: 0.15em; }
 
 ```
-/* stats bar */
-.stats-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1rem 2rem; border-bottom: 1px solid var(--border); background: var(--surface); }
-.stat-chip { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 2px; font-size: 0.7rem; color: var(--subtext); white-space: nowrap; }
-.stat-chip span       { color: var(--accent);  font-weight: bold; margin-left: 0.4rem; }
-.stat-chip.warn span  { color: var(--accent3); }
-.stat-chip.alert span { color: var(--accent2); }
-.stat-chip.crit span  { color: #ff4040; font-size: 0.8rem; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-main { padding: 2rem; display: flex; flex-direction: column; gap: 2.5rem; max-width: 1400px; margin: 0 auto; }
-
-/* map */
-#map { width: 100%; height: 420px; border: 1px solid var(--border); border-radius: 2px; background: #060a08; }
-
-/* section */
-.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
-.section-icon  { font-size: 1rem; }
-.section-title { font-family: var(--font-ui); font-size: 1rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.2em; }
-.section-count { margin-left: auto; font-size: 0.65rem; color: var(--subtext); border: 1px solid var(--border); padding: 0.2rem 0.5rem; }
-
-/* filter rows */
-.filter-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
-.filter-label { font-size: 0.58rem; color: var(--dim); letter-spacing: 0.2em; text-transform: uppercase; }
-.filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.filter-btn {
-  background: transparent; border: 1px solid var(--border); color: var(--subtext);
-  font-family: var(--font-mono); font-size: 0.63rem; padding: 0.25rem 0.65rem;
-  cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.15s;
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-.filter-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,255,106,0.05); }
-.filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(0,255,106,0.08); }
-/* threat level active states */
-.filter-btn[data-threat="CRITICAL"].active  { border-color: #ff4040; color: #ff4040; background: rgba(255,64,64,0.08); }
-.filter-btn[data-threat="HIGH"].active      { border-color: #ff8800; color: #ff8800; background: rgba(255,136,0,0.08); }
-.filter-btn[data-threat="ELEVATED"].active  { border-color: var(--accent3); color: var(--accent3); background: rgba(255,204,0,0.08); }
-/* threat type active states */
-.filter-btn[data-ttype="THERMAL"].active    { border-color: #ff4040; color: #ff4040; background: rgba(255,64,64,0.08); }
-.filter-btn[data-ttype="PFAS"].active       { border-color: #cc44ff; color: #cc44ff; background: rgba(204,68,255,0.08); }
-.filter-btn[data-ttype="GRID"].active       { border-color: #00ccff; color: #00ccff; background: rgba(0,204,255,0.08); }
 
-/* table */
-.table-wrap { overflow-x: auto; border: 1px solid var(--border); }
-table { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
-thead th {
-  background: var(--surface); color: var(--subtext); text-transform: uppercase;
-  letter-spacing: 0.12em; font-size: 0.6rem; padding: 0.65rem 0.9rem;
-  text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
 }
-tbody tr { border-bottom: 1px solid rgba(26,51,34,0.5); transition: background 0.1s; }
-tbody tr:hover { background: rgba(0,255,106,0.04); }
-tbody tr.threat-critical { border-left: 2px solid #ff4040; }
-tbody tr.threat-high     { border-left: 2px solid #ff8800; }
-tbody tr.threat-elevated { border-left: 2px solid var(--accent3); }
-td { padding: 0.6rem 0.9rem; color: var(--text); vertical-align: middle; }
 
-/* badges */
-.badge { display: inline-block; padding: 0.15rem 0.45rem; font-size: 0.58rem; letter-spacing: 0.08em; border-radius: 1px; font-family: var(--font-ui); font-weight: 700; text-transform: uppercase; }
-.badge-sol      { background: rgba(255,204,0,0.15);  color: var(--accent3); border: 1px solid rgba(255,204,0,0.3); }
-.badge-win      { background: rgba(0,200,255,0.1);   color: #00ccff;        border: 1px solid rgba(0,200,255,0.3); }
-.badge-gas      { background: rgba(255,64,64,0.12);  color: var(--accent2); border: 1px solid rgba(255,64,64,0.3); }
-.badge-batt     { background: rgba(0,255,106,0.1);   color: var(--accent);  border: 1px solid rgba(0,255,106,0.3); }
-.badge-wat      { background: rgba(0,150,255,0.1);   color: #0096ff;        border: 1px solid rgba(0,150,255,0.3); }
-.badge-oth      { background: rgba(128,128,128,0.1); color: #888;           border: 1px solid rgba(128,128,128,0.3); }
-.badge-ia       { background: rgba(0,255,106,0.1);   color: var(--accent);  border: 1px solid rgba(0,255,106,0.3); }
-.badge-noia     { background: rgba(255,64,64,0.1);   color: var(--accent2); border: 1px solid rgba(255,64,64,0.3); }
-/* threat level badges */
-.badge-critical  { background: rgba(255,64,64,0.15);  color: #ff4040; border: 1px solid rgba(255,64,64,0.4);  font-size: 0.6rem; }
-.badge-high      { background: rgba(255,136,0,0.15);  color: #ff8800; border: 1px solid rgba(255,136,0,0.4);  }
-.badge-elevated  { background: rgba(255,204,0,0.12);  color: var(--accent3); border: 1px solid rgba(255,204,0,0.3); }
-.badge-monitoring{ background: rgba(90,138,106,0.1);  color: var(--subtext); border: 1px solid var(--border); }
-/* threat type badges */
-.badge-thermal  { background: rgba(255,64,64,0.1);   color: #ff6655; border: 1px solid rgba(255,64,64,0.25); }
-.badge-pfas     { background: rgba(204,68,255,0.1);  color: #cc44ff; border: 1px solid rgba(204,68,255,0.25); }
-.badge-grid     { background: rgba(0,204,255,0.1);   color: #00ccff; border: 1px solid rgba(0,204,255,0.25); }
-.badge-combined { background: rgba(255,64,64,0.15);  color: #ff4040; border: 1px solid rgba(255,64,64,0.4); }
-
-.mw-bar { display: flex; align-items: center; gap: 0.5rem; }
-.mw-track { flex: 1; height: 3px; background: var(--border); border-radius: 1px; min-width: 40px; max-width: 80px; }
-.mw-fill  { height: 100%; background: var(--accent); border-radius: 1px; opacity: 0.6; }
-td.county-core { color: var(--accent2); font-weight: bold; }
-
-.loading-row td, .empty-row td { text-align: center; color: var(--subtext); padding: 2rem; font-size: 0.75rem; }
-.pulse { animation: pulse 1.2s ease-in-out infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-/* portal */
-.portal-box { border: 1px solid var(--border); padding: 1.5rem; background: var(--surface); }
-.portal-box p { font-size: 0.75rem; color: var(--subtext); margin-bottom: 1rem; line-height: 1.6; }
-.portal-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
-.portal-fields input, .portal-fields textarea {
-  width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
-  font-family: var(--font-mono); font-size: 0.72rem; padding: 0.5rem 0.75rem; outline: none; transition: border-color 0.15s;
+/* ── HEADER ── */
+header {
+  background: var(--white);
+  border-bottom: 2px solid var(--green);
+  padding: 2rem 1.5rem 1.5rem;
 }
-.portal-fields input:focus, .portal-fields textarea:focus { border-color: var(--accent); }
-.portal-fields textarea { grid-column: 1 / -1; resize: vertical; min-height: 90px; }
-.portal-fields input::placeholder, .portal-fields textarea::placeholder { color: var(--dim); }
-.portal-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-.btn-transmit {
-  background: transparent; border: 1px solid var(--accent); color: var(--accent);
-  font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; padding: 0.6rem 1.5rem; cursor: pointer; transition: all 0.15s;
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
 }
-.btn-transmit:hover { background: rgba(0,255,106,0.1); box-shadow: 0 0 12px rgba(0,255,106,0.2); }
-#tip-status { font-size: 0.72rem; font-family: var(--font-mono); }
+.header-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--green-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  color: var(--green);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.header-desc {
+  font-size: 1rem;
+  color: var(--subtext);
+  max-width: 640px;
+  line-height: 1.5;
+}
+.header-meta {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--light);
+}
 
-footer { text-align: center; padding: 1.5rem; font-size: 0.6rem; color: var(--dim); border-top: 1px solid var(--border); letter-spacing: 0.15em; }
+/* ── LAYOUT ── */
+.page { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-@media (max-width: 600px) {
-  main { padding: 1rem; } .stats-bar { padding: 0.75rem 1rem; } header { padding: 1rem; }
-  td, th { padding: 0.5rem 0.6rem; font-size: 0.65rem; } #map { height: 280px; }
+/* ── STAT CARDS ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem;
+  box-shadow: var(--shadow);
+}
+.stat-card.critical { border-top: 3px solid var(--red); }
+.stat-card.high     { border-top: 3px solid var(--amber); }
+.stat-card.capacity { border-top: 3px solid var(--green); }
+.stat-card.committed{ border-top: 3px solid var(--blue); }
+.stat-card.pfas     { border-top: 3px solid var(--purple); }
+.stat-card.gas      { border-top: 3px solid var(--amber); }
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.stat-card.critical .stat-number { color: var(--red); }
+.stat-card.high     .stat-number { color: var(--amber); }
+.stat-card.capacity .stat-number { color: var(--green); }
+.stat-card.committed.stat-number { color: var(--blue); }
+.stat-card.pfas     .stat-number { color: var(--purple); }
+.stat-card.gas      .stat-number { color: var(--amber); }
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--subtext);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.stat-sub {
+  font-size: 0.7rem;
+  color: var(--light);
+  margin-top: 0.2rem;
+}
+
+/* ── SECTION HEADINGS ── */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.section-head h2 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--green);
+}
+.section-count {
+  font-size: 0.75rem;
+  color: var(--light);
+  font-weight: 600;
+}
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* ── MAP ── */
+#map {
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 0.75rem;
+}
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.72rem;
+  color: var(--subtext);
+  margin-bottom: 0;
+}
+.legend-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  display: inline-block; margin-right: 0.3rem; vertical-align: middle;
+}
+
+/* ── FILTERS ── */
+.filter-panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+}
+.filter-row-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.filter-group-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.35rem;
+}
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.pill {
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-med);
+  background: transparent;
+  color: var(--subtext);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.pill:hover { border-color: var(--green); color: var(--green); }
+.pill.active { background: var(--green); border-color: var(--green); color: #fff; }
+.pill[data-threat="CRITICAL"].active  { background: var(--red);    border-color: var(--red); }
+.pill[data-threat="HIGH"].active      { background: var(--amber);  border-color: var(--amber); }
+.pill[data-threat="ELEVATED"].active  { background: var(--gold);   border-color: var(--gold); }
+.pill[data-ttype="THERMAL"].active    { background: var(--red);    border-color: var(--red); }
+.pill[data-ttype="PFAS"].active       { background: var(--purple); border-color: var(--purple); }
+.pill[data-ttype="GRID"].active       { background: var(--blue);   border-color: var(--blue); }
+
+/* ── PROJECT CARDS ── */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.project-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.15rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.project-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.project-card.critical { border-left: 4px solid var(--red); }
+.project-card.high     { border-left: 4px solid var(--amber); }
+.project-card.elevated { border-left: 4px solid var(--gold); }
+.project-card.monitoring { border-left: 4px solid var(--border-med); }
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+.card-badges { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.badge-critical  { background: var(--red-lt);    color: var(--red); }
+.badge-high      { background: var(--amber-lt);  color: var(--amber); }
+.badge-elevated  { background: var(--gold-lt);   color: var(--gold); }
+.badge-monitoring{ background: #F5F5F4;          color: var(--light); }
+.badge-thermal   { background: var(--red-lt);    color: var(--red); }
+.badge-pfas      { background: var(--purple-lt); color: var(--purple); }
+.badge-grid      { background: var(--blue-lt);   color: var(--blue); }
+.badge-sol       { background: var(--gold-lt);   color: var(--gold); }
+.badge-win       { background: var(--blue-lt);   color: var(--blue); }
+.badge-gas       { background: var(--red-lt);    color: var(--red); }
+.badge-batt      { background: var(--green-lt);  color: var(--green-mid); }
+.badge-ia        { background: var(--green-lt);  color: var(--green-mid); }
+.badge-noia      { background: #F5F5F4;          color: var(--light); }
+
+.card-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+.card-meta {
+  font-size: 0.78rem;
+  color: var(--subtext);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.card-meta span { display: flex; align-items: center; gap: 0.25rem; }
+.card-meta .val { color: var(--text); font-weight: 600; }
+.card-entity {
+  font-size: 0.72rem;
+  color: var(--light);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-status {
+  font-size: 0.7rem;
+  color: var(--subtext);
+  margin-top: 0.3rem;
+  line-height: 1.4;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--light);
+  font-size: 0.9rem;
+  grid-column: 1 / -1;
+}
+
+/* ── CAD TABLE ── */
+.clean-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.clean-table thead th {
+  background: #F5F5F4;
+  color: var(--subtext);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.clean-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+.clean-table tbody tr:last-child { border-bottom: none; }
+.clean-table tbody tr:hover { background: #FAFAF8; }
+.clean-table td { padding: 0.75rem 1rem; }
+.clean-table .total-row { background: var(--green-lt); font-weight: 700; }
+.clean-table .total-row td { color: var(--green); }
+
+/* ── INTAKE PORTAL ── */
+.portal-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.portal-card p {
+  font-size: 0.875rem;
+  color: var(--subtext);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.form-grid input,
+.form-grid textarea {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid var(--border-med);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.form-grid input:focus,
+.form-grid textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(27,67,50,0.08);
+}
+.form-grid input::placeholder,
+.form-grid textarea::placeholder { color: var(--light); }
+.form-grid textarea { grid-column: 1 / -1; resize: vertical; min-height: 90px; }
+.form-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.btn-submit {
+  padding: 0.65rem 1.75rem;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-submit:hover { background: var(--green-mid); }
+#tip-status { font-size: 0.8rem; color: var(--subtext); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--green);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.75rem;
+  margin-top: 3rem;
+  line-height: 1.8;
+}
+footer strong { color: #fff; }
+
+/* ── LOADING ── */
+.loading-msg {
+  text-align: center; padding: 3rem 1rem;
+  color: var(--light); font-size: 0.9rem;
+  grid-column: 1 / -1;
+}
+.pulse { animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .page { padding: 1.25rem 1rem; }
+  header { padding: 1.5rem 1rem 1.25rem; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .project-grid { grid-template-columns: 1fr; }
+  #map { height: 280px; }
+  .filter-panel { padding: 1rem; }
 }
 ```
 
@@ -162,141 +458,170 @@ footer { text-align: center; padding: 1.5rem; font-size: 0.6rem; color: var(--di
 </head>
 <body>
 
+<div class="topbar">East Texas Legacy Coalition &nbsp;·&nbsp; Protecting Our Land, Water &amp; Community</div>
+
 <header>
-  <div class="header-tag">&#9656; East Texas Legacy Coalition // Grail Systems // Active</div>
-  <h1>&#9889; Project Lufkin: East Texas Resistance Zone</h1>
-  <div class="header-sub">ERCOT State Grid Interconnection Queue + Angelina County Industrial Land Registry &mdash; April 2026 Data</div>
+  <div class="header-inner">
+    <div class="header-eyebrow">Project Lufkin &mdash; Industrial Development Tracker</div>
+    <h1>East Texas Grid Invasion Monitor</h1>
+    <p class="header-desc">Tracking every industrial energy project queued for deployment across 15 East Texas counties &mdash; solar, wind, battery storage, and gas plants targeting our Piney Woods region.</p>
+    <div class="header-meta">Source: ERCOT GIS Monthly Report, April 2026 &nbsp;|&nbsp; Angelina County CAD Records &nbsp;|&nbsp; Updated by Grail Systems</div>
+  </div>
 </header>
 
-<div class="stats-bar" id="statsBar">
-  <div class="stat-chip"><span class="pulse">Scanning&#8230;</span></div>
-</div>
+<div class="page">
 
-<main>
+  <!-- STAT CARDS -->
+
+  <div class="stat-grid" id="statGrid">
+    <div class="stat-card critical">
+      <div class="stat-number" id="statCritical"><span class="pulse">&#8212;</span></div>
+      <div class="stat-label">Critical Threats</div>
+      <div class="stat-sub">Gas plants &amp; committed core-county projects</div>
+    </div>
+    <div class="stat-card capacity">
+      <div class="stat-number" id="statGW"><span class="pulse">&#8212;</span></div>
+      <div class="stat-label">Gigawatts Queued</div>
+      <div class="stat-sub">Total capacity in the interconnection queue</div>
+    </div>
+    <div class="stat-card high">
+      <div class="stat-number" id="statCommitted"><span class="pulse">&#8212;</span></div>
+      <div class="stat-label">Committed Projects</div>
+      <div class="stat-sub">Interconnection agreements signed</div>
+    </div>
+    <div class="stat-card pfas">
+      <div class="stat-number" id="statPFAS"><span class="pulse">&#8212;</span></div>
+      <div class="stat-label">PFAS Risk Sites</div>
+      <div class="stat-sub">Solar &amp; battery projects, groundwater risk</div>
+    </div>
+    <div class="stat-card gas">
+      <div class="stat-number" id="statGasMW"><span class="pulse">&#8212;</span></div>
+      <div class="stat-label">Gas Plant MW</div>
+      <div class="stat-sub">Thermal &amp; air quality threat</div>
+    </div>
+    <div class="stat-card committed">
+      <div class="stat-number" id="statTotal"><span class="pulse">&#8212;</span></div>
+      <div class="stat-label">Total Projects</div>
+      <div class="stat-sub">Across 15 coalition counties</div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
 
   <!-- MAP -->
 
-  <section>
-    <div class="section-header">
-      <span class="section-icon">&#128506;</span>
-      <span class="section-title">Deployment Map &mdash; East Texas Grid Intrusion</span>
+  <div class="section-head">
+    <h2>County Deployment Map</h2>
+  </div>
+  <div id="map"></div>
+  <div class="map-legend">
+    <span><span class="legend-dot" style="background:#DC2626"></span>Critical</span>
+    <span><span class="legend-dot" style="background:#D97706"></span>High</span>
+    <span><span class="legend-dot" style="background:#CA8A04"></span>Elevated</span>
+    <span><span class="legend-dot" style="background:#A8A29E"></span>Monitoring</span>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ERCOT PROJECTS -->
+
+  <div class="section-head">
+    <h2>ERCOT Interconnection Requests</h2>
+    <span class="section-count" id="ercotCount">Loading&hellip;</span>
+  </div>
+
+  <div class="filter-panel">
+    <div class="filter-row-wrap">
+      <div>
+        <div class="filter-group-label">Fuel Type</div>
+        <div class="filter-pills" id="fuelFilters">
+          <button class="pill active" data-fuel="ALL">All</button>
+          <button class="pill" data-fuel="SOL">&#9728; Solar</button>
+          <button class="pill" data-fuel="WIN">&#128168; Wind</button>
+          <button class="pill" data-fuel="GAS">&#128293; Gas</button>
+          <button class="pill" data-fuel="BA">&#128267; Battery</button>
+        </div>
+      </div>
+      <div>
+        <div class="filter-group-label">Threat Level</div>
+        <div class="filter-pills" id="threatFilters">
+          <button class="pill active" data-threat="ALL">All Levels</button>
+          <button class="pill" data-threat="CRITICAL">&#128308; Critical</button>
+          <button class="pill" data-threat="HIGH">&#128992; High</button>
+          <button class="pill" data-threat="ELEVATED">&#128993; Elevated</button>
+          <button class="pill" data-threat="MONITORING">&#9898; Monitoring</button>
+        </div>
+      </div>
+      <div>
+        <div class="filter-group-label">Threat Type</div>
+        <div class="filter-pills" id="typeFilters">
+          <button class="pill active" data-ttype="ALL">All Types</button>
+          <button class="pill" data-ttype="THERMAL">&#128293; Thermal / Air</button>
+          <button class="pill" data-ttype="PFAS">&#9888; PFAS / Water</button>
+          <button class="pill" data-ttype="GRID">&#9889; Grid</button>
+        </div>
+      </div>
     </div>
-    <div id="map"></div>
-  </section>
-
-  <!-- ERCOT TABLE -->
-
-  <section>
-    <div class="section-header">
-      <span class="section-icon">&#128225;</span>
-      <span class="section-title">ERCOT State Interconnection Requests</span>
-      <span class="section-count" id="ercotCount">loading&#8230;</span>
-    </div>
-
-```
-<div class="filter-group">
-  <div class="filter-label">&#9656; Filter by Fuel Type</div>
-  <div class="filter-row" id="fuelFilters">
-    <button class="filter-btn active" data-fuel="ALL">All Fuels</button>
-    <button class="filter-btn" data-fuel="SOL">&#9728; Solar</button>
-    <button class="filter-btn" data-fuel="WIN">&#128168; Wind</button>
-    <button class="filter-btn" data-fuel="GAS">&#128293; Gas</button>
-    <button class="filter-btn" data-fuel="BA">&#128267; Battery</button>
   </div>
-</div>
 
-<div class="filter-group">
-  <div class="filter-label">&#9656; Filter by Threat Level</div>
-  <div class="filter-row" id="threatFilters">
-    <button class="filter-btn active" data-threat="ALL">All Levels</button>
-    <button class="filter-btn" data-threat="CRITICAL">&#128308; Critical</button>
-    <button class="filter-btn" data-threat="HIGH">&#128992; High</button>
-    <button class="filter-btn" data-threat="ELEVATED">&#128993; Elevated</button>
+  <div class="project-grid" id="projectGrid">
+    <div class="loading-msg"><span class="pulse">Loading project data&hellip;</span></div>
   </div>
-</div>
 
-<div class="filter-group">
-  <div class="filter-label">&#9656; Filter by Threat Type</div>
-  <div class="filter-row" id="typeFilters">
-    <button class="filter-btn active" data-ttype="ALL">All Types</button>
-    <button class="filter-btn" data-ttype="THERMAL">&#128293; Thermal / Air</button>
-    <button class="filter-btn" data-ttype="PFAS">&#9888; PFAS / Groundwater</button>
-    <button class="filter-btn" data-ttype="GRID">&#9889; Grid Strain</button>
-  </div>
-</div>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr>
-        <th>Threat</th>
-        <th>Type</th>
-        <th>Project Name</th>
-        <th>County</th>
-        <th>Fuel</th>
-        <th>MW</th>
-        <th>Proj. COD</th>
-        <th>IA Signed</th>
-        <th>Status Phase</th>
-        <th>Entity</th>
-      </tr>
-    </thead>
-    <tbody id="ercotBody">
-      <tr class="loading-row"><td colspan="10"><span class="pulse">&#9656; Loading interconnection data&#8230;</span></td></tr>
-    </tbody>
-  </table>
-</div>
-```
-
-  </section>
+  <hr class="section-divider" />
 
   <!-- CAD TABLE -->
 
-  <section>
-    <div class="section-header">
-      <span class="section-icon">&#9888;&#65039;</span>
-      <span class="section-title">Verified Angelina County Industrial Leases</span>
-      <span class="section-count" id="cadCount">loading&#8230;</span>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Property ID</th><th>Corporate Entity</th><th>Acreage</th></tr>
-        </thead>
-        <tbody id="cadBody">
-          <tr class="loading-row"><td colspan="3"><span class="pulse">&#9656; Loading CAD records&#8230;</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+  <div class="section-head">
+    <h2>Angelina County Industrial Leases</h2>
+    <span class="section-count" id="cadCount">Loading&hellip;</span>
+  </div>
+  <div style="overflow-x:auto">
+    <table class="clean-table">
+      <thead>
+        <tr>
+          <th>Property ID</th>
+          <th>Corporate Entity</th>
+          <th>Acreage</th>
+        </tr>
+      </thead>
+      <tbody id="cadBody">
+        <tr><td colspan="3" style="text-align:center;padding:2rem;color:var(--light)"><span class="pulse">Loading&hellip;</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider" />
 
   <!-- INTAKE -->
 
-  <section>
-    <div class="section-header">
-      <span class="section-icon">&#128274;</span>
-      <span class="section-title">Secure Citizen Intake Portal</span>
+  <div class="section-head">
+    <h2>&#128274; Secure Citizen Intake</h2>
+  </div>
+  <div class="portal-card">
+    <p>Submit tips, documents, or observations about industrial development activity in East Texas. All submissions go directly to coalition researchers. Your information helps build the public record.</p>
+    <div class="form-grid">
+      <input type="text" id="tip-subject" placeholder="Subject (e.g., new construction on County Road 44)" />
+      <textarea id="tip-details" placeholder="Describe what you've observed &mdash; location, company name, activity, dates&hellip;"></textarea>
     </div>
-    <div class="portal-box">
-      <p>Submit evidence, documents, or tips regarding industrial development activity in East Texas. All submissions are reviewed by coalition researchers. Connection is proxied through Cloudflare.</p>
-      <div class="portal-fields">
-        <input type="text" id="tip-subject" placeholder="Intel Subject (e.g., Amp Z Substation Activity)" />
-        <textarea id="tip-details" placeholder="Provide raw details here&#8230; (Connection is secure)"></textarea>
-      </div>
-      <div class="portal-actions">
-        <button class="btn-transmit" onclick="transmitPayload()">&#9656; Transmit Payload</button>
-        <span id="tip-status"></span>
-      </div>
+    <div class="form-actions">
+      <button class="btn-submit" onclick="transmitPayload()">Submit Report</button>
+      <span id="tip-status"></span>
     </div>
-  </section>
+  </div>
 
-</main>
+</div><!-- /page -->
 
-<footer>&#169; 2026 East Texas Legacy Coalition &middot; Powered by Grail Systems &middot; &#8220;Map the truth.&#8221; &middot; Source: ERCOT GIS Report April 2026</footer>
+<footer>
+  <strong>East Texas Legacy Coalition</strong><br>
+  Protecting Angelina County &amp; the Piney Woods Region &nbsp;&middot;&nbsp; Data: ERCOT GIS Report April 2026<br>
+  Built by Grail Systems &nbsp;&middot;&nbsp; &ldquo;Map the truth.&rdquo;
+</footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
+  // ── MAP ──────────────────────────────────────────────────────
   const countyCoords = {
     "ANGELINA":   [31.25,-94.61], "NACOGDOCHES":[31.61,-94.61],
     "ANDERSON":   [31.81,-95.65], "HENDERSON":  [32.21,-95.85],
@@ -307,199 +632,204 @@ footer { text-align: center; padding: 1.5rem; font-size: 0.6rem; color: var(--di
     "LAMAR":      [33.67,-95.55], "RED RIVER":  [33.62,-94.97],
     "RAINS":      [32.87,-95.79]
   };
-  const coreCounties = ['angelina','nacogdoches','cherokee','houston','rusk'];
 
-  const map = L.map('map').setView([32.0,-95.5], 7);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution:'&copy; OpenStreetMap contributors &copy; CARTO'
-  }).addTo(map);
+  const leafMap = L.map('map').setView([32.0,-95.5], 7);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+  }).addTo(leafMap);
 
-  // ── helpers ──────────────────────────────────────────────────
+  // ── HELPERS ──────────────────────────────────────────────────
   function fmtDate(iso) {
-    if (!iso) return '<span style="color:var(--dim)">&#8212;</span>';
-    try { const d=new Date(iso); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); }
-    catch { return '&#8212;'; }
+    if (!iso || iso === 'NaT') return null;
+    try { const d = new Date(iso); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0'); }
+    catch { return null; }
   }
   function fuelKey(fuel, tech) {
-    if (fuel==='SOL') return 'SOL'; if (fuel==='WIN') return 'WIN';
-    if (fuel==='GAS') return 'GAS'; if (fuel==='WAT') return 'WAT';
-    if (tech==='BA'||fuel==='OTH') return 'BA'; return 'OTH';
+    if (fuel==='SOL') return 'SOL';
+    if (fuel==='WIN') return 'WIN';
+    if (fuel==='GAS') return 'GAS';
+    if (tech==='BA' || fuel==='OTH') return 'BA';
+    return 'OTH';
   }
-  function fuelBadge(fuel, tech) {
-    const k=fuelKey(fuel,tech);
-    const L2={SOL:'Solar',WIN:'Wind',GAS:'Gas',BA:'Battery',WAT:'Hydro',OTH:fuel||'?'};
-    const C={SOL:'badge-sol',WIN:'badge-win',GAS:'badge-gas',BA:'badge-batt',WAT:'badge-wat',OTH:'badge-oth'};
-    return '<span class="badge '+(C[k]||'badge-oth')+'">'+(L2[k]||fuel)+'</span>';
+  function fuelLabel(fuel, tech) {
+    return {SOL:'Solar',WIN:'Wind',GAS:'Gas',BA:'Battery'}[fuelKey(fuel,tech)] || fuel || '?';
   }
-  function threatBadge(level) {
-    const map2={CRITICAL:'badge-critical',HIGH:'badge-high',ELEVATED:'badge-elevated',MONITORING:'badge-monitoring'};
-    const icons={CRITICAL:'&#128308;',HIGH:'&#128992;',ELEVATED:'&#128993;',MONITORING:'&#9898;'};
-    return '<span class="badge '+(map2[level]||'badge-monitoring')+'">'+(icons[level]||'')+(level||'?')+'</span>';
+  function threatColor(level) {
+    return {CRITICAL:'#DC2626',HIGH:'#D97706',ELEVATED:'#CA8A04',MONITORING:'#A8A29E'}[level] || '#A8A29E';
   }
-  function typeBadge(type) {
-    const map2={THERMAL:'badge-thermal',PFAS:'badge-pfas',GRID:'badge-grid',COMBINED:'badge-combined'};
-    const icons={THERMAL:'&#128293;',PFAS:'&#9888;',GRID:'&#9889;',COMBINED:'&#9760;'};
-    return '<span class="badge '+(map2[type]||'badge-oth')+'">'+(icons[type]||'')+(type||'?')+'</span>';
+  function threatClass(level) {
+    return (level||'monitoring').toLowerCase();
   }
-  function iaBadge(ia) {
-    return ia?'<span class="badge badge-ia">IA Signed</span>':'<span class="badge badge-noia">No IA</span>';
-  }
-  function mwBar(mw, maxMw) {
-    const pct=maxMw>0?Math.min(100,(mw/maxMw)*100):0;
-    return '<div class="mw-bar"><span>'+(mw>0?mw.toFixed(0):'&#8212;')+'</span>'
-      +'<div class="mw-track"><div class="mw-fill" style="width:'+pct+'%"></div></div></div>';
-  }
-  function markerColor(tl) {
-    return {CRITICAL:'#ff4040',HIGH:'#ff8800',ELEVATED:'#ffcc00',MONITORING:'#3a5c48'}[tl]||'#888';
-  }
-  function threatRowClass(tl) {
-    return {CRITICAL:'threat-critical',HIGH:'threat-high',ELEVATED:'threat-elevated',MONITORING:''}[tl]||'';
+  function isIA(v) {
+    return v && String(v) !== 'NaT' && String(v) !== 'nan' && String(v) !== 'None';
   }
 
-  // ── filter state ──────────────────────────────────────────────
-  let ercotAll=[], activeFuel='ALL', activeThreat='ALL', activeType='ALL';
+  // ── RENDER PROJECTS ──────────────────────────────────────────
+  let ercotAll = [], activeFuel = 'ALL', activeThreat = 'ALL', activeType = 'ALL';
 
   function applyFilters() {
     let data = ercotAll;
-    if (activeFuel!=='ALL')   data=data.filter(d=>fuelKey(d.fuel,d.technology)===activeFuel);
-    if (activeThreat!=='ALL') data=data.filter(d=>d.threat_level===activeThreat);
-    if (activeType!=='ALL')   data=data.filter(d=>d.threat_type===activeType);
-    renderErcot(data);
-    document.getElementById('ercotCount').textContent=data.length+' of '+ercotAll.length+' records';
+    if (activeFuel !== 'ALL')   data = data.filter(d => fuelKey(d.fuel, d.technology) === activeFuel);
+    if (activeThreat !== 'ALL') data = data.filter(d => d.threat_level === activeThreat);
+    if (activeType !== 'ALL')   data = data.filter(d => d.threat_type === activeType);
+
+    // Sort: critical → high → elevated → monitoring
+    const order = {CRITICAL:0,HIGH:1,ELEVATED:2,MONITORING:3};
+    data = [...data].sort((a,b) => (order[a.threat_level]||3) - (order[b.threat_level]||3));
+
+    renderProjects(data);
+    document.getElementById('ercotCount').textContent = data.length + ' of ' + ercotAll.length + ' projects';
   }
 
-  function wireFilters(groupId, stateSetter) {
-    document.getElementById(groupId).addEventListener('click', e=>{
-      const btn=e.target.closest('.filter-btn'); if(!btn) return;
-      document.querySelectorAll('#'+groupId+' .filter-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      stateSetter(btn.dataset.fuel||btn.dataset.threat||btn.dataset.ttype);
-      applyFilters();
-    });
-  }
-  // wire up after DOM ready — called below after data loads
-
-  // ── render ────────────────────────────────────────────────────
-  function renderErcot(data) {
-    const maxMw=Math.max(...data.map(d=>d.capacity_mw||0),1);
-    const tbody=document.getElementById('ercotBody');
-    if(!data.length){tbody.innerHTML='<tr class="empty-row"><td colspan="10">No records match current filters.</td></tr>';return;}
-    // sort: CRITICAL first, then HIGH, then ELEVATED
-    const order={CRITICAL:0,HIGH:1,ELEVATED:2,MONITORING:3};
-    data=[...data].sort((a,b)=>(order[a.threat_level]||3)-(order[b.threat_level]||3));
-    tbody.innerHTML=data.map(d=>{
-      const county=(d.county||'').trim();
-      const isCore=coreCounties.includes(county.toLowerCase());
-      return '<tr class="'+threatRowClass(d.threat_level)+'">'
-        +'<td>'+threatBadge(d.threat_level)+'</td>'
-        +'<td>'+typeBadge(d.threat_type)+'</td>'
-        +'<td style="font-family:var(--font-ui);font-weight:600;font-size:0.8rem">'+(d.project_name||'&#8212;')+'</td>'
-        +'<td class="'+(isCore?'county-core':'')+'">'+(county||'&#8212;')+'</td>'
-        +'<td>'+fuelBadge(d.fuel,d.technology)+'</td>'
-        +'<td>'+mwBar(d.capacity_mw||0,maxMw)+'</td>'
-        +'<td style="font-size:0.68rem">'+fmtDate(d.projected_cod)+'</td>'
-        +'<td>'+iaBadge(d.ia_signed)+'</td>'
-        +'<td style="font-size:0.65rem;color:var(--subtext);max-width:180px;white-space:normal;line-height:1.4">'+(d.gim_study_phase||'&#8212;')+'</td>'
-        +'<td style="font-size:0.65rem;max-width:160px;white-space:normal;line-height:1.4">'+(d.interconnecting_entity||'&#8212;')+'</td>'
-        +'</tr>';
+  function renderProjects(data) {
+    const grid = document.getElementById('projectGrid');
+    if (!data.length) {
+      grid.innerHTML = '<div class="no-results">No projects match the selected filters.</div>';
+      return;
+    }
+    grid.innerHTML = data.map(d => {
+      const fk = fuelKey(d.fuel, d.technology);
+      const fl = fuelLabel(d.fuel, d.technology);
+      const cod = fmtDate(d.projected_cod);
+      const ia = isIA(d.ia_signed);
+      const tc = threatClass(d.threat_level);
+      const tt = (d.threat_type||'').toLowerCase();
+      const mw = d.capacity_mw ? Number(d.capacity_mw).toFixed(0) : '—';
+      return `<div class="project-card ${tc}">
+        <div class="card-top">
+          <div class="card-badges">
+            <span class="badge badge-${tc}">${d.threat_level||'?'}</span>
+            <span class="badge badge-${tt}">${d.threat_type||'?'}</span>
+          </div>
+        </div>
+        <div class="card-name">${d.project_name || '—'}</div>
+        <div class="card-meta">
+          <span>&#128205; <span class="val">${d.county||'—'}</span></span>
+          <span>&#9889; <span class="val">${fl}</span></span>
+          <span>&#128202; <span class="val">${mw} MW</span></span>
+          ${cod ? `<span>&#128197; <span class="val">${cod}</span></span>` : ''}
+        </div>
+        <div class="card-badges" style="margin-bottom:0.4rem">
+          <span class="badge ${ia ? 'badge-ia' : 'badge-noia'}">${ia ? '&#10003; IA Signed' : 'No IA'}</span>
+          ${fk !== 'OTH' ? `<span class="badge badge-${fk.toLowerCase()}">${fl}</span>` : ''}
+        </div>
+        <div class="card-status">${(d.gim_study_phase||'').replace('SS Completed, ','').replace('FIS Completed, ','').replace('FIS Started, ','')}</div>
+        <div class="card-entity">&#127970; ${d.interconnecting_entity||'Unknown entity'}</div>
+      </div>`;
     }).join('');
   }
 
+  function wireFilters(groupId, setter) {
+    document.getElementById(groupId).addEventListener('click', e => {
+      const btn = e.target.closest('.pill'); if (!btn) return;
+      document.querySelectorAll('#' + groupId + ' .pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setter(btn.dataset.fuel || btn.dataset.threat || btn.dataset.ttype);
+      applyFilters();
+    });
+  }
+
+  // ── RENDER CAD ───────────────────────────────────────────────
   function renderCad(data) {
-    const tbody=document.getElementById('cadBody');
-    if(!data.length){tbody.innerHTML='<tr class="empty-row"><td colspan="3">No CAD records found.</td></tr>';return;}
-    const total=data.reduce((s,d)=>s+(d.acres||0),0);
-    tbody.innerHTML=data.map(d=>
-      '<tr>'
-      +'<td style="color:var(--subtext);font-size:0.68rem;font-family:var(--font-mono)">'+(d.property_id||'&#8212;')+'</td>'
-      +'<td style="font-family:var(--font-ui);font-weight:600">'+(d.owner_name||'&#8212;')+'</td>'
-      +'<td style="color:var(--accent3)">'+(d.acres||0).toFixed(2)+' ac</td>'
-      +'</tr>'
-    ).join('')
-    +'<tr style="border-top:1px solid var(--accent);background:rgba(0,255,106,0.03)">'
-    +'<td colspan="2" style="font-family:var(--font-ui);font-weight:700;color:var(--subtext);font-size:0.65rem;letter-spacing:0.1em">TOTAL DOCUMENTED ACREAGE</td>'
-    +'<td style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">'+total.toFixed(2)+' ac</td>'
-    +'</tr>';
-    document.getElementById('cadCount').textContent=data.length+' records';
+    const tbody = document.getElementById('cadBody');
+    if (!data.length) { tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:2rem;color:var(--light)">No records found.</td></tr>'; return; }
+    const total = data.reduce((s,d) => s + (d.acres||0), 0);
+    tbody.innerHTML = data.map(d =>
+      `<tr>
+        <td style="font-size:0.78rem;color:var(--subtext);font-family:monospace">${d.property_id||'—'}</td>
+        <td style="font-weight:600">${d.owner_name||'—'}</td>
+        <td style="color:var(--green-mid);font-weight:600">${(d.acres||0).toFixed(2)} ac</td>
+      </tr>`
+    ).join('') +
+    `<tr class="total-row">
+      <td colspan="2" style="font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase">Total Documented Acreage</td>
+      <td>${total.toFixed(2)} ac</td>
+    </tr>`;
+    document.getElementById('cadCount').textContent = data.length + ' records';
   }
 
+  // ── STAT CARDS ───────────────────────────────────────────────
   function buildStats(ercot, cad) {
-    const totalMw   = ercot.reduce((s,d)=>s+(d.capacity_mw||0),0);
-    const critical  = ercot.filter(d=>d.threat_level==='CRITICAL').length;
-    const iaSigned  = ercot.filter(d=>d.ia_signed).length;
-    const gasMw     = ercot.filter(d=>d.fuel==='GAS').reduce((s,d)=>s+(d.capacity_mw||0),0);
-    const pfasCount = ercot.filter(d=>d.threat_type==='PFAS').length;
-    const acres     = cad.reduce((s,d)=>s+(d.acres||0),0);
-    document.getElementById('statsBar').innerHTML=
-        '<div class="stat-chip crit">&#128308; Critical Threats<span>'+critical+'</span></div>'
-      +'<div class="stat-chip warn">Total Queued Capacity<span>'+(totalMw/1000).toFixed(1)+' GW</span></div>'
-      +'<div class="stat-chip">IA Signed / Committed<span>'+iaSigned+'</span></div>'
-      +'<div class="stat-chip alert">Gas / Thermal MW<span>'+gasMw.toFixed(0)+'</span></div>'
-      +'<div class="stat-chip">PFAS Risk Projects<span>'+pfasCount+'</span></div>'
-      +'<div class="stat-chip warn">Documented Lease Acreage<span>'+acres.toFixed(0)+' ac</span></div>';
+    const totalMw   = ercot.reduce((s,d) => s + (d.capacity_mw||0), 0);
+    const critical  = ercot.filter(d => d.threat_level === 'CRITICAL').length;
+    const committed = ercot.filter(d => isIA(d.ia_signed)).length;
+    const pfas      = ercot.filter(d => d.threat_type === 'PFAS').length;
+    const gasMw     = ercot.filter(d => d.fuel === 'GAS').reduce((s,d) => s + (d.capacity_mw||0), 0);
+
+    document.getElementById('statCritical').textContent  = critical;
+    document.getElementById('statGW').textContent        = (totalMw/1000).toFixed(1);
+    document.getElementById('statCommitted').textContent = committed;
+    document.getElementById('statPFAS').textContent      = pfas;
+    document.getElementById('statGasMW').textContent     = gasMw.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    document.getElementById('statTotal').textContent     = ercot.length;
   }
 
-  // ── fetch ─────────────────────────────────────────────────────
+  // ── FETCH ────────────────────────────────────────────────────
   Promise.all([
-    fetch('./east_texas_interconnections.json').then(r=>{if(!r.ok)throw new Error('ERCOT '+r.status);return r.json();}),
-    fetch('./verified_targets.json').then(r=>{if(!r.ok)throw new Error('CAD '+r.status);return r.json();})
-  ]).then(([ercot,cad])=>{
-    ercotAll=ercot;
-    buildStats(ercot,cad);
+    fetch('./east_texas_interconnections.json').then(r => { if(!r.ok) throw new Error('ERCOT '+r.status); return r.json(); }),
+    fetch('./verified_targets.json').then(r => { if(!r.ok) throw new Error('CAD '+r.status); return r.json(); })
+  ]).then(([ercot, cad]) => {
+    ercotAll = ercot;
+    buildStats(ercot, cad);
     applyFilters();
     renderCad(cad);
 
-    // wire filters now that data is loaded
-    wireFilters('fuelFilters',   v=>{ activeFuel=v; });
-    wireFilters('threatFilters', v=>{ activeThreat=v; });
-    wireFilters('typeFilters',   v=>{ activeType=v; });
+    wireFilters('fuelFilters',   v => { activeFuel = v; });
+    wireFilters('threatFilters', v => { activeThreat = v; });
+    wireFilters('typeFilters',   v => { activeType = v; });
 
-    // map markers — color by threat level
-    ercot.forEach(d=>{
-      const key=(d.county||'').toUpperCase().trim();
-      const coords=countyCoords[key]; if(!coords) return;
-      const jitter=()=>(Math.random()-0.5)*0.22;
-      L.circleMarker([coords[0]+jitter(),coords[1]+jitter()],{
-        radius: d.threat_level==='CRITICAL'?9:d.threat_level==='HIGH'?7:5,
-        fillColor: markerColor(d.threat_level),
-        color:'#000', weight:1, opacity:1, fillOpacity:0.85
-      }).addTo(map).bindPopup(
-        '<b>'+(d.project_name||'Unknown')+'</b><br>'
-        +(d.capacity_mw||0).toFixed(0)+' MW &mdash; '+(d.fuel||'?')+'<br>'
-        +key+' County<br>'
-        +'<b style="color:'+markerColor(d.threat_level)+'">'+(d.threat_level||'')+'</b>'
-        +' &mdash; '+(d.threat_type||'')+'<br>'
-        +'<span style="font-size:11px;color:#aaa">COD: '+fmtDate(d.projected_cod).replace(/<[^>]+>/g,'')+'</span>'
+    // Map markers
+    ercot.forEach(d => {
+      const key = (d.county||'').toUpperCase().trim();
+      const coords = countyCoords[key]; if (!coords) return;
+      const jitter = () => (Math.random()-0.5)*0.22;
+      const r = d.threat_level==='CRITICAL'?9:d.threat_level==='HIGH'?7:5;
+      L.circleMarker([coords[0]+jitter(), coords[1]+jitter()], {
+        radius: r,
+        fillColor: threatColor(d.threat_level),
+        color: '#fff', weight: 1.5, opacity: 1, fillOpacity: 0.85
+      }).addTo(leafMap).bindPopup(
+        `<div style="font-family:sans-serif;font-size:13px;line-height:1.5">
+          <strong>${d.project_name||'Unknown'}</strong><br>
+          ${(d.capacity_mw||0).toFixed(0)} MW &mdash; ${fuelLabel(d.fuel,d.technology)}<br>
+          ${key} County<br>
+          <span style="color:${threatColor(d.threat_level)};font-weight:700">${d.threat_level}</span>
+          &nbsp;&middot;&nbsp;${d.threat_type}<br>
+          <span style="color:#888;font-size:11px">COD: ${fmtDate(d.projected_cod)||'TBD'}</span>
+        </div>`
       );
     });
-  }).catch(err=>{
+
+  }).catch(err => {
     console.error(err);
-    document.getElementById('ercotBody').innerHTML='<tr class="empty-row"><td colspan="10" style="color:var(--accent2)">&#9888; Failed to load: '+err.message+'</td></tr>';
-    document.getElementById('cadBody').innerHTML='<tr class="empty-row"><td colspan="3" style="color:var(--accent2)">&#9888; Failed to load: '+err.message+'</td></tr>';
-    document.getElementById('statsBar').innerHTML='<div class="stat-chip alert">&#9888; Data load failed<span>'+err.message+'</span></div>';
+    document.getElementById('projectGrid').innerHTML =
+      `<div class="no-results" style="color:#DC2626">&#9888; Failed to load data: ${err.message}</div>`;
   });
 
-  // ── intake ────────────────────────────────────────────────────
+  // ── INTAKE ───────────────────────────────────────────────────
   function transmitPayload() {
-    const subject=document.getElementById('tip-subject').value.trim();
-    const details=document.getElementById('tip-details').value.trim();
-    const statusEl=document.getElementById('tip-status');
-    if(!subject||!details){statusEl.style.color='var(--accent2)';statusEl.textContent='&#9888; Subject and Details required.';return;}
-    statusEl.style.color='var(--subtext)';statusEl.textContent='Transmitting securely&#8230;';
-    fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({subject,details})
-    }).then(r=>r.json()).then(data=>{
-      if(data.status==='SECURE_PAYLOAD_RECEIVED'){
-        statusEl.style.color='var(--accent)';
-        statusEl.textContent='&#10003; Payload Successfully Intercepted by Command Center';
-        document.getElementById('tip-subject').value='';
-        document.getElementById('tip-details').value='';
-      } else { throw new Error('Invalid response'); }
-    }).catch(err=>{
-      statusEl.style.color='var(--accent2)';
-      statusEl.textContent='&#10008; Transmission Failed. Secure connection dropped.';
-      console.error(err);
+    const subject  = document.getElementById('tip-subject').value.trim();
+    const details  = document.getElementById('tip-details').value.trim();
+    const statusEl = document.getElementById('tip-status');
+    if (!subject || !details) {
+      statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Please fill in both fields before submitting.'; return;
+    }
+    statusEl.style.color = 'var(--subtext)';
+    statusEl.textContent = 'Sending\u2026';
+    fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ subject, details })
+    }).then(r => r.json()).then(data => {
+      if (data.status === 'SECURE_PAYLOAD_RECEIVED') {
+        statusEl.style.color = 'var(--green-mid)';
+        statusEl.textContent = '&#10003; Report received. Thank you.';
+        document.getElementById('tip-subject').value = '';
+        document.getElementById('tip-details').value = '';
+      } else { throw new Error('Bad response'); }
+    }).catch(err => {
+      statusEl.style.color = '#DC2626';
+      statusEl.textContent = 'Submission failed. Please try again.';
     });
   }
 </script>
