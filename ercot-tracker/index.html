@@ -465,7 +465,7 @@ footer strong { color: #fff; }
     <div class="header-eyebrow">Project Lufkin &mdash; Industrial Development Tracker</div>
     <h1>East Texas Grid Invasion Monitor</h1>
     <p class="header-desc">Tracking every industrial energy project queued for deployment across 15 East Texas counties &mdash; solar, wind, battery storage, and gas plants targeting our Piney Woods region.</p>
-    <div class="header-meta">Source: ERCOT GIS Monthly Report, April 2026 &nbsp;|&nbsp; Angelina County CAD Records &nbsp;|&nbsp; Updated by Grail Systems</div>
+    <div class="header-meta">Source: ERCOT Generator Interconnection Status report, April 2026 (a snapshot) &nbsp;|&nbsp; Angelina County CAD records &nbsp;|&nbsp; Threat levels are ETLC’s own ratings &nbsp;|&nbsp; For the live map, see the <a href="https://grailsystems.io/carrizo_wilcox_aquifer/" style="color:inherit">Aquifer Defense Grid</a></div>
   </div>
 </header>
 
@@ -491,7 +491,7 @@ footer strong { color: #fff; }
     </div>
     <div class="stat-card pfas">
       <div class="stat-number" id="statPFAS"><span class="pulse">&#8212;</span></div>
-      <div class="stat-label">PFAS Risk Sites</div>
+      <div class="stat-label">Solar &amp; Battery Projects</div>
       <div class="stat-sub">Solar &amp; battery projects, groundwater risk</div>
     </div>
     <div class="stat-card gas">
@@ -557,7 +557,7 @@ footer strong { color: #fff; }
         <div class="filter-pills" id="typeFilters">
           <button class="pill active" data-ttype="ALL">All Types</button>
           <button class="pill" data-ttype="THERMAL">&#128293; Thermal / Air</button>
-          <button class="pill" data-ttype="PFAS">&#9888; PFAS / Water</button>
+          <button class="pill" data-ttype="PFAS">&#9728; Solar / Battery</button>
           <button class="pill" data-ttype="GRID">&#9889; Grid</button>
         </div>
       </div>
@@ -605,7 +605,7 @@ footer strong { color: #fff; }
       <textarea id="tip-details" placeholder="Describe what you've observed &mdash; location, company name, activity, dates&hellip;"></textarea>
     </div>
     <div class="form-actions">
-      <button class="btn-submit" onclick="transmitPayload()">Submit Report</button>
+      <button class="btn-submit" onclick="transmitPayload()">Open the email</button>
       <span id="tip-status"></span>
     </div>
   </div>
@@ -699,7 +699,7 @@ footer strong { color: #fff; }
         <div class="card-top">
           <div class="card-badges">
             <span class="badge badge-${tc}">${d.threat_level||'?'}</span>
-            <span class="badge badge-${tt}">${d.threat_type||'?'}</span>
+            <span class="badge badge-${tt}">${({PFAS:'SOLAR / BATTERY'})[d.threat_type]||d.threat_type||'?'}</span>
           </div>
         </div>
         <div class="card-name">${d.project_name || '—'}</div>
@@ -794,7 +794,7 @@ footer strong { color: #fff; }
           ${(d.capacity_mw||0).toFixed(0)} MW &mdash; ${fuelLabel(d.fuel,d.technology)}<br>
           ${key} County<br>
           <span style="color:${threatColor(d.threat_level)};font-weight:700">${d.threat_level}</span>
-          &nbsp;&middot;&nbsp;${d.threat_type}<br>
+          &nbsp;&middot;&nbsp;${({PFAS:'Solar / battery'})[d.threat_type]||d.threat_type}<br>
           <span style="color:#888;font-size:11px">COD: ${fmtDate(d.projected_cod)||'TBD'}</span>
         </div>`
       );
@@ -815,22 +815,9 @@ footer strong { color: #fff; }
       statusEl.style.color = '#DC2626';
       statusEl.textContent = 'Please fill in both fields before submitting.'; return;
     }
-    statusEl.style.color = 'var(--subtext)';
-    statusEl.textContent = 'Sending\u2026';
-    fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/', {
-      method: 'POST', headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ subject, details })
-    }).then(r => r.json()).then(data => {
-      if (data.status === 'SECURE_PAYLOAD_RECEIVED') {
-        statusEl.style.color = 'var(--green-mid)';
-        statusEl.textContent = '&#10003; Report received. Thank you.';
-        document.getElementById('tip-subject').value = '';
-        document.getElementById('tip-details').value = '';
-      } else { throw new Error('Bad response'); }
-    }).catch(err => {
-      statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Submission failed. Please try again.';
-    });
+    window.location.href = 'mailto:contact@grailsystems.io?subject=' + encodeURIComponent('ETLC tip: ' + subject) + '&body=' + encodeURIComponent(details);
+    statusEl.style.color = 'var(--green-mid)';
+    statusEl.textContent = 'Your email app should open with the tip filled in.';
   }
 </script>
 
