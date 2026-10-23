@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>East Texas Legacy Coalition | They want the water. We want it in writing.</title>
-<meta name="description" content="A grassroots coalition out of Angelina County, Texas, putting the public records behind data centers, crypto mines and power plants where everyone can see them.">
+<meta name="description" content="They want the water. We want it in writing. A grassroots coalition out of Angelina County putting the public records behind data centers, crypto mines and power plants where everyone can see them.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="East Texas Legacy Coalition">
+<meta property="og:description" content="They want the water. We want it in writing. A grassroots coalition out of Angelina County putting the public records behind data centers, crypto mines and power plants where everyone can see them.">
+<meta property="og:url" content="https://easttexaslegacy.org/">
+<meta property="og:image" content="https://easttexaslegacy.org/img/etlc_share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -88,6 +97,22 @@ section{padding:4.5rem 0}
 .founder{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:2.5rem;align-items:center}
 .founder img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:6px;display:block}
 @media (max-width:700px){.founder{grid-template-columns:1fr}.founder img{max-width:260px}}
+.help-proof{display:flex;flex-wrap:wrap;gap:.6rem 2rem;margin:0 0 2rem;font-size:.95rem;color:var(--dim)}
+.help-proof b{color:var(--green-mid);font-family:var(--serif);font-size:1.4rem;margin-right:.3rem}
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem}
+.way{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.5rem;display:flex;flex-direction:column}
+.way.give{border:2px solid var(--green-mid)}
+.way h3{font-family:var(--serif);font-size:1.35rem;margin-bottom:.5rem}
+.way p{font-size:.98rem;margin-bottom:1rem}
+.way .go{margin-top:auto;display:block;text-align:center;background:var(--green-mid);color:var(--paper);font-weight:700;text-decoration:none;padding:.8rem 1rem;border-radius:6px;border:0;font:inherit;font-weight:700;cursor:pointer;width:100%}
+.amts{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:0 0 .8rem}
+.amts a{display:block;text-align:center;padding:.75rem .4rem;border:1.5px solid var(--green-mid);border-radius:6px;text-decoration:none;color:var(--green-mid);font-weight:700;line-height:1.2}
+.amts a small{display:block;font-weight:400;font-size:.75rem;color:var(--dim);margin-top:.15rem}
+.amts a.pick{background:var(--green-mid);color:var(--paper)}.amts a.pick small{color:var(--paper);opacity:.85}
+.amts a:hover{background:var(--green-mid);color:var(--paper)}
+.fine2{font-size:.82rem;color:var(--dim);margin-top:1.2rem;max-width:720px}
+.float-help{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:50;background:#86EFAC;color:#1B4332;font-weight:700;text-decoration:none;padding:.75rem 1.1rem;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25);font-size:.95rem;transition:opacity .25s,transform .25s}
+.float-help.hide{opacity:0;transform:translateY(12px);pointer-events:none}
 footer{background:#1B4332;color:rgba(255,255,255,.75);padding:3rem 0;font-size:.92rem}
 footer .cols{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between}
 footer strong{display:block;font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:.4rem}
@@ -105,7 +130,7 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
     <p>Data centers, crypto mines and power plants are lining up over the Carrizo-Wilcox Aquifer, the water Deep East Texas drinks. We’re a grassroots coalition out of Angelina County. We ask the questions in writing, file the records requests, and put every answer where y’all can see it.</p>
     <div class="btns">
       <a class="btn solid" href="https://grailsystems.io/carrizo_wilcox_aquifer/">See the map →</a>
-      <a class="btn ghost" href="#tip">Send us a tip</a>
+      <a class="btn ghost" href="#help">Help protect the Piney Woods</a>
     </div>
   </div>
 </section>
@@ -213,6 +238,43 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
   </div>
 </section>
 
+<section id="help" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Help protect the Piney Woods</div>
+    <h2>This fight runs on neighbors.</h2>
+    <p class="lead">This isn’t a big-money operation. It’s a mom from Angelina County with a laptop, a stack of records requests, and a whole lot of neighbors who are tired of finding out last. Here’s how y’all can stand with her.</p>
+    <div class="help-proof">
+      <span><b>651</b>neighbors in the group</span>
+      <span><b>2,827</b>signed the petition to stop the Lufkin data center (April 2026)</span>
+      <span><b>8</b>records requests filed</span>
+    </div>
+    <div class="ways">
+      <div class="way">
+        <h3>Join us</h3>
+        <p>The ETLC Facebook group is where we share sightings, meeting dates and every record that comes back. It’s free, and it’s where the organizing happens.</p>
+        <a class="go" href="https://www.facebook.com/groups/1249053690274921/" target="_blank" rel="noopener">Join the group</a>
+      </div>
+      <div class="way give">
+        <h3>Chip in</h3>
+        <p>Records aren’t free. The City of Lufkin charged us a $54 deposit for one set. Angelina County charged $45. Every request costs money, gas and time off work, and we pay it so the answers end up public.</p>
+        <div class="amts">
+          <a href="https://cash.app/$grailsystems/25" target="_blank" rel="noopener">$25<small>gas to the next meeting</small></a>
+          <a class="pick" href="https://cash.app/$grailsystems/54" target="_blank" rel="noopener">$54<small>one records deposit</small></a>
+          <a href="https://cash.app/$grailsystems/100" target="_blank" rel="noopener">$100<small>two requests filed</small></a>
+          <a href="https://cash.app/$grailsystems/250" target="_blank" rel="noopener">$250<small>about five requests</small></a>
+        </div>
+        <a class="go" href="https://cash.app/$grailsystems" target="_blank" rel="noopener">Give another amount</a>
+      </div>
+      <div class="way">
+        <h3>Tell somebody</h3>
+        <p>Most folks around here still haven’t heard a word about any of this. Send this page to one person who drinks well water. That’s it. That’s the ask.</p>
+        <button class="go" type="button" id="share-btn">Share this page</button>
+      </div>
+    </div>
+    <p class="fine2">Gifts go through Cash App to Grail Systems, which pays the coalition’s records fees and keeps these sites running. They aren’t tax-deductible. Questions? <a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a></p>
+  </div>
+</section>
+
 <section id="tip" style="padding-top:0">
   <div class="wrap">
     <div class="eyebrow">Send us a tip</div>
@@ -241,6 +303,9 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
         <li><a href="ercot-tracker/">Grid queue tracker</a></li>
       </ul>
       <ul>
+        <li><a href="https://www.facebook.com/groups/1249053690274921/">Join the Facebook group</a></li>
+        <li><a href="#help">Support the coalition</a></li>
+        <li><a href="#tip">Send a tip</a></li>
         <li><a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a></li>
         <li><a href="https://grailsystems.io/carrizo_wilcox_aquifer/founder.html">Our founder</a></li>
       </ul>
@@ -258,6 +323,20 @@ document.getElementById('t-send').addEventListener('click', function () {
   var body = (w ? 'Where: ' + w + '\n\n' : '') + b;
   window.location.href = 'mailto:contact@grailsystems.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 });
+document.getElementById('share-btn').addEventListener('click', function () {
+  var d = {title: 'East Texas Legacy Coalition', text: 'They want the water. We want it in writing.', url: 'https://easttexaslegacy.org/'};
+  if (navigator.share) { navigator.share(d).catch(function(){}); }
+  else if (navigator.clipboard) { navigator.clipboard.writeText(d.url).then(function(){ document.getElementById('share-btn').textContent = 'Link copied. Now paste it somewhere.'; }); }
+});
+window.addEventListener('DOMContentLoaded', function () {
+  var f = document.querySelector('.float-help'), h = document.getElementById('help'), hero = document.querySelector('.hero');
+  if (!f || !('IntersectionObserver' in window)) return;
+  var seen = {help: false, hero: true};
+  function upd(){ f.classList.toggle('hide', seen.help || seen.hero); }
+  new IntersectionObserver(function(e){ e.forEach(function(x){ seen[x.target === h ? 'help' : 'hero'] = x.isIntersecting; }); upd(); }).observe(h);
+  new IntersectionObserver(function(e){ e.forEach(function(x){ seen.hero = x.isIntersecting; }); upd(); }).observe(hero);
+});
 </script>
+<a class="float-help hide" href="#help">💚 Help protect the Piney Woods</a>
 </body>
 </html>
