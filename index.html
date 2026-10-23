@@ -1,813 +1,247 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>East Texas Legacy Coalition | Protecting Our Land, Water & Community</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --green:     #1B4332;
-      --green-mid: #2D6A4F;
-      --green-lt:  #D8F3DC;
-      --white:     #FFFFFF;
-      --offwhite:  #FAFAF8;
-      --border:    #E7E5E4;
-      --text:      #1C1917;
-      --subtext:   #78716C;
-      --light:     #A8A29E;
-      --red:       #DC2626;
-      --amber:     #D97706;
-      --font-serif:'Playfair Display', Georgia, serif;
-      --font-sans: 'Source Sans 3', system-ui, sans-serif;
-      --shadow:    0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
-      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>East Texas Legacy Coalition | They want the water. We want it in writing.</title>
+<meta name="description" content="A grassroots coalition out of Angelina County, Texas, putting the public records behind data centers, crypto mines and power plants where everyone can see them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1B4332;--green-mid:#2D6A4F;--mint:#86EFAC;--paper:#FAFAF8;--card:#FFFFFF;
+  --ink:#1C1917;--dim:#57534E;--line:#E7E5E4;--red:#B91C1C;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0F1712;--card:#16211A;--ink:#ECEAE6;--dim:#A8A29E;--line:#2A3A30;--green:#86EFAC;--green-mid:#86EFAC;--red:#FCA5A5}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+a{color:var(--green-mid)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green-mid);margin-bottom:.6rem}
+h2{font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.15;color:var(--ink);margin-bottom:.9rem}
+section{padding:4.5rem 0}
+.lead{color:var(--dim);max-width:640px;margin-bottom:2rem}
+.src{display:block;margin-top:.8rem;font-size:.78rem;color:var(--dim)}
 
-```
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* hero */
+.hero{min-height:92vh;display:flex;align-items:flex-end;color:#fff;
+  background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.35) 40%,rgba(10,30,20,.92)),
+  url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80') center/cover no-repeat}
+.hero .wrap{padding-top:3rem;padding-bottom:4rem;width:100%}
+.hero .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#86EFAC;border:1px solid rgba(134,239,172,.45);padding:.3rem .8rem;border-radius:999px;margin-bottom:1.2rem}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.05;max-width:14ch;margin-bottom:1.3rem;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero h1 em{color:#86EFAC}
+.hero p{max-width:620px;font-size:clamp(1.05rem,2.2vw,1.2rem);color:rgba(255,255,255,.9);border-left:3px solid #86EFAC;padding-left:1.2rem;margin-bottom:2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.85rem 1.6rem;border-radius:6px;font-weight:700;font-size:.95rem;text-decoration:none}
+.btn.solid{background:#86EFAC;color:#1B4332}.btn.solid:hover{background:#4ADE80}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.55);color:#fff}.btn.ghost:hover{background:rgba(255,255,255,.1)}
 
-body {
-  font-family: var(--font-sans);
-  color: var(--text);
-  background: var(--offwhite);
-  -webkit-font-smoothing: antialiased;
-}
+/* coming to Lufkin */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.5rem;border-top:3px solid var(--green-mid)}
+.card h3{font-family:var(--serif);font-size:1.3rem;margin-bottom:.15rem}
+.card .where{font-size:.85rem;color:var(--dim);margin-bottom:.8rem}
+.card p+p{margin-top:.6rem}
+.card .kicker{font-style:italic}
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0;
-  position: relative;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.15) 0%,
-      rgba(0,0,0,0.35) 40%,
-      rgba(10,30,20,0.88) 100%
-    ),
-    url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80')
-    no-repeat center center / cover;
-}
+/* numbers */
+.band{background:#1B4332;color:#fff}
+.band h2{color:#fff}.band .eyebrow{color:#86EFAC}.band .lead{color:rgba(255,255,255,.8)}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:8px;overflow:hidden}
+.num{background:#1B4332;padding:1.5rem}
+.num b{display:block;font-family:var(--serif);font-size:2.4rem;line-height:1;color:#86EFAC;margin-bottom:.4rem}
+.num span{font-size:.9rem;color:rgba(255,255,255,.8)}
+.band .src{color:rgba(255,255,255,.6)}.band a{color:#86EFAC}
 
-.hero-content {
-  max-width: 900px;
-  padding: 0 2rem 4rem;
-  margin: 0 auto;
-  width: 100%;
-}
+/* timeline */
+.moved{list-style:none;border-left:2px solid var(--line);margin-left:.4rem}
+.moved li{position:relative;padding:0 0 1.4rem 1.4rem}
+.moved li::before{content:"";position:absolute;left:-7px;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--green-mid)}
+.moved .when{display:block;font-weight:700;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--green-mid)}
 
-.hero-eyebrow {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #86efac;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(134,239,172,0.4);
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-}
+/* tools */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.tool{display:block;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.3rem;text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s}
+.tool:hover{transform:translateY(-2px);border-color:var(--green-mid)}
+.tool b{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--green-mid);margin-bottom:.3rem}
+.tool span{font-size:.92rem;color:var(--dim)}
 
-.hero h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1.15;
-  margin-bottom: 1.25rem;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
-}
+/* steps */
+.steps{counter-reset:s;list-style:none;display:grid;gap:1rem;max-width:760px}
+.steps li{counter-increment:s;position:relative;padding-left:3.2rem}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;font-family:var(--serif);font-size:2rem;line-height:1;color:var(--green-mid)}
 
-.hero h1 em {
-  font-style: italic;
-  color: #86efac;
-}
+/* tip */
+.tip{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:2rem;max-width:720px}
+.tip label{display:block;font-weight:600;font-size:.9rem;margin:.9rem 0 .3rem}
+.tip input,.tip textarea{width:100%;padding:.7rem .9rem;border:1.5px solid var(--line);border-radius:6px;font:inherit;font-size:1rem;background:var(--paper);color:var(--ink)}
+.tip textarea{min-height:120px;resize:vertical}
+.tip button{margin-top:1.2rem;background:var(--green-mid);color:var(--paper);border:0;border-radius:6px;padding:.8rem 1.6rem;font:inherit;font-weight:700;cursor:pointer}
+.tip .fine{margin-top:1rem;font-size:.85rem;color:var(--dim)}
 
-.hero-mission {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  color: rgba(255,255,255,0.85);
-  max-width: 680px;
-  line-height: 1.7;
-  font-weight: 300;
-  margin-bottom: 2.5rem;
-  border-left: 3px solid #86efac;
-  padding-left: 1.25rem;
-}
-
-/* ── STAT STRIP IN HERO ── */
-.hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
-}
-.hero-stat {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 6px;
-  padding: 0.6rem 1rem;
-  color: white;
-  font-size: 0.8rem;
-}
-.hero-stat strong {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  display: block;
-  color: #86efac;
-  line-height: 1;
-  margin-bottom: 0.15rem;
-}
-.hero-stat.danger strong { color: #fca5a5; }
-
-/* ── CTA BUTTONS ── */
-.hero-ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-.btn-primary {
-  padding: 0.8rem 2rem;
-  background: #86efac;
-  color: var(--green);
-  border: none;
-  border-radius: 6px;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.15s;
-  display: inline-block;
-}
-.btn-primary:hover { background: #4ade80; }
-.btn-outline {
-  padding: 0.8rem 2rem;
-  background: transparent;
-  color: white;
-  border: 1.5px solid rgba(255,255,255,0.5);
-  border-radius: 6px;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.15s;
-  display: inline-block;
-}
-.btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
-
-/* ── SCROLL INDICATOR ── */
-.scroll-hint {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255,255,255,0.4);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-}
-.scroll-arrow {
-  width: 20px; height: 20px;
-  border-right: 2px solid rgba(255,255,255,0.3);
-  border-bottom: 2px solid rgba(255,255,255,0.3);
-  transform: rotate(45deg);
-  animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  0%,100% { transform: rotate(45deg) translateY(0); }
-  50%      { transform: rotate(45deg) translateY(4px); }
-}
-
-/* ── MAIN CONTENT ── */
-.page { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
-
-/* ── DOMINO EFFECT SECTION ── */
-.domino-section {
-  background: var(--green);
-  color: white;
-  padding: 4rem 1.5rem;
-}
-.domino-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.domino-eyebrow {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #86efac;
-  margin-bottom: 0.75rem;
-}
-.domino-inner h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  color: white;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-.domino-inner p {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.8);
-  max-width: 700px;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-}
-.domino-chain {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  align-items: stretch;
-}
-.domino-step {
-  flex: 1 1 180px;
-  padding: 1.5rem;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  position: relative;
-}
-.domino-step:not(:last-child)::after {
-  content: '→';
-  position: absolute;
-  right: -0.6rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #86efac;
-  font-size: 1.2rem;
-  z-index: 1;
-}
-.domino-num {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  color: rgba(134,239,172,0.3);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.domino-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #86efac;
-  margin-bottom: 0.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.domino-desc {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.65);
-  line-height: 1.5;
-}
-
-/* ── HUB GRID ── */
-.hub-section { background: var(--offwhite); }
-.hub-eyebrow {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--green-mid);
-  margin-bottom: 0.75rem;
-}
-.hub-section h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--green);
-  margin-bottom: 0.5rem;
-}
-.hub-section .lead {
-  font-size: 1rem;
-  color: var(--subtext);
-  max-width: 600px;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-.hub-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
-}
-.hub-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-decoration: none;
-  color: var(--text);
-  box-shadow: var(--shadow);
-  transition: all 0.2s;
-  display: block;
-}
-.hub-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-  border-color: var(--green-mid);
-}
-.hub-card.featured {
-  border-top: 3px solid var(--red);
-}
-.hub-card.featured:hover { border-color: var(--red); }
-.hub-icon {
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
-  display: block;
-}
-.hub-title {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--green);
-  margin-bottom: 0.4rem;
-}
-.hub-card.featured .hub-title { color: var(--red); }
-.hub-desc {
-  font-size: 0.82rem;
-  color: var(--subtext);
-  line-height: 1.55;
-}
-.hub-tag {
-  display: inline-block;
-  margin-top: 0.75rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--green-mid);
-}
-.hub-card.featured .hub-tag { color: var(--red); }
-
-/* ── COALITION SECTION ── */
-.coalition-section {
-  background: var(--white);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.coalition-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-.coalition-text .eyebrow {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--green-mid);
-  margin-bottom: 0.75rem;
-}
-.coalition-text h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--green);
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-.coalition-text p {
-  font-size: 0.95rem;
-  color: var(--subtext);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-.county-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
-}
-.county-tag {
-  background: var(--green-lt);
-  color: var(--green);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-}
-.coalition-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.c-stat {
-  background: var(--offwhite);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.25rem 1rem;
-  text-align: center;
-}
-.c-stat-num {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--green);
-  line-height: 1;
-  margin-bottom: 0.3rem;
-}
-.c-stat-num.danger { color: var(--red); }
-.c-stat-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--subtext);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ── INTAKE ── */
-.intake-section { background: var(--offwhite); }
-.intake-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  text-align: center;
-}
-.intake-inner .eyebrow {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--green-mid);
-  margin-bottom: 0.75rem;
-}
-.intake-inner h2 {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  color: var(--green);
-  margin-bottom: 0.75rem;
-}
-.intake-inner p {
-  font-size: 0.95rem;
-  color: var(--subtext);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-.intake-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 2rem;
-  text-align: left;
-  box-shadow: var(--shadow);
-}
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-.form-grid input,
-.form-grid textarea {
-  width: 100%;
-  padding: 0.65rem 0.9rem;
-  border: 1.5px solid var(--border);
-  border-radius: 6px;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  color: var(--text);
-  background: var(--offwhite);
-  outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.form-grid input:focus,
-.form-grid textarea:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(27,67,50,0.08);
-}
-.form-grid input::placeholder,
-.form-grid textarea::placeholder { color: var(--light); }
-.form-grid textarea { grid-column: 1 / -1; resize: vertical; min-height: 100px; }
-.form-actions { display: flex; align-items: center; gap: 1rem; }
-.btn-green {
-  padding: 0.7rem 1.75rem;
-  background: var(--green);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.btn-green:hover { background: var(--green-mid); }
-#tip-status { font-size: 0.8rem; color: var(--subtext); }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--green);
-  color: rgba(255,255,255,0.65);
-  padding: 2.5rem 1.5rem;
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-.footer-brand strong {
-  display: block;
-  color: white;
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  margin-bottom: 0.35rem;
-}
-.footer-brand p { font-size: 0.78rem; line-height: 1.6; max-width: 280px; }
-.footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
-.footer-links a {
-  color: rgba(255,255,255,0.65);
-  text-decoration: none;
-  font-size: 0.82rem;
-  transition: color 0.15s;
-}
-.footer-links a:hover { color: #86efac; }
-.footer-bottom {
-  max-width: 1100px;
-  margin: 1.5rem auto 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.4);
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  .hero-content { padding: 0 1.25rem 3rem; }
-  .domino-step:not(:last-child)::after { display: none; }
-  .domino-step { border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .coalition-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .form-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; }
-  .scroll-hint { display: none; }
-}
-```
-
-  </style>
+footer{background:#1B4332;color:rgba(255,255,255,.75);padding:3rem 0;font-size:.92rem}
+footer .cols{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between}
+footer strong{display:block;font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:.4rem}
+footer a{color:#86EFAC}
+footer ul{list-style:none;display:grid;gap:.35rem}
+footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.8rem;color:rgba(255,255,255,.5)}
+</style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
-
 <section class="hero">
-  <div class="hero-content">
-    <span class="hero-eyebrow">East Texas Legacy Coalition</span>
-    <h1>They're Coming<br>for Our <em>Piney Woods.</em></h1>
-    <p class="hero-mission">
-      Fifty-eight major industrial energy projects are quietly lining up across East Texas — 
-      solar arrays, battery storage facilities, gas plants, and data centers targeting our forests, 
-      our aquifers, and our communities. Once built, the damage is permanent. We are mapping 
-      the truth before it is too late.
-    </p>
-    <div class="hero-stats">
-      <div class="hero-stat danger">
-        <strong>30.3 GW</strong>
-        Queued for East Texas
-      </div>
-      <div class="hero-stat danger">
-        <strong>6,836 MW</strong>
-        Gas plants threatening air &amp; water
-      </div>
-      <div class="hero-stat">
-        <strong>15</strong>
-        Counties under threat
-      </div>
-      <div class="hero-stat">
-        <strong>136</strong>
-        Projects tracked &amp; classified
-      </div>
+  <div class="wrap">
+    <span class="tag">East Texas Legacy Coalition</span>
+    <h1>They want the water. We want it <em>in writing.</em></h1>
+    <p>Data centers, crypto mines and power plants are lining up over the Carrizo-Wilcox Aquifer, the water Deep East Texas drinks. We’re a grassroots coalition out of Angelina County. We ask the questions in writing, file the records requests, and put every answer where y’all can see it.</p>
+    <div class="btns">
+      <a class="btn solid" href="https://grailsystems.io/carrizo_wilcox_aquifer/">See the map →</a>
+      <a class="btn ghost" href="#tip">Send us a tip</a>
     </div>
-    <div class="hero-ctas">
-      <a href="ercot-tracker/" class="btn-primary">View the Full Tracker &#8594;</a>
-      <a href="secure-intake.html" class="btn-outline">Submit a Tip</a>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <span>Learn More</span>
-    <div class="scroll-arrow"></div>
   </div>
 </section>
 
-<!-- ── DOMINO EFFECT ── -->
-
-<section class="domino-section">
-  <div class="domino-inner">
-    <div class="domino-eyebrow">The Industrial Domino Effect</div>
-    <h2>Solar is Just the Beginning</h2>
-    <p>
-      Industrial developers are using "green energy" as a Trojan Horse. The solar panels come first, 
-      securing grid connections and tax incentives. Data centers follow — bringing massive water 
-      demands, industrial infrastructure, and permanent transformation of our rural landscape. 
-      Our region is being targeted before residents even know what's happening.
-    </p>
-    <div class="domino-chain">
-      <div class="domino-step">
-        <div class="domino-num">01</div>
-        <div class="domino-title">Solar &amp; BESS</div>
-        <div class="domino-desc">Developers lease thousands of acres of timberland under "green energy" branding. PFAS-laden panels clear-cut pine forests.</div>
+<section>
+  <div class="wrap">
+    <div class="eyebrow">What’s coming to Lufkin</div>
+    <h2>Three projects, one aquifer.</h2>
+    <p class="lead">Every figure here comes from a public record or a published report, and the source sits right under it. If we can’t prove it, it isn’t on this page.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Amp Z</h3>
+        <div class="where">Old Southland Paper Mill, Highway 103 East</div>
+        <p>About 1,041 acres optioned for an AI data center campus the developer plans to grow to 2.1 gigawatts.</p>
+        <p>The City’s water estimate: about 500 gallons a day, roughly what three houses use.</p>
+        <p class="kicker">We have follow-up questions.</p>
+        <span class="src">Sources: Data Center Dynamics, Feb. 5, 2026; City of Lufkin Data Center FAQ.</span>
       </div>
-      <div class="domino-step">
-        <div class="domino-num">02</div>
-        <div class="domino-title">Grid Connection</div>
-        <div class="domino-desc">Power Purchase Agreements are quietly signed with undisclosed tech companies. The grid infrastructure is now in place.</div>
+      <div class="card">
+        <h3>HyperDataGrid</h3>
+        <div class="where">Old Northern Chip Mill, Ben Dunn Road</div>
+        <p>About 40 acres. County Judge Keith Wright says the company has secured power and water agreements and started clearing land. Local officials say it plans to use the wells already on the property, with power from Oncor.</p>
+        <p class="kicker">Old wells, new thirst.</p>
+        <span class="src">Sources: Data Center Dynamics, citing KLTV; Baxtel data center listing.</span>
       </div>
-      <div class="domino-step">
-        <div class="domino-num">03</div>
-        <div class="domino-title">Data Centers</div>
-        <div class="domino-desc">Data centers follow the power. Each facility consumes up to 5 million gallons of water per day, draining the Carrizo-Wilcox Aquifer.</div>
-      </div>
-      <div class="domino-step">
-        <div class="domino-num">04</div>
-        <div class="domino-title">Irreversible</div>
-        <div class="domino-desc">Once our groundwater is depleted and our forests are cleared, our agricultural economy and rural way of life cannot recover.</div>
+      <div class="card">
+        <h3>WattBridge</h3>
+        <div class="where">Pineywoods Groundwater Conservation District</div>
+        <p>Approved for 80 million gallons a year in 2024–25 and never drilled. In March 2026 it asked for 1.5 billion gallons a year. That request has been on hold since July.</p>
+        <p class="kicker">That’s not a rounding error. That’s a lake.</p>
+        <span class="src">Source: Pineywoods general manager Wil Blough, email to ETLC, Sept. 22, 2026.</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── HUB ── -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">The bigger picture</div>
+    <h2>East Texas is in the queue.</h2>
+    <p class="lead">ERCOT keeps a list of every power project asking to plug into the Texas grid. Here’s what that list showed for the 15 East Texas counties we track.</p>
+    <div class="nums">
+      <div class="num"><b>136</b><span>projects in the grid queue</span></div>
+      <div class="num"><b>30.3 GW</b><span>of total capacity asking to connect</span></div>
+      <div class="num"><b>6,837 MW</b><span>of it from gas plants</span></div>
+      <div class="num"><b>54</b><span>with interconnection agreements already signed</span></div>
+    </div>
+    <span class="src">Source: ERCOT Generator Interconnection Status report, April 2026. <a href="ercot-tracker/">Browse every project →</a></span>
+  </div>
+</section>
 
-<section class="hub-section">
-  <div class="page">
-    <div class="hub-eyebrow">Coalition Resources</div>
-    <h2>Our Command Center</h2>
-    <p class="lead">Data, maps, and verified records — the tools we need to fight back at the state level.</p>
-    <div class="hub-grid">
-      <a href="ercot-tracker/" class="hub-card featured">
-        <span class="hub-icon">📡</span>
-        <div class="hub-title">ERCOT Industrial Tracker</div>
-        <div class="hub-desc">Live database of every energy project in the interconnection queue targeting our 15-county region. Threat-classified and filterable.</div>
-        <div class="hub-tag">136 Projects &#8594;</div>
-      </a>
-      <a href="amp-z-investigation.html" class="hub-card">
-        <span class="hub-icon">🔍</span>
-        <div class="hub-title">Amp Z / Project Lufkin</div>
-        <div class="hub-desc">Tracking utility agreements and industrial impact data tied to Amp Z's operations targeting Angelina County.</div>
-        <div class="hub-tag">Investigation &#8594;</div>
-      </a>
-      <a href="aquifer-defense.html" class="hub-card">
-        <span class="hub-icon">💧</span>
-        <div class="hub-title">Carrizo-Wilcox Defense</div>
-        <div class="hub-desc">Monitoring the aquifer that supplies drinking water to East Texas communities — and the industrial threats to its integrity.</div>
-        <div class="hub-tag">Water Defense &#8594;</div>
-      </a>
-      <a href="secure-intake.html" class="hub-card">
-        <span class="hub-icon">🔒</span>
-        <div class="hub-title">Secure Intake Portal</div>
-        <div class="hub-desc">Witnessed construction activity, received a lease offer, or have documents to share? Submit directly to coalition researchers.</div>
-        <div class="hub-tag">Submit a Tip &#8594;</div>
-      </a>
+<section>
+  <div class="wrap">
+    <div class="eyebrow">What’s moved so far</div>
+    <h2>Turns out the state reads its mail.</h2>
+    <p class="lead">ETLC was one voice among a lot of folks. Here’s what changed while we were making noise.</p>
+    <ul class="moved">
+      <li><span class="when">May 27, 2026</span>Founder Fawn Zion testifies in Austin on the draft State Water Plan. <a href="https://grailsystems.io/carrizo_wilcox_aquifer/founder.html">Read her testimony</a>.</li>
+      <li><span class="when">July 23, 2026</span>After more than 1,000 public comments, about 268 of them on data centers and crypto mining, the Water Development Board adopts its plan with new language on data center water use.</li>
+      <li><span class="when">Sept. 21, 2026</span>Governor Abbott orders the TCEQ to halt all permits sought by data centers until ERCOT finishes its audit.</li>
+      <li><span class="when">Oct. 1, 2026</span>The Region I water planning group enters ETLC’s written comment into the record.</li>
+      <li><span class="when">Oct. 9, 2026</span>The City of Lufkin asks the Attorney General for permission to withhold records ETLC requested. We paid the deposit anyway. <a href="https://grailsystems.io/carrizo_wilcox_aquifer/records.html">Track every request</a>.</li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">The receipts</div>
+    <h2>Look it up yourself.</h2>
+    <p class="lead">These tools are built by <a href="https://grailsystems.io/">Grail Systems</a> and open to everybody. No login, no paywall, no spin.</p>
+    <div class="tools">
+      <a class="tool" href="https://grailsystems.io/carrizo_wilcox_aquifer/"><b>Aquifer Defense Grid</b><span>Projects, permits, water levels and EPA violations on one map. Every point links to its record.</span></a>
+      <a class="tool" href="https://grailsystems.io/carrizo_wilcox_aquifer/records.html"><b>Records requests</b><span>What we asked for, what each agency did, and every legal deadline.</span></a>
+      <a class="tool" href="https://grailsystems.io/carrizo_wilcox_aquifer/wall_of_shame.html"><b>Wall of Shame</b><span>Energy and utility money to Deep East Texas officials, next to how they voted.</span></a>
+      <a class="tool" href="https://grailsystems.io/carrizo_wilcox_aquifer/docs/powered_land.pdf"><b>Powered Land</b><span>How East Texas water gets promised away without anybody asking East Texas.</span></a>
+      <a class="tool" href="ercot-tracker/"><b>Grid queue tracker</b><span>All 136 projects from ERCOT’s April 2026 report, by county and fuel.</span></a>
+      <a class="tool" href="https://grailsystems.io/carrizo_wilcox_aquifer/founder.html"><b>Our founder</b><span>Fawn Elizabeth Zion: her testimony, her proposals, and the fight so far.</span></a>
     </div>
   </div>
 </section>
 
-<!-- ── COALITION ── -->
-
-<section class="coalition-section">
-  <div class="coalition-inner">
-    <div class="coalition-text">
-      <div class="eyebrow">United We Stand</div>
-      <h2>A 15-County Coalition Fighting Back</h2>
-      <p>
-        The East Texas Legacy Coalition was formed by farmers, families, and neighbors who refused 
-        to watch the destruction of our ecosystem happen in silence. We are a data-driven grassroots 
-        movement united across county lines — because these developers don't stop at county borders, 
-        and neither do we.
-      </p>
-      <p>
-        Working alongside Protect Our Piney Woods and allied coalitions, we are building the verified 
-        record needed to take this fight to Austin — to the PUCT, the Senate Committee on Water, 
-        Agriculture &amp; Rural Affairs, and the House Committee on State Affairs.
-      </p>
-      <div class="county-list" id="countyList">
-        <!-- filled by JS -->
-      </div>
-    </div>
-    <div class="coalition-stats">
-      <div class="c-stat">
-        <div class="c-stat-num danger">31</div>
-        <div class="c-stat-label">Critical Threat Projects</div>
-      </div>
-      <div class="c-stat">
-        <div class="c-stat-num">54</div>
-        <div class="c-stat-label">Committed Developments</div>
-      </div>
-      <div class="c-stat">
-        <div class="c-stat-num danger">123</div>
-        <div class="c-stat-label">PFAS / Water Risk Sites</div>
-      </div>
-      <div class="c-stat">
-        <div class="c-stat-num">2,827</div>
-        <div class="c-stat-label">Documented Lease Acres</div>
-      </div>
-    </div>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Do this in your town</div>
+    <h2>You don’t need a title. Just a pen.</h2>
+    <ol class="steps">
+      <li><strong>Ask in writing.</strong> A public information request costs next to nothing and puts an agency on a legal clock. Our <a href="https://grailsystems.io/carrizo_wilcox_aquifer/records.html">records page</a> shows exactly what we asked for. Steal it.</li>
+      <li><strong>Find your regional water planning group.</strong> Texas has 16. That’s where water demand numbers get made, and almost nobody comments there. Be the somebody.</li>
+      <li><strong>Show up and say it plain.</strong> Fifteen people spoke for themselves at the Austin hearing, and the plan still changed.</li>
+    </ol>
   </div>
 </section>
 
-<!-- ── INTAKE ── -->
-
-<section class="intake-section">
-  <div class="intake-inner">
-    <div class="eyebrow">Secure Citizen Intake</div>
-    <h2>Your Information Builds the Record</h2>
-    <p>
-      If you've seen construction activity, received a lease offer, or have documents related to 
-      industrial development in your community — we need to hear from you. Every submission helps 
-      build the verified public record we bring to Austin.
-    </p>
-    <div class="intake-card">
-      <div class="form-grid">
-        <input type="text" id="tip-subject" placeholder="Subject (e.g., new construction on FM 1818)" />
-        <input type="text" id="tip-county" placeholder="County / Location" />
-        <textarea id="tip-details" placeholder="Describe what you've observed — company name, activity, dates, location details…"></textarea>
-      </div>
-      <div class="form-actions">
-        <button class="btn-green" onclick="transmitPayload()">Submit Report</button>
-        <span id="tip-status"></span>
-      </div>
+<section id="tip" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Send us a tip</div>
+    <h2>Seen something? Tell us.</h2>
+    <p class="lead">New construction, a lease offer, a well going in, a document somebody ought to see. This opens an email to the coalition with your note filled in.</p>
+    <div class="tip">
+      <label for="t-sub">What is it?</label>
+      <input id="t-sub" type="text" placeholder="New clearing on Ben Dunn Road">
+      <label for="t-where">Where?</label>
+      <input id="t-where" type="text" placeholder="County, road or nearest landmark">
+      <label for="t-body">What did you see, and when?</label>
+      <textarea id="t-body" placeholder="Company names, dates, what it looked like. Photos can go in the email."></textarea>
+      <button type="button" id="t-send">Open the email</button>
+      <p class="fine">Email isn’t anonymous. If you need to stay out of it, say so and we’ll keep your name to ourselves. We check every tip before anything goes public.</p>
     </div>
   </div>
 </section>
-
-<!-- ── FOOTER ── -->
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <strong>East Texas Legacy Coalition</strong>
-      <p>Defending our land, water, and communities from unchecked industrial development in the Piney Woods region.</p>
+  <div class="wrap">
+    <div class="cols">
+      <div><strong>East Texas Legacy Coalition</strong>Founded by Fawn Elizabeth Zion.<br>Angelina County, Texas.</div>
+      <ul>
+        <li><a href="https://grailsystems.io/carrizo_wilcox_aquifer/">Aquifer Defense Grid</a></li>
+        <li><a href="https://grailsystems.io/carrizo_wilcox_aquifer/records.html">Records requests</a></li>
+        <li><a href="ercot-tracker/">Grid queue tracker</a></li>
+      </ul>
+      <ul>
+        <li><a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a></li>
+        <li><a href="https://grailsystems.io/carrizo_wilcox_aquifer/founder.html">Our founder</a></li>
+      </ul>
     </div>
-    <div class="footer-links">
-      <a href="ercot-tracker/">ERCOT Industrial Tracker</a>
-      <a href="amp-z-investigation.html">Amp Z Investigation</a>
-      <a href="aquifer-defense.html">Carrizo-Wilcox Aquifer Defense</a>
-      <a href="secure-intake.html">Secure Intake Portal</a>
-    </div>
-    <div class="footer-links">
-      <a href="https://www.protectourpineywoods.com" target="_blank">Protect Our Piney Woods &#8599;</a>
-      <a href="https://www.change.org/p/protect-our-piney-woods-demand-a-moratorium-on-industrial-solar-bess" target="_blank">Sign the Petition &#8599;</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2026 East Texas Legacy Coalition &nbsp;&middot;&nbsp; Built by Grail Systems &nbsp;&middot;&nbsp; &ldquo;Map the truth.&rdquo;
+    <div class="small">© 2026 East Texas Legacy Coalition · Built by <a href="https://grailsystems.io/">Grail Systems</a></div>
   </div>
 </footer>
 
 <script>
-  // County tags
-  const counties = [
-    'Angelina','Nacogdoches','Anderson','Henderson','Cherokee',
-    'Rusk','Navarro','Houston','Smith','Delta',
-    'Freestone','Leon','Lamar','Red River','Rains'
-  ];
-  document.getElementById('countyList').innerHTML =
-    counties.map(c => `<span class="county-tag">${c}</span>`).join('');
-
-  // Intake form
-  function transmitPayload() {
-    const subject  = document.getElementById('tip-subject').value.trim();
-    const county   = document.getElementById('tip-county').value.trim();
-    const details  = document.getElementById('tip-details').value.trim();
-    const statusEl = document.getElementById('tip-status');
-    if (!subject || !details) {
-      statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Please fill in the subject and details.';
-      return;
-    }
-    statusEl.style.color = '#78716C';
-    statusEl.textContent = 'Sending…';
-    fetch('https://lufkin-intake-proxy.zion-auto-glass.workers.dev/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ subject: subject + (county ? ' [' + county + ']' : ''), details })
-    }).then(r => r.json()).then(data => {
-      if (data.status === 'SECURE_PAYLOAD_RECEIVED') {
-        statusEl.style.color = '#2D6A4F';
-        statusEl.textContent = '✓ Report received. Thank you.';
-        document.getElementById('tip-subject').value = '';
-        document.getElementById('tip-county').value = '';
-        document.getElementById('tip-details').value = '';
-      } else { throw new Error(); }
-    }).catch(() => {
-      statusEl.style.color = '#DC2626';
-      statusEl.textContent = 'Submission failed. Please try again.';
-    });
-  }
+document.getElementById('t-send').addEventListener('click', function () {
+  var s = document.getElementById('t-sub').value.trim();
+  var w = document.getElementById('t-where').value.trim();
+  var b = document.getElementById('t-body').value.trim();
+  var subject = 'ETLC tip: ' + (s || 'something I saw') + (w ? ' (' + w + ')' : '');
+  var body = (w ? 'Where: ' + w + '\n\n' : '') + b;
+  window.location.href = 'mailto:contact@grailsystems.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
 </script>
-
 </body>
 </html>
