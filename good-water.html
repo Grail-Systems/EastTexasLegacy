@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leave the good water for the people | East Texas Legacy Coalition</title>
+<meta name="description" content="Lufkin already owns river and lake water it bought for industry in 2009. Data centers can cool with that, or with reused water. Leave the Carrizo-Wilcox for the people who drink it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lufkin already owns water bought for industry">
+<meta property="og:description" content="In 2009 the City bought the paper mill’s river water rights and Lake Kurth to sell water to industry. Cool the servers with that, and leave the Carrizo-Wilcox for the people who drink it.">
+<meta property="og:url" content="https://easttexaslegacy.org/good-water.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/share_home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1B4332;--green-mid:#2D6A4F;--mint:#86EFAC;--paper:#FAFAF8;--card:#FFFFFF;
+  --ink:#1C1917;--dim:#57534E;--line:#E7E5E4;--red:#B91C1C;
+  --gas:#9A3412;--dc:#1B4332;--sun:#A16207;--batt:#3F6212;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0F1712;--card:#16211A;--ink:#ECEAE6;--dim:#A8A29E;--line:#2A3A30;--green:#86EFAC;--green-mid:#86EFAC;--red:#FCA5A5;
+  --gas:#FDBA74;--dc:#86EFAC;--sun:#FDE047;--batt:#BEF264}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--green-mid)}
+:focus-visible{outline:3px solid var(--green-mid);outline-offset:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
+.top{padding:calc(1rem + env(safe-area-inset-top,0px)) 0 1rem;border-bottom:1px solid var(--line)}
+.top a{font-weight:700;text-decoration:none}
+header.intro{padding:3.5rem 0 2rem}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;max-width:16ch;margin-bottom:1rem}
+.lead{color:var(--dim);max-width:62ch;font-size:1.12rem}
+h2{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.2;margin:0 0 .8rem}
+section{padding:2.5rem 0}
+p+p{margin-top:.8rem}
+.src{display:block;margin-top:.9rem;font-size:.82rem;color:var(--dim)}
+
+/* the scale */
+.scale{margin:1.5rem 0 .6rem;display:flex;height:64px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.scale div{height:100%;position:relative}
+.scale .dc{background:var(--dc)}.scale .gas{background:var(--gas)}.scale .sun{background:var(--sun)}.scale .batt{background:var(--batt)}
+.scale div+div{border-left:2px solid var(--paper)}
+.scale span{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--paper);font-weight:700;font-size:.95rem;white-space:nowrap}
+.key{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.35rem 1.5rem;font-size:.95rem;margin-top:.8rem}
+.key li{display:flex;gap:.6rem;align-items:baseline}
+.key i{flex:none;width:.85rem;height:.85rem;border-radius:2px;display:inline-block;transform:translateY(1px)}
+.key b{font-variant-numeric:tabular-nums}
+.big{font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,3.2vw,1.65rem);line-height:1.35;margin:1.6rem 0 .4rem;max-width:34ch}
+
+/* projects */
+.proj{border-top:1px solid var(--line);padding:2rem 0}
+.proj:first-of-type{border-top:0}
+.proj h3{font-family:var(--serif);font-size:1.55rem;line-height:1.2}
+.proj .kind{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.95rem;margin:.25rem 0 1rem}
+.proj .kind i{width:.75rem;height:.75rem;border-radius:2px}
+.facts{display:grid;grid-template-columns:8.5rem 1fr;gap:.45rem 1rem;max-width:62ch}
+.facts dt{font-weight:700;color:var(--dim)}
+@media (max-width:520px){.facts{grid-template-columns:1fr;gap:.1rem}.facts dd{margin-bottom:.6rem}}
+.flag{display:block;margin-top:1rem;padding:.8rem 1rem;border-left:3px solid var(--red);background:var(--card);max-width:62ch}
+.note{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.4rem 1.5rem;max-width:66ch}
+.note h2{font-size:1.35rem}
+.next{list-style:none;display:grid;gap:.6rem;max-width:62ch}
+.next li{padding-left:1.2rem;position:relative}
+.next li::before{content:"";position:absolute;left:0;top:.65rem;width:.45rem;height:.45rem;background:var(--green-mid);border-radius:50%}
+footer{background:#1B4332;color:rgba(255,255,255,.8);padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px));font-size:.92rem;margin-top:2rem}
+footer a{color:#86EFAC}
+footer strong{display:block;font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:.3rem}
+.three{list-style:none;display:grid;gap:1rem;max-width:66ch;margin-top:1rem}
+.three li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green-mid);border-radius:6px;padding:1rem 1.2rem}
+.three li.no{border-left-color:var(--red)}
+.three b{display:block;font-family:var(--serif);font-size:1.15rem;margin-bottom:.2rem}
+.unk{list-style:none;display:grid;gap:.7rem;max-width:62ch}
+.unk li{padding-left:1.2rem;position:relative}
+.unk li::before{content:"?";position:absolute;left:0;top:0;font-weight:700;color:var(--red)}
+.say{font-family:var(--serif);font-size:1.15rem;border-left:4px solid var(--green-mid);padding:.3rem 0 .3rem 1rem;margin:1rem 0;max-width:56ch}
+.tag{font-size:.8rem;font-weight:700;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="./">East Texas Legacy Coalition</a></div></div>
+<main class="wrap">
+<header class="intro">
+  <h1>Leave the good water for the people.</h1>
+  <p class="lead">We’re not asking anybody to shut the lights off. We’re asking that the water we drink go to people, and that servers get cooled with other water. Lufkin already owns some. It bought it for industry in 2009.</p>
+</header>
+
+<section aria-labelledby="kinds" style="padding-top:0">
+  <h2 id="kinds">Not all water has to be drinking water</h2>
+  <p>A cooling tower doesn’t need water clean enough to drink. Here are the kinds of water around Lufkin, and what each one is good for.</p>
+  <ul class="three">
+    <li class="no"><b>The Carrizo-Wilcox</b>Lufkin’s drinking water comes from this aquifer. It refills slowly, and the state measured it dropping nearly 500 feet while the paper mill pumped. <a href="water-history.html">The history</a>.</li>
+    <li><b>River and lake water the City already owns</b>Rights to 19,100 acre-feet a year from the Angelina River, stored in Lake Kurth. That’s about <strong>17 million gallons a day</strong>. The City also owns a share of Sam Rayburn water.</li>
+    <li><b>Reused water</b>Treated wastewater, cleaned again for cooling. Other data centers already run on it (more below).</li>
+  </ul>
+  <span class="src">Sources: <a href="https://www.ktre.com/story/9853201/letter-of-intent-to-purchase-abitibibowaters-angelina-county-water-holdings/">KTRE, Feb. 2009</a> (19,100 acre-feet a year from the Angelina River; Kurth Lake storage); <a href="https://www.tceq.texas.gov/assets/public/comm_exec/agendas/comm/marked/2009/090826.mrk.pdf">TCEQ agenda, Aug. 26, 2009</a> (the City owns part of the Sam Rayburn water right). 19,100 acre-feet × 325,851 gallons ÷ 365 days = about 17 million gallons a day.</span>
+</section>
+
+<section aria-labelledby="bought" style="padding-top:0">
+  <div class="note">
+    <h2 id="bought">The City bought it for industry</h2>
+    <p>In 2009 the City agreed to pay $15 million for the old paper mill’s water system: 13 wells, Lake Kurth, and the Angelina River rights. A council member said at the time that the City would be able to sell treated and untreated water to business and industry.</p>
+    <p>This year, former Mayor Jack Gorden told the Lufkin Daily News: “This is the reason that water was bought for.”</p>
+    <p>For scale: City Manager Kevin Gee has said Lufkin uses about <strong>8 million gallons a day</strong> in all. The river right alone is about twice that.</p>
+    <span class="src">Sources: <a href="https://www.ktre.com/story/9853201/letter-of-intent-to-purchase-abitibibowaters-angelina-county-water-holdings/">KTRE, Feb. 2009</a>; <a href="https://lufkindailynews.com/news/local/as-ai-data-centers-eye-lufkin-officials-and-residents-debate-water-use-and-oversight/article_9839f509-e9eb-500e-aad6-36237f98d224.html">Lufkin Daily News, “As AI data centers eye Lufkin”</a>; <a href="https://www.twdb.texas.gov/surfacewater/rivers/reservoirs/kurth/index.asp">TWDB, Lake Kurth</a> (built under a 1958 permit to Southland Paper Mills, now owned by the City).</span>
+  </div>
+</section>
+
+<section aria-labelledby="done" style="padding-top:0">
+  <h2 id="done">Other data centers already do this</h2>
+  <ul class="next">
+    <li><strong>San Antonio, Texas.</strong> Microsoft reports that 79% of the water at its San Antonio site is recycled, reused or non-potable. <span class="src" style="display:inline"><a href="https://blogs.microsoft.com/blog/2026/06/24/inside-microsofts-two-decade-push-to-cut-water-intensity-while-scaling-for-growth/">Microsoft, June 2026</a></span></li>
+    <li><strong>Douglas County, Georgia.</strong> Google’s data center switched from drinking water to recycled water for cooling in 2008. <span class="src" style="display:inline"><a href="https://silicon.co.uk/workspace/google-data-centre-cooled-by-bathtub-water-67756">Silicon UK</a></span></li>
+  </ul>
+</section>
+
+<section aria-labelledby="salty" style="padding-top:0">
+  <h2 id="salty">“Why not use the salty water underground?”</h2>
+  <p>We looked. Texas has mapped 31 zones of brackish (salty) groundwater set aside for heavy use. None has been added since 2019, and none is in Deep East Texas. The state is still studying the Yegua-Jackson aquifer, which runs under our part of the state.</p>
+  <p>And some of the “other layers” aren’t junk water. The state found fresh water in the Yegua across Angelina County, down to a line between Huntington and Diboll, and the City of Diboll pumps from it. <span class="tag">[Our reading]</span> South of that line the Yegua is likely saltier, but nobody has studied it as a water supply. Salty groundwater isn’t a ready option here today. The water the City already owns is.</p>
+  <span class="src">Sources: <a href="https://www.twdb.texas.gov/groundwater/bracs/doc/2025_The_Status_of_Brackish_Aquifer_Studies_in_Texas.pdf">TWDB, The Status of Brackish Aquifer Studies in Texas, Dec. 1, 2025</a>; <a href="https://www.twdb.texas.gov/groundwater/bracs/HB30.asp">TWDB zone designations</a> (2016: Carrizo-Wilcox south of the Colorado River, Gulf Coast, Rustler; 2019: Blossom, Nacatoch, Northern Trinity); <a href="https://www.twdb.texas.gov/publications/reports/numbered_reports/doc/R110/R110.pdf">TWDB Report 110</a> (1970), Yegua Formation section (fresh-water area; Diboll’s pumping).</span>
+</section>
+
+<section aria-labelledby="who" style="padding-top:0">
+  <h2 id="who">Who can make it happen</h2>
+  <ul class="three">
+    <li><b>Lufkin City Council</b>The Lufkin Daily News reported that a big industrial user would likely need a contract with the City to get water. The contract can say which water.</li>
+    <li><b>Pineywoods Groundwater Conservation District</b>Texas law lets a district set different rules for each aquifer, or each layer of one. It could hold the Carrizo-Wilcox to tighter limits.</li>
+    <li><b>The Texas Legislature</b>Lawmakers have said groundwater will be a major focus when they meet in January 2027.</li>
+  </ul>
+  <span class="src">Sources: <a href="https://lufkindailynews.com/news/local/as-ai-data-centers-eye-lufkin-officials-and-residents-debate-water-use-and-oversight/article_9839f509-e9eb-500e-aad6-36237f98d224.html">Lufkin Daily News</a>; <a href="https://texas.public.law/statutes/tex._water_code_section_36.116">Texas Water Code §36.116(d)</a>.</span>
+</section>
+
+<section aria-labelledby="dont" style="padding-top:0">
+  <h2 id="dont">What we don’t know yet</h2>
+  <ul class="unk">
+    <li>Whether the City’s Angelina River right is still in good standing, and how much river and lake water it uses today. We’ve asked for the records.</li>
+    <li>How much Sam Rayburn water the City owns. News stories say 28,000 acre-feet a year; a 1991 state report says 43,000.</li>
+    <li>Whether any water deal under discussion says which water a data center would get.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="do" style="padding-top:0">
+  <h2 id="do">What you can do</h2>
+  <p>Ask the Lufkin City Council one question, out loud or by email:</p>
+  <div class="say">“Will any data center water deal require river, lake or reused water instead of the Carrizo-Wilcox, and will you put it in the contract?”</div>
+  <p><a href="./#act">Here’s how to sign up to speak.</a> Then share this page with somebody who thinks it’s data centers or water, one or the other.</p>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="projects.html">The seven projects</a>&emsp;<a href="water-history.html">Our water history</a><br>
+    Last checked against sources Oct. 25, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+</body>
+</html>
