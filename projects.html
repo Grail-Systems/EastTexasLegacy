@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seven big projects in Angelina County | East Texas Legacy Coalition</title>
+<meta name="description" content="Two data centers, two gas plants, a solar farm and two battery sites are lined up for Angelina County. What each one is, how big it is, and what we know about its water, in plain words with sources.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Seven big projects are lined up for Angelina County">
+<meta property="og:description" content="Two data centers, two gas plants, a solar farm and two battery sites. What each one is and what we know about its water, with sources.">
+<meta property="og:url" content="https://easttexaslegacy.org/projects.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/etlc_share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1B4332;--green-mid:#2D6A4F;--mint:#86EFAC;--paper:#FAFAF8;--card:#FFFFFF;
+  --ink:#1C1917;--dim:#57534E;--line:#E7E5E4;--red:#B91C1C;
+  --gas:#9A3412;--dc:#1B4332;--sun:#A16207;--batt:#3F6212;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0F1712;--card:#16211A;--ink:#ECEAE6;--dim:#A8A29E;--line:#2A3A30;--green:#86EFAC;--green-mid:#86EFAC;--red:#FCA5A5;
+  --gas:#FDBA74;--dc:#86EFAC;--sun:#FDE047;--batt:#BEF264}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--green-mid)}
+:focus-visible{outline:3px solid var(--green-mid);outline-offset:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
+.top{padding:calc(1rem + env(safe-area-inset-top,0px)) 0 1rem;border-bottom:1px solid var(--line)}
+.top a{font-weight:700;text-decoration:none}
+header.intro{padding:3.5rem 0 2rem}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;max-width:16ch;margin-bottom:1rem}
+.lead{color:var(--dim);max-width:62ch;font-size:1.12rem}
+h2{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.2;margin:0 0 .8rem}
+section{padding:2.5rem 0}
+p+p{margin-top:.8rem}
+.src{display:block;margin-top:.9rem;font-size:.82rem;color:var(--dim)}
+
+/* the scale */
+.scale{margin:1.5rem 0 .6rem;display:flex;height:64px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.scale div{height:100%;position:relative}
+.scale .dc{background:var(--dc)}.scale .gas{background:var(--gas)}.scale .sun{background:var(--sun)}.scale .batt{background:var(--batt)}
+.scale div+div{border-left:2px solid var(--paper)}
+.scale span{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--paper);font-weight:700;font-size:.95rem;white-space:nowrap}
+.key{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.35rem 1.5rem;font-size:.95rem;margin-top:.8rem}
+.key li{display:flex;gap:.6rem;align-items:baseline}
+.key i{flex:none;width:.85rem;height:.85rem;border-radius:2px;display:inline-block;transform:translateY(1px)}
+.key b{font-variant-numeric:tabular-nums}
+.big{font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,3.2vw,1.65rem);line-height:1.35;margin:1.6rem 0 .4rem;max-width:34ch}
+
+/* projects */
+.proj{border-top:1px solid var(--line);padding:2rem 0}
+.proj:first-of-type{border-top:0}
+.proj h3{font-family:var(--serif);font-size:1.55rem;line-height:1.2}
+.proj .kind{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.95rem;margin:.25rem 0 1rem}
+.proj .kind i{width:.75rem;height:.75rem;border-radius:2px}
+.facts{display:grid;grid-template-columns:8.5rem 1fr;gap:.45rem 1rem;max-width:62ch}
+.facts dt{font-weight:700;color:var(--dim)}
+@media (max-width:520px){.facts{grid-template-columns:1fr;gap:.1rem}.facts dd{margin-bottom:.6rem}}
+.flag{display:block;margin-top:1rem;padding:.8rem 1rem;border-left:3px solid var(--red);background:var(--card);max-width:62ch}
+.note{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.4rem 1.5rem;max-width:66ch}
+.note h2{font-size:1.35rem}
+.next{list-style:none;display:grid;gap:.6rem;max-width:62ch}
+.next li{padding-left:1.2rem;position:relative}
+.next li::before{content:"";position:absolute;left:0;top:.65rem;width:.45rem;height:.45rem;background:var(--green-mid);border-radius:50%}
+footer{background:#1B4332;color:rgba(255,255,255,.8);padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px));font-size:.92rem;margin-top:2rem}
+footer a{color:#86EFAC}
+footer strong{display:block;font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:.3rem}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap"><a href="./">East Texas Legacy Coalition</a></div></div>
+
+<main class="wrap">
+<header class="intro">
+  <h1>Seven big projects are lined up for Angelina County.</h1>
+  <p class="lead">Two data centers, two gas power plants, a solar farm and two battery sites. Here is what each one is, how big it is, and what we know about its water. Every fact has its source underneath.</p>
+</header>
+
+<section aria-labelledby="size" style="padding-top:0">
+  <h2 id="size">How big, side by side</h2>
+  <p>Each block below is drawn to scale by its size in megawatts. HyperDataGrid isn’t on it because no size for it is on public record yet.</p>
+  <div class="scale" role="img" aria-label="Amp Z 2,100 megawatts; Longleaf 600; Longleaf II 600; Sun Angel 202; Azalea Springs 181; North Herty 126.">
+    <div class="dc" style="flex:2100"><span>Amp Z</span></div>
+    <div class="gas" style="flex:600"></div>
+    <div class="gas" style="flex:600"></div>
+    <div class="batt" style="flex:202"></div>
+    <div class="sun" style="flex:181"></div>
+    <div class="batt" style="flex:126"></div>
+  </div>
+  <ul class="key">
+    <li><i style="background:var(--dc)"></i><span>Amp Z data center, <b>2,100 MW</b></span></li>
+    <li><i style="background:var(--gas)"></i><span>Longleaf gas plant, <b>600 MW</b></span></li>
+    <li><i style="background:var(--gas)"></i><span>Longleaf II gas plant, <b>600 MW</b></span></li>
+    <li><i style="background:var(--batt)"></i><span>Sun Angel batteries, <b>202 MW</b></span></li>
+    <li><i style="background:var(--sun)"></i><span>Azalea Springs Solar, <b>181 MW</b></span></li>
+    <li><i style="background:var(--batt)"></i><span>North Herty batteries, <b>126 MW</b></span></li>
+  </ul>
+  <p class="big">Amp Z alone is bigger than the other five on this line put together.</p>
+  <p>One thing to know: the data center’s number is how much power it plans to <em>use</em>. The other five are how much power they would <em>make or store</em>. A megawatt is a megawatt either way, which is why we put them on one line.</p>
+</section>
+
+<section aria-labelledby="queue" style="padding-top:0">
+  <div class="note">
+    <h2 id="queue">What “in the grid queue” means</h2>
+    <p>ERCOT runs the Texas power grid. Any project that wants to plug in has to get in line first, and ERCOT publishes that line every month. Being in line doesn’t mean a project will get built. It means a company has paid to study plugging in here, and it’s the earliest public sign that something is coming.</p>
+    <span class="src">Source: <a href="https://www.ercot.com/mp/data-products/data-product-details?id=PG7-200-ER">ERCOT Generation Interconnection Status report</a>, data as of Oct. 22, 2026.</span>
+  </div>
+</section>
+
+<section aria-labelledby="each" style="padding-top:0">
+  <h2 id="each">Each project, in plain words</h2>
+
+  <article class="proj">
+    <h3>Amp Z data center</h3>
+    <div class="kind"><i style="background:var(--dc)"></i>AI data center, 2,100 MW planned</div>
+    <dl class="facts">
+      <dt>Where</dt><dd>The old Southland paper mill on Highway 103 East near Herty, just outside Lufkin. About 1,041 acres under option.</dd>
+      <dt>Power</dt><dd>The landowner, Verdant Industries, holds a January 2025 state air permit for 12 natural gas turbines on the site.</dd>
+      <dt>Water</dt><dd>The public was told about 500 gallons a day. The company’s county tax application lists its water needs as “TBD.” It has filed no well permits with the groundwater district, and the City of Lufkin owns the old mill’s wells.</dd>
+      <dt>Taxes</dt><dd>Angelina County turned down its request for a 10-year tax break.</dd>
+      <dt>Who decides</dt><dd>If Amp Z buys City water, we expect that deal to go to the Lufkin City Council. [Our reading of how City water contracts work; not yet confirmed.]</dd>
+    </dl>
+    <span class="src">Sources: <a href="https://lufkindailynews.com/news/local/ai-data-center-planned-on-1-000-acres-at-former-southland-paper-mill-site/article_ff9e97bf-361d-5649-835b-68a75818bd94.html">Lufkin Daily News</a> (acreage); <a href="https://lufkindailynews.com/news/local/not-so-green-light-tceq-asks-amp-z-developer-if-it-can-lower-numbers-to/article_e81c0787-46a6-5dcd-8e8b-57483d36f8b0.html">Lufkin Daily News</a> (turbines); City of Lufkin Data Center FAQ (500 gallons); Angelina County records produced to ETLC (tax application); Pineywoods GCD email to ETLC, Sept. 22, 2026 (no well permits); <a href="https://lufkindailynews.com/news/local/angelina-county-to-consider-legal-work-for-amp-z-after-rejecting-tax-abatement-request/article_5d1eca7d-1e08-53b1-8dad-9afc3b1c9c28.html">Lufkin Daily News</a> (tax break rejected); <a href="https://grailsystems.io/carrizo_wilcox_aquifer/docs/powered_land.pdf">Powered Land</a>.</span>
+  </article>
+
+  <article class="proj">
+    <h3>HyperDataGrid data center</h3>
+    <div class="kind"><i style="background:var(--dc)"></i>Data center, size not on record</div>
+    <dl class="facts">
+      <dt>Where</dt><dd>The old Northern Chip Mill on Ben Dunn Road, off Highway 103 West.</dd>
+      <dt>Water</dt><dd>The developer told the groundwater district it would use about 500 gallons a day, then asked for <strong>13 million gallons a year</strong> from the wells on the property. That’s just under the 15 million that would require a public hearing. As of Sept. 29, 2026, the district had taken no action.</dd>
+      <dt>Who decides</dt><dd>The Pineywoods district. Under 15 million gallons a year, the request doesn’t need a board meeting or public hearing, the district’s general manager wrote to the developer.</dd>
+    </dl>
+    <span class="src">Source: Pineywoods GCD emails to ETLC, Aug.–Sept. 2026; <a href="https://grailsystems.io/carrizo_wilcox_aquifer/docs/powered_land.pdf">Powered Land</a>.</span>
+  </article>
+
+  <article class="proj">
+    <h3>Longleaf Power Station</h3>
+    <div class="kind"><i style="background:var(--gas)"></i>Natural gas power plant, 600 MW</div>
+    <dl class="facts">
+      <dt>Who</dt><dd>Long Leaf Generating LLC, part of WattBridge.</dd>
+      <dt>Where</dt><dd>North of Lufkin near Kurth Lake, connecting at the Redland substation.</dd>
+      <dt>Water</dt><dd>Approved for 80 million gallons a year and never drilled. In March 2026 it switched to running around the clock and asked for <strong>1.5 billion gallons a year</strong>, about 4.1 million gallons a day. That request has been on hold since July 2026 at the company’s request.</dd>
+      <dt>Taxes</dt><dd>The County approved a 10-year tax break in May 2025, on the condition that it run as a “peaking” plant, only when demand is high.</dd>
+    </dl>
+    <span class="flag">A plant that runs around the clock isn’t a peaking plant. That change may break the terms of its tax break. [Our reading of the records; the County hasn’t said.]</span>
+    <span class="src">Sources: ERCOT queue, project 26INR0294; Pineywoods GCD email to ETLC, Sept. 22, 2026; <a href="https://lufkindailynews.com/news/local/commissioners-approve-10-year-tax-abatement-for-long-leaf-generating-llc/article_952e0e31-4270-50a7-8633-aa3d2c1f6446.html">Lufkin Daily News</a> (tax break).</span>
+  </article>
+
+  <article class="proj">
+    <h3>Longleaf II Power Station</h3>
+    <div class="kind"><i style="background:var(--gas)"></i>Natural gas power plant, 600 MW</div>
+    <dl class="facts">
+      <dt>Who</dt><dd>WattBridge Texas Holdings, the same company behind Longleaf.</dd>
+      <dt>When</dt><dd>Projected to come online July 2030.</dd>
+      <dt>Water</dt><dd>We have no water records for this one yet.</dd>
+    </dl>
+    <p class="src">This is a separate request from the first Longleaf, with its own ERCOT number. Together the two would be 1,200 MW of gas power from one company. Source: ERCOT queue, project 30INR0114.</p>
+  </article>
+
+  <article class="proj">
+    <h3>Sun Angel ESS</h3>
+    <div class="kind"><i style="background:var(--batt)"></i>Battery storage, 202 MW</div>
+    <dl class="facts">
+      <dt>What</dt><dd>A battery site that soaks up power from the grid and sends it back later. “ESS” stands for energy storage system.</dd>
+      <dt>When</dt><dd>Projected to come online September 2028.</dd>
+      <dt>Where</dt><dd>ERCOT lists it only as Angelina County.</dd>
+    </dl>
+    <span class="src">Source: ERCOT queue, project 27INR0247.</span>
+  </article>
+
+  <article class="proj">
+    <h3>Azalea Springs Solar</h3>
+    <div class="kind"><i style="background:var(--sun)"></i>Solar farm, 181 MW</div>
+    <dl class="facts">
+      <dt>When</dt><dd>Projected to come online <strong>Nov. 1, 2026</strong>, the soonest of these projects.</dd>
+      <dt>Where</dt><dd>ERCOT lists it only as Angelina County.</dd>
+    </dl>
+    <span class="src">Source: ERCOT queue, project 19INR0110. ERCOT’s projected dates often slip.</span>
+  </article>
+
+  <article class="proj">
+    <h3>Solar Star North Herty Storage</h3>
+    <div class="kind"><i style="background:var(--batt)"></i>Battery storage, 126 MW</div>
+    <dl class="facts">
+      <dt>When</dt><dd>Projected to come online August 2027.</dd>
+      <dt>Where</dt><dd>The name points to the Herty area. ERCOT lists it only as Angelina County.</dd>
+    </dl>
+    <span class="src">Source: ERCOT queue, project 24INR0174.</span>
+  </article>
+</section>
+
+<section aria-labelledby="do" style="padding-top:0">
+  <h2 id="do">What you can do with this</h2>
+  <ul class="next">
+    <li>Share this page with one person who doesn’t know any of this is coming.</li>
+    <li>Watch the Lufkin City Council and Pineywoods board agendas. Both have to post at least 72 hours before they meet. <a href="./#act">Here’s how to speak up.</a></li>
+    <li>Look up your own county: <a href="https://grailsystems.io/angelina/">Angelina County Watch</a> updates these numbers every night and helps you write a records request in a few minutes.</li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="https://grailsystems.io/carrizo_wilcox_aquifer/records.html">Records requests</a>&emsp;<a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a><br>
+    Last checked against sources Oct. 25, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+</body>
+</html>
