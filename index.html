@@ -119,6 +119,21 @@ footer strong{display:block;font-family:var(--serif);font-size:1.2rem;color:#fff
 footer a{color:#86EFAC}
 footer ul{list-style:none;display:grid;gap:.35rem}
 footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.8rem;color:rgba(255,255,255,.5)}
+
+/* basics */
+.straws{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1rem;margin:0 0 1rem;overflow-x:auto}
+.straws svg{display:block;width:100%;min-width:480px;height:auto}
+.straws .t{font-family:var(--sans);fill:var(--ink)}
+.straws .tl{font-family:var(--sans);fill:var(--dim)}
+.plain{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.5rem}
+.plain div{border-left:3px solid var(--green-mid);padding-left:1rem}
+.plain h3{font-family:var(--serif);font-size:1.2rem;margin-bottom:.3rem}
+.ask{background:var(--card);border:2px solid var(--green-mid);border-radius:8px;padding:1.5rem;max-width:760px;margin-top:1rem}
+.ask p+p{margin-top:.7rem}
+.say{font-family:var(--serif);font-style:italic;font-size:1.15rem;border-left:3px solid var(--green-mid);padding-left:1rem;margin:1rem 0}
+.words{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.6rem 2rem;max-width:960px}
+.words dt{font-weight:700;color:var(--green-mid);margin-top:.6rem}
+.words dd{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -131,6 +146,53 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
     <div class="btns">
       <a class="btn solid" href="https://grailsystems.io/carrizo_wilcox_aquifer/">See the map →</a>
       <a class="btn ghost" href="#help">Help protect the Piney Woods</a>
+      <a class="btn ghost" href="#basics">New here? Start with the water</a>
+    </div>
+  </div>
+</section>
+
+<section id="basics">
+  <div class="wrap">
+    <div class="eyebrow">Start here</div>
+    <h2>Your well isn’t its own little bubble.</h2>
+    <p class="lead">Most of us picture the water under the house as ours alone. It isn’t. Your well, your neighbor’s well and the City of Lufkin’s wells are all straws in the same glass: the Carrizo-Wilcox Aquifer. Whatever a big straw takes, it takes from everybody.</p>
+    <figure class="straws">
+      <svg viewBox="0 0 560 400" role="img" aria-labelledby="strawsT strawsD">
+        <title id="strawsT">Straws in one glass</title>
+        <desc id="strawsD">A simplified cross-section, not to scale. Shallower water-bearing layers sit on top. The Carrizo-Wilcox Aquifer lies underneath. A family well and the City of Lufkin’s 12 wells reach the Carrizo-Wilcox. Three proposed large users are shown as bigger red straws.</desc>
+        <rect x="0" y="62" width="560" height="38" fill="#B7C9A8" opacity=".55"/>
+        <rect x="0" y="100" width="560" height="70" fill="#C9B79C" opacity=".55"/>
+        <rect x="0" y="170" width="560" height="40" fill="#A8A29E" opacity=".45"/>
+        <rect x="0" y="210" width="560" height="190" fill="#5DA9C9" opacity=".55"/>
+        <text class="tl" x="10" y="87" font-size="15">Ground</text>
+        <text class="tl" x="10" y="128" font-size="15">Shallower layers</text>
+        <text class="tl" x="10" y="148" font-size="13">Yegua, Sparta, Queen City</text>
+        <text class="tl" x="10" y="195" font-size="15">Clay and shale</text>
+        <text class="t" x="10" y="385" font-size="18" font-weight="700">Carrizo-Wilcox: the good water</text>
+        <g stroke="#2D6A4F" stroke-width="5" stroke-linecap="round">
+          <line x1="250" y1="48" x2="250" y2="262"/>
+          <line x1="305" y1="48" x2="305" y2="290"/>
+          <line x1="320" y1="48" x2="320" y2="290"/>
+          <line x1="335" y1="48" x2="335" y2="290"/>
+        </g>
+        <g stroke="#B91C1C" stroke-width="14" stroke-linecap="round" opacity=".9">
+          <line x1="410" y1="48" x2="410" y2="320"/>
+          <line x1="470" y1="48" x2="470" y2="320" stroke-dasharray="2 22"/>
+          <line x1="530" y1="48" x2="530" y2="320" stroke-dasharray="2 22"/>
+        </g>
+        <text class="t" x="250" y="18" font-size="15" text-anchor="middle">Your well</text>
+        <text class="t" x="410" y="18" font-size="15" text-anchor="middle">Amp Z</text>
+        <text class="t" x="556" y="18" font-size="15" text-anchor="end">WattBridge</text>
+        <text class="t" x="320" y="38" font-size="15" text-anchor="middle">City’s 12 wells</text>
+        <text class="t" x="470" y="38" font-size="15" text-anchor="middle">HyperDataGrid</text>
+      </svg>
+      <figcaption class="src">Simplified drawing, not to scale. Family well depths vary; some reach shallower layers. Red straws are the proposed big users: Amp Z would buy City water; HyperDataGrid plans to use old wells on its site; WattBridge asked for 1.5 billion gallons a year. Dotted straws: which layer those wells would reach isn’t public yet. We’ve asked for it in records requests. Sources: City of Lufkin Water Production FAQ (12 wells, Carrizo-Wilcox); USGS Water-Supply Paper 849-A (Yegua water near Lufkin); TWDB Report 372 (2009).</figcaption>
+    </figure>
+    <div class="plain">
+      <div><h3>It refills slowly.</h3><p>Rain soaks in where the sand comes up to the surface, then creeps downhill underground, about five to eight feet a year in one state-cited study. Some of this water fell as rain more than 25,000 years ago.</p><span class="src">Source: TWDB Report 372 (2009), p. 16, citing Pearson and White (1967). Those ages were measured in the Carrizo Sand of South Texas.</span></div>
+      <div><h3>It’s the good water.</h3><p>The City drinks from the Carrizo-Wilcox for a reason. Water from the Yegua layer near Lufkin is too mineral-heavy for city use unless it’s diluted and treated.</p><span class="src">Source: USGS Water-Supply Paper 849-A, Geology and Ground-Water Resources of the Lufkin Area.</span></div>
+      <div><h3>Big straws are coming.</h3><p>A data center at the old Southland mill, another on Ben Dunn Road, and a power company that asked for 1.5 billion gallons a year. <a href="#coming">See the three projects</a>.</p></div>
+      <div><h3>Somebody decides how much they drink.</h3><p>The Pineywoods Groundwater Conservation District permits new wells. The Lufkin City Council decides whether to sell City water. Those are the two doors. <a href="#act">Here’s how to knock</a>.</p></div>
     </div>
   </div>
 </section>
@@ -145,7 +207,7 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
   </div>
 </section>
 
-<section>
+<section id="coming">
   <div class="wrap">
     <div class="eyebrow">What’s coming to Lufkin</div>
     <h2>Three projects, one aquifer.</h2>
@@ -174,6 +236,34 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
         <span class="src">Source: Pineywoods general manager Wil Blough, email to ETLC, Sept. 22, 2026.</span>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="good-water" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">What we’re for</div>
+    <h2>Leave the good water for the people.</h2>
+    <p class="lead">We’re not asking anybody to shut the lights off. We’re asking that drinking-quality water go to people, and that servers get cooled with lower-grade or reused water. That idea has a name, fit-for-purpose water, and Texas law already has the tools.</p>
+    <div class="ask">
+      <p><strong>The groundwater district can do it.</strong> Texas law lets a district adopt different rules for each aquifer, or even each layer of one, inside its boundaries. Pineywoods could hold the Carrizo-Wilcox to tighter limits than the saltier layers.</p>
+      <p><strong>The state has already mapped saltier water for heavy use.</strong> Since 2015 the Water Development Board has designated brackish groundwater production zones, including some in the Carrizo-Wilcox. Whether any sit near Angelina County is one of our open questions.</p>
+      <p><strong>The City can put it in the contract.</strong> The City owns the wells it would sell from. Any water deal can require a data center to cool with reused or lower-grade water.</p>
+      <span class="src">Sources: Texas Water Code §36.116(d); House Bill 30 (2015) and TWDB brackish groundwater production zone designations.</span>
+    </div>
+  </div>
+</section>
+
+<section id="act" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">What you can do</div>
+    <h2>Two doors. Knock on both.</h2>
+    <ol class="steps">
+      <li><strong>Watch the agendas.</strong> The Lufkin City Council votes on selling City water. The Pineywoods Groundwater Conservation District board votes on new wells. Texas law says both have to post agendas at least 72 hours before they meet. When the data center shows up on one, we’ll post it here and in the group.</li>
+      <li><strong>Show up and sign up to speak.</strong> You get a few minutes. You don’t need notes, just your name, where you live, and one sentence:<div class="say">“Leave the Carrizo-Wilcox for the people who drink it. Make the big users cool with lower-grade or reused water, and put it in writing.”</div></li>
+      <li><strong>Put it in writing.</strong> A short email to the board before the meeting goes into the record even if you can’t be there.</li>
+      <li><strong>Bring a neighbor.</strong> Ten people in the room changes the room. <a href="#help">Join us</a>.</li>
+    </ol>
+    <span class="src">Source: Texas Government Code §551.043 (72-hour notice).</span>
   </div>
 </section>
 
@@ -282,6 +372,26 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
       </div>
     </div>
     <p class="fine2">Gifts go through Cash App to Grail Systems, which pays the coalition’s records fees and keeps these sites running. They aren’t tax-deductible. Questions? <a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a></p>
+  </div>
+</section>
+
+<section id="words" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Plain words</div>
+    <h2>What all these words mean.</h2>
+    <dl class="words">
+      <div><dt>Aquifer</dt><dd>Water stored underground in sand and rock, like a soaked sponge. Wells pull from it.</dd></div>
+      <div><dt>Carrizo-Wilcox</dt><dd>The big aquifer under Deep East Texas. Lufkin, Nacogdoches and many family wells drink from it.</dd></div>
+      <div><dt>Recharge</dt><dd>Rain soaking back into an aquifer. Here it happens slowly, mostly where the sand comes up to the surface.</dd></div>
+      <div><dt>Brackish</dt><dd>Slightly salty groundwater. Fine for some industrial uses, not for drinking without treatment.</dd></div>
+      <div><dt>Acre-foot</dt><dd>Enough water to cover an acre a foot deep, about 326,000 gallons.</dd></div>
+      <div><dt>Groundwater district (GCD)</dt><dd>The local board that permits big wells. Ours is the Pineywoods Groundwater Conservation District.</dd></div>
+      <div><dt>Rule of capture</dt><dd>The old Texas rule that lets a landowner pump the water under their land, even if it drains a neighbor’s well. Districts can limit it.</dd></div>
+      <div><dt>Public information request (PIA)</dt><dd>A written request for government records under the Texas Public Information Act. The agency is on a legal clock to answer.</dd></div>
+      <div><dt>P&amp;Z</dt><dd>The City’s Planning and Zoning Commission. It handles zoning inside city limits.</dd></div>
+      <div><dt>SUP</dt><dd>Specific use permit: City permission for a use the zoning doesn’t normally allow.</dd></div>
+      <div><dt>ETJ</dt><dd>Extraterritorial jurisdiction: a band of land just outside city limits where the City has some say. The old Southland mill sits outside city limits.</dd></div>
+    </dl>
   </div>
 </section>
 
