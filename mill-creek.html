@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mill Creek: sewage, a fish kill and 200,000 gallons of drinking water | East Texas Legacy Coalition</title>
+<meta name="description" content="In 2023, sewage spills from a Lufkin lift station caused a fish kill in Mill Creek. The state fined the City $75,000 and let it put the whole amount toward an alarm system. The order, in plain words.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sewage, a fish kill, and 200,000 gallons of drinking water">
+<meta property="og:description" content="A 2023 fish kill in Mill Creek, a $75,000 state penalty, and $0 to the state’s general fund. The TCEQ order, in plain words.">
+<meta property="og:url" content="https://easttexaslegacy.org/mill-creek.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/share_mill.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1B4332;--green-mid:#2D6A4F;--mint:#86EFAC;--paper:#FAFAF8;--card:#FFFFFF;
+  --ink:#1C1917;--dim:#57534E;--line:#E7E5E4;--red:#B91C1C;
+  --gas:#9A3412;--dc:#1B4332;--sun:#A16207;--batt:#3F6212;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0F1712;--card:#16211A;--ink:#ECEAE6;--dim:#A8A29E;--line:#2A3A30;--green:#86EFAC;--green-mid:#86EFAC;--red:#FCA5A5;
+  --gas:#FDBA74;--dc:#86EFAC;--sun:#FDE047;--batt:#BEF264}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--green-mid)}
+:focus-visible{outline:3px solid var(--green-mid);outline-offset:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
+.top{padding:calc(1rem + env(safe-area-inset-top,0px)) 0 1rem;border-bottom:1px solid var(--line)}
+.top a{font-weight:700;text-decoration:none}
+header.intro{padding:3.5rem 0 2rem}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;max-width:16ch;margin-bottom:1rem}
+.lead{color:var(--dim);max-width:62ch;font-size:1.12rem}
+h2{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.2;margin:0 0 .8rem}
+section{padding:2.5rem 0}
+p+p{margin-top:.8rem}
+.src{display:block;margin-top:.9rem;font-size:.82rem;color:var(--dim)}
+
+/* the scale */
+.scale{margin:1.5rem 0 .6rem;display:flex;height:64px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.scale div{height:100%;position:relative}
+.scale .dc{background:var(--dc)}.scale .gas{background:var(--gas)}.scale .sun{background:var(--sun)}.scale .batt{background:var(--batt)}
+.scale div+div{border-left:2px solid var(--paper)}
+.scale span{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--paper);font-weight:700;font-size:.95rem;white-space:nowrap}
+.key{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.35rem 1.5rem;font-size:.95rem;margin-top:.8rem}
+.key li{display:flex;gap:.6rem;align-items:baseline}
+.key i{flex:none;width:.85rem;height:.85rem;border-radius:2px;display:inline-block;transform:translateY(1px)}
+.key b{font-variant-numeric:tabular-nums}
+.big{font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,3.2vw,1.65rem);line-height:1.35;margin:1.6rem 0 .4rem;max-width:34ch}
+
+/* projects */
+.proj{border-top:1px solid var(--line);padding:2rem 0}
+.proj:first-of-type{border-top:0}
+.proj h3{font-family:var(--serif);font-size:1.55rem;line-height:1.2}
+.proj .kind{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.95rem;margin:.25rem 0 1rem}
+.proj .kind i{width:.75rem;height:.75rem;border-radius:2px}
+.facts{display:grid;grid-template-columns:8.5rem 1fr;gap:.45rem 1rem;max-width:62ch}
+.facts dt{font-weight:700;color:var(--dim)}
+@media (max-width:520px){.facts{grid-template-columns:1fr;gap:.1rem}.facts dd{margin-bottom:.6rem}}
+.flag{display:block;margin-top:1rem;padding:.8rem 1rem;border-left:3px solid var(--red);background:var(--card);max-width:62ch}
+.note{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.4rem 1.5rem;max-width:66ch}
+.note h2{font-size:1.35rem}
+.next{list-style:none;display:grid;gap:.6rem;max-width:62ch}
+.next li{padding-left:1.2rem;position:relative}
+.next li::before{content:"";position:absolute;left:0;top:.65rem;width:.45rem;height:.45rem;background:var(--green-mid);border-radius:50%}
+footer{background:#1B4332;color:rgba(255,255,255,.8);padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px));font-size:.92rem;margin-top:2rem}
+footer a{color:#86EFAC}
+footer strong{display:block;font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:.3rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="./">East Texas Legacy Coalition</a></div></div>
+<main class="wrap">
+<header class="intro">
+  <h1>Sewage, a fish kill, and 200,000 gallons of drinking water.</h1>
+  <p class="lead">In August 2023, sewage spills from a Lufkin lift station caused a fish kill in Mill Creek. Here’s what the state’s own order says happened, and what the City paid.</p>
+</header>
+
+<section aria-labelledby="what" style="padding-top:0">
+  <h2 id="what">What happened</h2>
+  <dl class="facts">
+    <dt>When</dt><dd>Aug. 26 to 29, 2023.</dd>
+    <dt>Where</dt><dd>The Ellen Trout lift station, part of the City’s Hurricane Creek wastewater system.</dd>
+    <dt>What</dt><dd>Clogged and inoperable pumps, plus pump servicing, let about <strong>6,100 gallons of untreated sewage</strong> out in two spills. Fish died. A landowner whose property Mill Creek runs through reported the fish kill on Aug. 28.</dd>
+    <dt>Cleanup</dt><dd>The City fixed the pumps by Aug. 31 and flushed the creek and a nearby stream with about <strong>200,000 gallons of drinking water</strong> from a public water tank.</dd>
+  </dl>
+  <span class="src">Source: <a href="https://grailsystems.io/carrizo_wilcox_aquifer/docs/tceq_2024-0641-mwd-e.pdf">TCEQ Agreed Order 2024-0641-MWD-E</a>, Findings of Fact 2 and 3, and the Executive Summary.</span>
+</section>
+
+<section aria-labelledby="paid" style="padding-top:0">
+  <h2 id="paid">What the City paid</h2>
+  <dl class="facts">
+    <dt>Penalty</dt><dd>$75,000.</dd>
+    <dt>To the state</dt><dd><strong>$0</strong> to the state’s general fund. The whole $75,000 is offset if the City finishes a project: an alarm and monitoring system (SCADA) for its lift stations, with an estimated cost of $1,873,023. If the City doesn’t finish it, the state can demand the money.</dd>
+    <dt>Signed</dt><dd>By Mayor Mark Hicks on June 15, 2026, and for TCEQ’s executive director on July 25, 2026.</dd>
+  </dl>
+  <span class="src">Source: the same order, Conclusion of Law 4, the signature page and Attachment A.</span>
+</section>
+
+<section aria-labelledby="pattern" style="padding-top:0">
+  <div class="note">
+    <h2 id="pattern">It wasn’t a one-time thing</h2>
+    <p>The compliance history filed with this order shows the Hurricane Creek plant reported its own failure to meet one or more permit limits <strong>every month from July 2023 through September 2024</strong>, 15 months in a row. TCEQ still rated the City “Satisfactory.”</p>
+    <p>An earlier order, 2020-1536-MWD-E, took effect Feb. 27, 2024, also for sewage discharges. And a separate case, 2024-0119-MWD-E, lists 14 violations at the same plant, with a proposed penalty of $193,813, again with $0 to the state’s general fund. That one was on TCEQ’s Oct. 21, 2026 agenda, and we haven’t confirmed the final outcome.</p>
+    <span class="src">Sources: TCEQ Compliance History Report in the order above (Section A and Appendix A); KLTV, Oct. 23, 2026, and The 936, Oct. 24, 2026, on case 2024-0119-MWD-E.</span>
+  </div>
+</section>
+
+<section aria-labelledby="why" style="padding-top:0">
+  <h2 id="why">Why it matters now</h2>
+  <p>A data center is planned for the old paper mill site, and the site’s owner is renewing the mill’s old wastewater permit, which allows discharges averaging up to 5 million gallons a day into Paper Mill Creek, the Angelina River and Sam Rayburn Reservoir. [Our reading: before anybody approves more wastewater here, the public deserves to know who will treat it and how.]</p>
+  <span class="src">Source on the permit renewal: <a href="https://grailsystems.io/carrizo_wilcox_aquifer/docs/powered_land.pdf">Powered Land</a>. See also <a href="projects.html">the seven projects</a> and <a href="water-history.html">our water history</a>.</span>
+</section>
+
+<section aria-labelledby="do" style="padding-top:0">
+  <h2 id="do">What you can do</h2>
+  <ul class="next">
+    <li><a href="https://grailsystems.io/carrizo_wilcox_aquifer/docs/tceq_2024-0641-mwd-e.pdf">Read the full order</a> yourself. It’s 24 pages and public.</li>
+    <li>Ask the City Council whether the alarm system is finished. The order gave the City 45 days from its effective date.</li>
+    <li>Watch <a href="https://grailsystems.io/angelina/#epa">Angelina County Watch</a> for every facility in the county with EPA violations.</li>
+  </ul>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="projects.html">The seven projects</a>&emsp;<a href="water-history.html">Our water history</a><br>
+    Last checked against sources Oct. 25, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+</body>
+</html>
