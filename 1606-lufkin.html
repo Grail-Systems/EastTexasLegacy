@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Selling it before they own it: 1606 Corp. and the old Lufkin power plant | East Texas Legacy Coalition</title>
+<meta name="description" content="1606 Corp. still hasn’t bought the old biomass power plant in North Lufkin, but it’s already pitching the site to AI data centers. Here’s what its own SEC filing and press release say.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Selling it before they own it">
+<meta property="og:description" content="1606 Corp. hasn’t closed on the old North Lufkin power plant, can’t yet pay for it, and is already shopping it to AI data centers. Straight from their own filings.">
+<meta property="og:url" content="https://easttexaslegacy.org/1606-lufkin.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/share_home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1B4332;--green-mid:#2D6A4F;--mint:#86EFAC;--paper:#FAFAF8;--card:#FFFFFF;
+  --ink:#1C1917;--dim:#57534E;--line:#E7E5E4;--red:#B91C1C;
+  --gas:#9A3412;--dc:#1B4332;--sun:#A16207;--batt:#3F6212;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0F1712;--card:#16211A;--ink:#ECEAE6;--dim:#A8A29E;--line:#2A3A30;--green:#86EFAC;--green-mid:#86EFAC;--red:#FCA5A5;
+  --gas:#FDBA74;--dc:#86EFAC;--sun:#FDE047;--batt:#BEF264}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--green-mid)}
+:focus-visible{outline:3px solid var(--green-mid);outline-offset:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
+.top{padding:calc(1rem + env(safe-area-inset-top,0px)) 0 1rem;border-bottom:1px solid var(--line)}
+.top a{font-weight:700;text-decoration:none}
+header.intro{padding:3.5rem 0 2rem}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;max-width:16ch;margin-bottom:1rem}
+.lead{color:var(--dim);max-width:62ch;font-size:1.12rem}
+h2{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.2;margin:0 0 .8rem}
+section{padding:2.5rem 0}
+p+p{margin-top:.8rem}
+.src{display:block;margin-top:.9rem;font-size:.82rem;color:var(--dim)}
+
+/* the scale */
+.scale{margin:1.5rem 0 .6rem;display:flex;height:64px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.scale div{height:100%;position:relative}
+.scale .dc{background:var(--dc)}.scale .gas{background:var(--gas)}.scale .sun{background:var(--sun)}.scale .batt{background:var(--batt)}
+.scale div+div{border-left:2px solid var(--paper)}
+.scale span{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--paper);font-weight:700;font-size:.95rem;white-space:nowrap}
+.key{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.35rem 1.5rem;font-size:.95rem;margin-top:.8rem}
+.key li{display:flex;gap:.6rem;align-items:baseline}
+.key i{flex:none;width:.85rem;height:.85rem;border-radius:2px;display:inline-block;transform:translateY(1px)}
+.key b{font-variant-numeric:tabular-nums}
+.big{font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,3.2vw,1.65rem);line-height:1.35;margin:1.6rem 0 .4rem;max-width:34ch}
+
+/* projects */
+.proj{border-top:1px solid var(--line);padding:2rem 0}
+.proj:first-of-type{border-top:0}
+.proj h3{font-family:var(--serif);font-size:1.55rem;line-height:1.2}
+.proj .kind{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.95rem;margin:.25rem 0 1rem}
+.proj .kind i{width:.75rem;height:.75rem;border-radius:2px}
+.facts{display:grid;grid-template-columns:8.5rem 1fr;gap:.45rem 1rem;max-width:62ch}
+.facts dt{font-weight:700;color:var(--dim)}
+@media (max-width:520px){.facts{grid-template-columns:1fr;gap:.1rem}.facts dd{margin-bottom:.6rem}}
+.flag{display:block;margin-top:1rem;padding:.8rem 1rem;border-left:3px solid var(--red);background:var(--card);max-width:62ch}
+.note{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.4rem 1.5rem;max-width:66ch}
+.note h2{font-size:1.35rem}
+.next{list-style:none;display:grid;gap:.6rem;max-width:62ch}
+.next li{padding-left:1.2rem;position:relative}
+.next li::before{content:"";position:absolute;left:0;top:.65rem;width:.45rem;height:.45rem;background:var(--green-mid);border-radius:50%}
+footer{background:#1B4332;color:rgba(255,255,255,.8);padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px));font-size:.92rem;margin-top:2rem}
+footer a{color:#86EFAC}
+footer strong{display:block;font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:.3rem}
+.three{list-style:none;display:grid;gap:1rem;max-width:66ch;margin-top:1rem}
+.three li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green-mid);border-radius:6px;padding:1rem 1.2rem}
+.three li.no{border-left-color:var(--red)}
+.three b{display:block;font-family:var(--serif);font-size:1.15rem;margin-bottom:.2rem}
+.unk{list-style:none;display:grid;gap:.7rem;max-width:62ch}
+.unk li{padding-left:1.2rem;position:relative}
+.unk li::before{content:"?";position:absolute;left:0;top:0;font-weight:700;color:var(--red)}
+.say{font-family:var(--serif);font-size:1.15rem;border-left:4px solid var(--green-mid);padding:.3rem 0 .3rem 1rem;margin:1rem 0;max-width:56ch}
+.tag{font-size:.8rem;font-weight:700;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="./">East Texas Legacy Coalition</a></div></div>
+<main class="wrap">
+<header class="intro">
+  <h1>Selling it before they own it.</h1>
+  <p class="lead">A Nevada company called 1606 Corp. has been trying to buy the old biomass power plant in North Lufkin since spring. It still hasn’t closed. It still doesn’t have the money. And it’s already shopping the site to AI data centers.</p>
+</header>
+
+<section aria-labelledby="what" style="padding-top:0">
+  <h2 id="what">The deal</h2>
+  <dl class="facts">
+    <dt>What</dt><dd>About 132 acres and a 55-megawatt biomass power plant in North Lufkin.</dd>
+    <dt>Buyer</dt><dd>1606 Corp., a penny-stock company that trades over the counter as CBDW.</dd>
+    <dt>Plan</dt><dd>Use the plant’s power to run AI data centers right on site.</dd>
+    <dt>Deadline</dt><dd>Oct. 31, 2026. It was supposed to close April 15, then May 22. It’s been pushed back several times.</dd>
+  </dl>
+  <span class="src">Sources: <a href="https://www.sec.gov/Archives/edgar/data/1877461/000147793226005436/cbdw_ex991.htm">1606 Corp. SEC filing, Sept. 8, 2026</a>; <a href="https://lufkindailynews.com/news/community/deadline-pushed-to-october-for-proposed-lufkin-power-plant-sale/article_feb20f48-b550-5cad-8449-ed0de643c640.html">Lufkin Daily News</a> (April and May dates); <a href="https://lufkindailynews.com/news/local/1606-corp-signs-agreement-to-purchase-north-lufkin-power-plant/article_6128db47-c709-5f97-8fa5-55428dddff3e.html">Lufkin Daily News</a> (the purchase agreement).</span>
+</section>
+
+<section aria-labelledby="own" style="padding-top:0">
+  <div class="note">
+    <h2 id="own">In their own words</h2>
+    <p>You don’t have to take our word for any of this. It’s all in what 1606 has told the federal government and its own investors:</p>
+    <ul class="next" style="margin-top:1rem">
+      <li><strong>They don’t have the money.</strong> Closing depends on financing that, by their own account, hasn’t been secured.</li>
+      <li><strong>It may never close.</strong> They say there’s no guarantee the purchase happens by Oct. 31, or at all.</li>
+      <li><strong>They’re already shopping it.</strong> They hired MDM Group to take the site to hyperscale operators, AI companies and investors.</li>
+      <li><strong>They might flip it.</strong> One option they list is selling or handing off their contract to buy the plant to somebody else.</li>
+      <li><strong>The plant may not even run.</strong> It’s being bought “as-is,” and the seller makes no promise the equipment works.</li>
+      <li><strong>The title isn’t clean.</strong> Pending tax and other lawsuits affect the property, and 1606 says it can’t promise those get resolved.</li>
+      <li><strong>They’ve got money on the line.</strong> They’ve paid non-refundable fees they lose if the deal falls apart.</li>
+    </ul>
+    <span class="src">Sources: <a href="https://prismmediawire.com/1606-corp-advances-project-as-mdm-and-company-pursues-data-center-end-users-plant-recommissioning-and-strategic-sale-opportunities/">1606 Corp. press release, Aug. 25, 2026</a> (MDM Group, financing, possible sale or assignment of the contract); <a href="https://www.sec.gov/Archives/edgar/data/1877461/000147793226005436/cbdw_ex991.htm">1606 Corp. SEC filing, Sept. 8, 2026</a> (as-is condition, pending litigation, non-refundable fees, Oct. 31 deadline).</span>
+  </div>
+</section>
+
+<section aria-labelledby="read" style="padding-top:0">
+  <h2 id="read">Here’s what this looks like to us <span class="tag">[Our reading]</span></h2>
+  <p>A company that can’t pay for a power plant is out pitching it to data centers before the ink’s dry. That looks like a company hoping somebody with deep pockets shows up to pay for a purchase it can’t finance on its own, or takes the contract off its hands.</p>
+  <p>Either way, the folks deciding what happens to that site are investors and data center companies. Nobody’s asked the people who live here.</p>
+</section>
+
+<section aria-labelledby="dont" style="padding-top:0">
+  <h2 id="dont">What we don’t know yet</h2>
+  <ul class="unk">
+    <li>Whether the deal closes Oct. 31, gets pushed back again, or falls apart.</li>
+    <li>Which data center companies MDM has pitched, and whether any of them bit.</li>
+    <li>Where a data center on this site would get its water.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="next" style="padding-top:0">
+  <h2 id="next">What happens next</h2>
+  <p>1606 has to tell its investors what happens with the deal. We’ll be watching its next SEC filing after Oct. 31 and will update this page when it lands.</p>
+  <p>Know somebody who should see this? <a href="./#act">Join the coalition</a>, and share this page.</p>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="projects.html">The seven projects</a>&emsp;<a href="water-history.html">Our water history</a>&emsp;<a href="good-water.html">Leave the good water</a><br>
+    Last checked against sources Oct. 30, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+</body>
+</html>
