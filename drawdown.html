@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What one big straw does to our water | East Texas Legacy Coalition</title>
+<meta name="description" content="Pick a pumping rate and watch the Carrizo-Wilcox water level drop around a big new well, year by year. Built on the same math the state used for Angelina and Nacogdoches counties in 1970.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What one big straw does to our water">
+<meta property="og:description" content="Watch the water drop around a big new well, year by year, using the state’s own numbers for the Carrizo-Wilcox.">
+<meta property="og:url" content="https://easttexaslegacy.org/drawdown.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/share_home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1B4332;--green-mid:#2D6A4F;--mint:#86EFAC;--paper:#FAFAF8;--card:#FFFFFF;
+  --ink:#1C1917;--dim:#57534E;--line:#E7E5E4;--red:#B91C1C;
+  --gas:#9A3412;--dc:#1B4332;--sun:#A16207;--batt:#3F6212;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0F1712;--card:#16211A;--ink:#ECEAE6;--dim:#A8A29E;--line:#2A3A30;--green:#86EFAC;--green-mid:#86EFAC;--red:#FCA5A5;
+  --gas:#FDBA74;--dc:#86EFAC;--sun:#FDE047;--batt:#BEF264}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--green-mid)}
+:focus-visible{outline:3px solid var(--green-mid);outline-offset:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
+.top{padding:calc(1rem + env(safe-area-inset-top,0px)) 0 1rem;border-bottom:1px solid var(--line)}
+.top a{font-weight:700;text-decoration:none}
+header.intro{padding:3.5rem 0 2rem}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;max-width:16ch;margin-bottom:1rem}
+.lead{color:var(--dim);max-width:62ch;font-size:1.12rem}
+h2{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.2;margin:0 0 .8rem}
+section{padding:2.5rem 0}
+p+p{margin-top:.8rem}
+.src{display:block;margin-top:.9rem;font-size:.82rem;color:var(--dim)}
+
+footer{background:#1B4332;color:rgba(255,255,255,.8);padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px));font-size:.92rem;margin-top:2rem}
+footer a{color:#86EFAC}
+footer strong{display:block;font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:.3rem}
+
+.tool{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.2rem 1.4rem;margin-top:1.2rem}
+.presets{display:flex;flex-wrap:wrap;gap:.5rem;margin:.3rem 0 1rem}
+.presets button{font:inherit;font-size:.95rem;font-weight:600;padding:.55rem .85rem;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;min-height:44px}
+.presets button[aria-pressed="true"]{border-color:var(--green-mid);background:var(--green-mid);color:var(--paper)}
+.ctl{margin:.9rem 0}
+.ctl label{display:flex;justify-content:space-between;gap:1rem;font-weight:700;font-size:.98rem}
+.ctl output{font-variant-numeric:tabular-nums;color:var(--green-mid)}
+.ctl input[type=range]{width:100%;height:36px;accent-color:var(--green-mid)}
+.row{display:flex;gap:.6rem;align-items:center}
+.row input{flex:1}
+.play{font:inherit;font-weight:700;min-width:5.5rem;min-height:44px;border-radius:8px;border:1px solid var(--green-mid);background:var(--green-mid);color:var(--paper);cursor:pointer}
+.answer{font-family:var(--serif);font-weight:700;font-size:clamp(1.25rem,3.4vw,1.6rem);line-height:1.3;margin:1rem 0 .4rem}
+.answer b{color:var(--red)}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:.98rem}
+th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-weight:700}
+td.n{text-align:right}
+canvas{display:block;width:100%;height:auto;touch-action:none;cursor:grab;border-radius:8px;background:var(--paper);border:1px solid var(--line);margin-top:1rem}
+.hint{font-size:.85rem;color:var(--dim);margin-top:.4rem}
+svg.xs{width:100%;height:auto;margin-top:1rem}
+svg.xs text{fill:var(--dim);font:13px var(--sans)}
+details{margin-top:1rem;border-top:1px solid var(--line);padding-top:.8rem}
+summary{cursor:pointer;font-weight:700}
+.check{border-left:4px solid var(--green-mid);background:var(--card);padding:1rem 1.2rem;border-radius:6px;max-width:66ch}
+.lim{list-style:none;display:grid;gap:.6rem;max-width:66ch}
+.lim li{padding-left:1.2rem;position:relative}
+.lim li::before{content:"";position:absolute;left:0;top:.65rem;width:.45rem;height:.45rem;background:var(--dim);border-radius:50%}
+.tag{font-size:.8rem;font-weight:700;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="./">East Texas Legacy Coalition</a></div></div>
+<main class="wrap">
+<header class="intro">
+  <h1>What one big straw does to our water.</h1>
+  <p class="lead">Every well pulls the water down around it in a funnel, called a cone of depression. Pick how much a new user would pump, then watch the funnel spread through the Carrizo-Wilcox, year by year. The numbers come from the state’s own study of Angelina and Nacogdoches counties.</p>
+</header>
+
+<section aria-labelledby="try" style="padding-top:0">
+  <h2 id="try">Try it</h2>
+  <div class="tool">
+    <div role="group" aria-label="Pick a pumping amount">
+      <div class="presets" id="presets">
+        <button type="button" data-mgd="4.1" aria-pressed="true">Power plant request: 1.5 billion gallons a year</button>
+        <button type="button" data-mgd="5">All the room the state saw in 1970: 5 million a day</button>
+        <button type="button" data-mgd="15.6">Industry in 1968, mostly the paper mill: 15.6 million a day</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <label for="q">Pumping <output id="qOut" for="q"></output></label>
+      <input id="q" type="range" min="0.1" max="20" step="0.1" value="4.1">
+    </div>
+    <div class="ctl">
+      <label for="t">After <output id="tOut" for="t"></output></label>
+      <div class="row"><input id="t" type="range" min="0" max="100" step="1" value="83"><button type="button" class="play" id="play">Play</button></div>
+    </div>
+
+    <p class="answer" id="answer" aria-live="polite"></p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption class="hint" style="caption-side:bottom;text-align:left">Distances are measured south of the well, away from the outcrop.</caption>
+        <thead><tr><th scope="col">Distance from the well</th><th scope="col" class="n">How far the water drops</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <canvas id="c" width="900" height="620" role="img" aria-label="3D view of the funnel in the water level around the well"></canvas>
+    <p class="hint">3D view, 30 miles across. Drag to turn it. The green edge is the Carrizo outcrop to the north, where rain soaks back in. Depth is stretched so you can see it.</p>
+
+    <svg class="xs" id="xs" viewBox="0 0 900 300" role="img" aria-labelledby="xsT">
+      <title id="xsT">Side view of the water level around the well</title>
+    </svg>
+    <p class="hint">Side view, 15 miles each way from the well. The top line is where the water sits now. The red curve is where it would sit.</p>
+
+    <details>
+      <summary>Change the aquifer numbers</summary>
+      <div class="ctl">
+        <label for="tr">How easily water moves through the sand <output id="trOut" for="tr"></output></label>
+        <input id="tr" type="range" min="10000" max="40000" step="1000" value="20000">
+        <p class="hint">Transmissivity, in gallons a day per foot. The state measured 14,000 to 36,000 for the Carrizo here. Lower means a deeper funnel.</p>
+      </div>
+      <div class="ctl">
+        <label for="L">Distance to the outcrop <output id="LOut" for="L"></output></label>
+        <input id="L" type="range" min="5" max="40" step="1" value="15">
+        <p class="hint">How far north the sand comes up to the surface and refills. The state’s own example used 15 miles. Closer means the funnel levels off sooner.</p>
+      </div>
+      <div class="ctl">
+        <label for="s">How much water the sand gives up as it drops <output id="sOut" for="s"></output></label>
+        <input id="s" type="range" min="0" max="3" step="1" value="0">
+        <p class="hint">Storage coefficient. The state used 0.00005 here. Bigger values slow how fast the funnel spreads, but not how deep it ends up.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section aria-labelledby="hist" style="padding-top:0">
+  <h2 id="hist">Does it match what really happened?</h2>
+  <div class="check">
+    <p>Press <strong>Industry in 1968</strong> and slide the time to about 30 years. A mile from the well, the model shows the water about 425 feet lower.</p>
+    <p>The state measured static water levels drawn down “nearly 500 feet near the center of pumping” by 1970, after about 30 years of pumping by the mill and the cities.</p>
+    <p>That’s close. The real pumping was spread over several well fields and grew over time, so it won’t match exactly. But it shows the math lands in the right neighborhood. <span class="tag">[Our reading]</span></p>
+    <span class="src">Sources: <a href="https://www.twdb.texas.gov/publications/reports/numbered_reports/doc/R110/R110.pdf">TWDB Report 110</a> (1970), abstract and pp. 22–23 (1968 pumping, drawdown near 500 feet); <a href="water-history.html">our water history</a>.</span>
+  </div>
+</section>
+
+<section aria-labelledby="how" style="padding-top:0">
+  <h2 id="how">How it works</h2>
+  <p>In 1970, the state’s consultants figured out how far wells would pull down the Carrizo in Angelina and Nacogdoches counties. They used a standard formula hydrologists have used since the 1930s, called the Theis equation. They treated the outcrop to the north as a line where rain refills the sand. This page runs that same math.</p>
+  <p>Their own example used a well pumping 500 gallons a minute, a transmissivity of 10,000 gallons a day per foot, a storage coefficient of 0.00005, and an outcrop 15 miles away. We start with those values, except transmissivity. We use 20,000, the middle of the range the state measured for the Carrizo here.</p>
+  <span class="src">Source: <a href="https://www.twdb.texas.gov/publications/reports/numbered_reports/doc/R110/R110.pdf">TWDB Report 110</a>, “Coefficients of Transmissibility, Permeability, and Storage” and “Interference Between Wells and Long-Term Drawdowns,” pp. 27–34. Storage coefficients of 0.00007 to 0.0002 for the Carrizo: <a href="https://www.twdb.texas.gov/publications/reports/numbered_reports/doc/R327/R327.pdf">TWDB Report 327</a> (1991), p. 13. Power plant request: <a href="https://grailsystems.io/carrizo_wilcox_aquifer/docs/powered_land.pdf">Powered Land</a>, from Pineywoods GCD records.</span>
+</section>
+
+<section aria-labelledby="lim" style="padding-top:0">
+  <h2 id="lim">What this can’t tell you</h2>
+  <ul class="lim">
+    <li><strong>It’s one straw in an empty glass.</strong> It shows only the new well. Every other well already pumping adds its own funnel on top. The state wrote that these funnels “are additive.”</li>
+    <li><strong>It’s not the state’s full groundwater model.</strong> The Texas Water Development Board runs a much bigger computer model of the whole aquifer. That’s our next step. Until then, treat these numbers as a fair estimate, not a forecast.</li>
+    <li><strong>The sand isn’t the same everywhere.</strong> The state measured a wide range. Try the low and high ends under “Change the aquifer numbers.”</li>
+    <li><strong>It doesn’t know where any project would put its wells.</strong> No data center here has filed for a well permit, and Amp Z’s water use is still listed as “TBD.”</li>
+  </ul>
+</section>
+
+<section aria-labelledby="do" style="padding-top:0">
+  <h2 id="do">What you can do</h2>
+  <p>The board that permits big wells meets Mon., Nov. 9, at 1:30 p.m. at Kurth Lake Lodge. Bring this page. Ask them how far the water would drop if a big new user moved in, and whether they’ve run the numbers. <a href="your-say.html">Here’s how to speak up</a>.</p>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="water-history.html">Our water history</a>&emsp;<a href="library.html">Library: every source</a>&emsp;<a href="your-say.html">You get a say</a><br>
+    Last checked against sources Oct. 30, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var S_OPTS=[0.00005,0.00007,0.0001,0.0002];
+  var MI=5280;
+  var state={mgd:4.1,tIdx:83,T:20000,L:15,sIdx:0,yaw:-0.55,pitch:0.5};
+  // time slider: 0..100 maps 1 day .. 50 years on a log scale
+  function tDays(i){return Math.exp(Math.log(1)+(Math.log(50*365.25)-Math.log(1))*i/100)}
+  function fmtT(d){
+    if(d<45) {var n=Math.round(d);return n+(n===1?' day':' days')}
+    if(d<365*1.5) {var m=Math.round(d/30.44);return m+(m===1?' month':' months')}
+    var y=Math.round(d/365.25);return y+' years';
+  }
+  // exponential integral E1 (the Theis well function)
+  function E1(u){
+    if(u<=0) return Infinity;
+    if(u>60) return 0;
+    if(u<1){var g=0.5772156649,sum=0,term=1;for(var k=1;k<60;k++){term*= -u/k;sum+= -term/k;}return -g-Math.log(u)+sum;}
+    return Math.exp(-u)/u*(u*u+2.334733*u+0.250621)/(u*u+3.330657*u+1.681534);
+  }
+  // drawdown in feet at point (x,y) in feet, well at origin, outcrop line at y=+L, image well at (0,2L)
+  function draw(x,y,t){
+    var Q=state.mgd*1e6/7.48, T=state.T/7.48, S=S_OPTS[state.sIdx], L=state.L*MI;
+    if(y>L) return 0;
+    var r2=Math.max(x*x+y*y,250*250), ri2=x*x+(y-2*L)*(y-2*L);
+    var s=Q/(4*Math.PI*T)*(E1(r2*S/(4*T*t))-E1(ri2*S/(4*T*t)));
+    return Math.max(0,s);
+  }
+  function fmtFt(v){return v<1?'less than 1 foot':Math.round(v).toLocaleString()+(Math.round(v)===1?' foot':' feet')}
+  function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+  function update(){
+    var t=tDays(state.tIdx);
+    $('qOut').textContent=state.mgd.toFixed(1)+' million gallons a day';
+    $('tOut').textContent=fmtT(t);
+    $('trOut').textContent=state.T.toLocaleString();
+    $('LOut').textContent=state.L+' miles';
+    $('sOut').textContent=String(S_OPTS[state.sIdx]);
+    var one=draw(0,-MI,t);
+    $('answer').innerHTML='After '+fmtT(t)+', the water a mile away sits <b>'+fmtFt(one)+'</b> lower.';
+    var rows='',ds=[0.5,1,5,10,15];
+    ds.forEach(function(d){rows+='<tr><td>'+d+(d===1?' mile':' miles')+'</td><td class="n">'+fmtFt(draw(0,-d*MI,t))+'</td></tr>'});
+    $('rows').innerHTML=rows;
+    render3d(t);renderXS(t);
+  }
+  // ---- 3D wireframe ----
+  var cv=$('c'),ctx=cv.getContext('2d'),N=48,HALF=15;
+  function render3d(t){
+    var W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
+    var ink=css('--dim')||'#57534E',red=css('--red')||'#B91C1C',grn=css('--green-mid')||'#2D6A4F';
+    var cy=Math.cos(state.yaw),sy=Math.sin(state.yaw),cp=Math.cos(state.pitch),sp=Math.sin(state.pitch);
+    var scale=W/54, zs=0.042; // feet to grid units (stretched)
+    function P(x,y,z){ // x,y in miles; z in feet (negative is down)
+      var X=x*cy-y*sy, Y=x*sy+y*cy, Z=z*zs;
+      return [W/2+X*scale, H*0.30-(Y*sp+Z*cp)*scale];
+    }
+    var g=[],step=2*HALF/N,maxd=0;
+    for(var i=0;i<=N;i++){g[i]=[];for(var j=0;j<=N;j++){var x=-HALF+i*step,y=-HALF+j*step;var d=draw(x*MI,y*MI,t);g[i][j]=d;if(d>maxd)maxd=d;}}
+    ctx.lineWidth=1;
+    for(var pass=0;pass<2;pass++){
+      for(var i=0;i<=N;i++){ctx.beginPath();for(var j=0;j<=N;j++){var x=pass?-HALF+j*step:-HALF+i*step,y=pass?-HALF+i*step:-HALF+j*step;var d=pass?g[j][i]:g[i][j];var p=P(x,y,-d);if(j)ctx.lineTo(p[0],p[1]);else ctx.moveTo(p[0],p[1]);}
+        ctx.strokeStyle=ink;ctx.globalAlpha=0.35;ctx.stroke();}
+    }
+    ctx.globalAlpha=1;
+    // highlight the drop as red where deeper than 20 ft
+    for(var i=0;i<N;i++)for(var j=0;j<N;j++){var d=(g[i][j]+g[i+1][j]+g[i][j+1]+g[i+1][j+1])/4;if(d<20)continue;
+      var x=-HALF+i*step,y=-HALF+j*step,a=P(x,y,-g[i][j]),b=P(x+step,y,-g[i+1][j]),c=P(x+step,y+step,-g[i+1][j+1]),e=P(x,y+step,-g[i][j+1]);
+      ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.lineTo(c[0],c[1]);ctx.lineTo(e[0],e[1]);ctx.closePath();
+      ctx.fillStyle=red;ctx.globalAlpha=Math.min(0.55,0.08+d/900);ctx.fill();}
+    ctx.globalAlpha=1;
+    // outcrop line
+    if(state.L<=HALF){var a=P(-HALF,state.L,0),b=P(HALF,state.L,0);ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.strokeStyle=grn;ctx.lineWidth=4;ctx.stroke();
+      ctx.fillStyle=grn;ctx.font='600 22px '+css('--sans');ctx.fillText('Outcrop: rain refills here',b[0]-270,b[1]-10);}
+    // well
+    var w0=P(0,0,0),w1=P(0,0,-Math.max(g[N/2][N/2],60));ctx.beginPath();ctx.moveTo(w0[0],w0[1]-30);ctx.lineTo(w1[0],w1[1]);ctx.strokeStyle=red;ctx.lineWidth=4;ctx.stroke();
+    ctx.fillStyle=red;ctx.font='700 22px '+css('--sans');ctx.fillText('New well',w0[0]+8,w0[1]-30);
+    ctx.fillStyle=ink;ctx.font='20px '+css('--sans');ctx.fillText('Deepest point shown: '+fmtFt(maxd),12,H-14);
+  }
+  var drag=null;
+  cv.addEventListener('pointerdown',function(e){drag=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing'});
+  cv.addEventListener('pointermove',function(e){if(!drag)return;state.yaw+=(e.clientX-drag[0])*0.01;state.pitch=Math.max(0.15,Math.min(1.3,state.pitch+(e.clientY-drag[1])*0.006));drag=[e.clientX,e.clientY];render3d(tDays(state.tIdx))});
+  cv.addEventListener('pointerup',function(){drag=null;cv.style.cursor='grab'});
+  // ---- side view ----
+  function renderXS(t){
+    var svg=$('xs'),W=900,H=300,top=40,depth=600,ph=H-top-40;
+    var xs=function(mi){return 40+(mi+15)/30*(W-80)},ys=function(ft){return top+Math.min(ft,depth)/depth*ph};
+    var pts=[];for(var k=0;k<=120;k++){var mi=-15+k*30/120;pts.push(xs(mi).toFixed(1)+','+ys(draw(0,mi*MI,t)).toFixed(1));}
+    var red=css('--red'),ink=css('--dim'),grn=css('--green-mid');
+    var h='<title id="xsT">Side view of the water level around the well</title>';
+    [100,200,300,400,500,600].forEach(function(f){h+='<line x1="40" x2="'+(W-40)+'" y1="'+ys(f)+'" y2="'+ys(f)+'" stroke="'+ink+'" stroke-opacity=".18"/><text x="'+(W-38)+'" y="'+(ys(f)+4)+'">'+f+' ft</text>'});
+    h+='<line x1="40" x2="'+(W-40)+'" y1="'+top+'" y2="'+top+'" stroke="'+ink+'" stroke-width="2"/>';
+    h+='<polyline fill="none" stroke="'+red+'" stroke-width="3" points="'+pts.join(' ')+'"/>';
+    h+='<line x1="'+xs(0)+'" x2="'+xs(0)+'" y1="'+(top-22)+'" y2="'+ys(Math.min(depth,draw(0,-300,t)))+'" stroke="'+red+'" stroke-width="3"/>';
+    h+='<text x="'+(xs(0)+6)+'" y="'+(top-10)+'">New well</text>';
+    h+='<text x="40" y="'+(H-12)+'">← 15 miles south</text><text x="'+(W-40)+'" y="'+(H-12)+'" text-anchor="end" fill="'+grn+'">15 miles north, toward the outcrop →</text>';
+    svg.innerHTML=h;
+  }
+  // ---- controls ----
+  function setPreset(btn){document.querySelectorAll('#presets button').forEach(function(b){b.setAttribute('aria-pressed',String(b===btn))})}
+  document.querySelectorAll('#presets button').forEach(function(b){b.addEventListener('click',function(){state.mgd=parseFloat(b.dataset.mgd);$('q').value=state.mgd;setPreset(b);update()})});
+  $('q').addEventListener('input',function(){state.mgd=parseFloat(this.value);setPreset(null);update()});
+  $('t').addEventListener('input',function(){state.tIdx=parseInt(this.value,10);update()});
+  $('tr').addEventListener('input',function(){state.T=parseInt(this.value,10);update()});
+  $('L').addEventListener('input',function(){state.L=parseInt(this.value,10);update()});
+  $('s').addEventListener('input',function(){state.sIdx=parseInt(this.value,10);update()});
+  var timer=null;
+  $('play').addEventListener('click',function(){
+    if(timer){clearInterval(timer);timer=null;this.textContent='Play';return}
+    if(state.tIdx>=100){state.tIdx=0}
+    this.textContent='Pause';var btn=this;
+    timer=setInterval(function(){state.tIdx++;$('t').value=state.tIdx;update();if(state.tIdx>=100){clearInterval(timer);timer=null;btn.textContent='Play'}},90);
+  });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',update);
+  update();
+})();
+</script>
+</body>
+</html>
