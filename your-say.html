@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Where you get a say | East Texas Legacy Coalition</title>
+<meta name="description" content="They’ll tell you it’s outside city limits and nobody can stop it. That’s not the whole story. Here’s who decides what in Angelina County, when they meet, and how you speak up.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="This is your home. You get a say.">
+<meta property="og:description" content="Who decides what about data centers in Angelina County, when they meet, and how to speak up. Next date: Pineywoods, Nov. 9.">
+<meta property="og:url" content="https://easttexaslegacy.org/your-say.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/share_home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1B4332;--green-mid:#2D6A4F;--mint:#86EFAC;--paper:#FAFAF8;--card:#FFFFFF;
+  --ink:#1C1917;--dim:#57534E;--line:#E7E5E4;--red:#B91C1C;
+  --gas:#9A3412;--dc:#1B4332;--sun:#A16207;--batt:#3F6212;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0F1712;--card:#16211A;--ink:#ECEAE6;--dim:#A8A29E;--line:#2A3A30;--green:#86EFAC;--green-mid:#86EFAC;--red:#FCA5A5;
+  --gas:#FDBA74;--dc:#86EFAC;--sun:#FDE047;--batt:#BEF264}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--green-mid)}
+:focus-visible{outline:3px solid var(--green-mid);outline-offset:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
+.top{padding:calc(1rem + env(safe-area-inset-top,0px)) 0 1rem;border-bottom:1px solid var(--line)}
+.top a{font-weight:700;text-decoration:none}
+header.intro{padding:3.5rem 0 2rem}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;max-width:16ch;margin-bottom:1rem}
+.lead{color:var(--dim);max-width:62ch;font-size:1.12rem}
+h2{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.2;margin:0 0 .8rem}
+section{padding:2.5rem 0}
+p+p{margin-top:.8rem}
+.src{display:block;margin-top:.9rem;font-size:.82rem;color:var(--dim)}
+
+/* the scale */
+.scale{margin:1.5rem 0 .6rem;display:flex;height:64px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.scale div{height:100%;position:relative}
+.scale .dc{background:var(--dc)}.scale .gas{background:var(--gas)}.scale .sun{background:var(--sun)}.scale .batt{background:var(--batt)}
+.scale div+div{border-left:2px solid var(--paper)}
+.scale span{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--paper);font-weight:700;font-size:.95rem;white-space:nowrap}
+.key{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.35rem 1.5rem;font-size:.95rem;margin-top:.8rem}
+.key li{display:flex;gap:.6rem;align-items:baseline}
+.key i{flex:none;width:.85rem;height:.85rem;border-radius:2px;display:inline-block;transform:translateY(1px)}
+.key b{font-variant-numeric:tabular-nums}
+.big{font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,3.2vw,1.65rem);line-height:1.35;margin:1.6rem 0 .4rem;max-width:34ch}
+
+/* projects */
+.proj{border-top:1px solid var(--line);padding:2rem 0}
+.proj:first-of-type{border-top:0}
+.proj h3{font-family:var(--serif);font-size:1.55rem;line-height:1.2}
+.proj .kind{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.95rem;margin:.25rem 0 1rem}
+.proj .kind i{width:.75rem;height:.75rem;border-radius:2px}
+.facts{display:grid;grid-template-columns:8.5rem 1fr;gap:.45rem 1rem;max-width:62ch}
+.facts dt{font-weight:700;color:var(--dim)}
+@media (max-width:520px){.facts{grid-template-columns:1fr;gap:.1rem}.facts dd{margin-bottom:.6rem}}
+.flag{display:block;margin-top:1rem;padding:.8rem 1rem;border-left:3px solid var(--red);background:var(--card);max-width:62ch}
+.note{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.4rem 1.5rem;max-width:66ch}
+.note h2{font-size:1.35rem}
+.next{list-style:none;display:grid;gap:.6rem;max-width:62ch}
+.next li{padding-left:1.2rem;position:relative}
+.next li::before{content:"";position:absolute;left:0;top:.65rem;width:.45rem;height:.45rem;background:var(--green-mid);border-radius:50%}
+footer{background:#1B4332;color:rgba(255,255,255,.8);padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px));font-size:.92rem;margin-top:2rem}
+footer a{color:#86EFAC}
+footer strong{display:block;font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:.3rem}
+.three{list-style:none;display:grid;gap:1rem;max-width:66ch;margin-top:1rem}
+.three li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green-mid);border-radius:6px;padding:1rem 1.2rem}
+.three li.no{border-left-color:var(--red)}
+.three b{display:block;font-family:var(--serif);font-size:1.15rem;margin-bottom:.2rem}
+.unk{list-style:none;display:grid;gap:.7rem;max-width:62ch}
+.unk li{padding-left:1.2rem;position:relative}
+.unk li::before{content:"?";position:absolute;left:0;top:0;font-weight:700;color:var(--red)}
+.say{font-family:var(--serif);font-size:1.15rem;border-left:4px solid var(--green-mid);padding:.3rem 0 .3rem 1rem;margin:1rem 0;max-width:56ch}
+.tag{font-size:.8rem;font-weight:700;color:var(--dim)}
+.when{display:block;font-weight:700;color:var(--green-mid);font-size:.9rem;letter-spacing:.02em}
+.up li{border-left-color:var(--red)}
+.doors{list-style:none;display:grid;gap:1.2rem;max-width:66ch;margin-top:1rem}
+.doors li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.3rem}
+.doors h3{font-family:var(--serif);font-size:1.35rem;line-height:1.2;margin-bottom:.6rem}
+.doors .facts{margin-top:.4rem}
+.catch{display:block;margin-top:.8rem;padding:.6rem .9rem;border-left:3px solid var(--red);background:var(--paper);font-size:.98rem}
+</style>
+
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="./">East Texas Legacy Coalition</a></div></div>
+<main class="wrap">
+<header class="intro">
+  <h1>This is your home. You get a say.</h1>
+  <p class="lead">They’ll tell you it’s outside city limits, the county can’t zone it, and it’s already decided. That’s not the whole story. Four public bodies have a hand in what happens here, and every one of them answers to you.</p>
+</header>
+
+<section aria-labelledby="working" style="padding-top:0">
+  <div class="note">
+    <h2 id="working">It’s already working</h2>
+    <p>Don’t let anybody tell you showing up doesn’t matter. Here’s what happened after folks did.</p>
+    <ul class="three">
+      <li><span class="when">June 2026</span>Residents pack the Commissioners Court and won’t sit quiet about water, power, noise and wastewater.</li>
+      <li><span class="when">July 14, 2026</span>Commissioners vote unanimously for Resolution 010-26, asking Austin to let counties require water impact statements, public hearings, noise limits and setbacks for big data centers.</li>
+      <li><span class="when">August 2026</span>The City of Lufkin passes a similar resolution backing the county.</li>
+      <li><span class="when">October 2026</span>The county has turned down Amp Z’s request for a 10-year tax break.</li>
+    </ul>
+    <span class="src">Sources: <a href="https://lufkindailynews.com/news/local/angelina-county-seeks-greater-authority-over-data-center-development/article_fd27c36a-51de-595b-9bf4-58e8634b6641.html">Lufkin Daily News</a> (June meeting, Resolution 010-26); <a href="https://lufkindailynews.com/news/local/angelina-county-to-consider-legal-work-for-amp-z-after-rejecting-tax-abatement-request/article_5d1eca7d-1e08-53b1-8dad-9afc3b1c9c28.html">Lufkin Daily News</a> (what the resolution asks for; tax break rejected); <a href="https://lufkindailynews.com/news/community/angelina-county-officials-approve-outside-legal-help-for-data-center-tax-abatement-agreements-smith-appointed/article_1202ff79-c20e-5a86-a861-be509f064958.html">Lufkin Daily News</a> (City resolution in August).</span>
+  </div>
+</section>
+
+<section aria-labelledby="soon" style="padding-top:0">
+  <h2 id="soon">Coming up. Mark your calendar.</h2>
+  <ul class="three up">
+    <li><span class="when">Mon., Nov. 9 · 1:30 p.m. · Kurth Lake Lodge</span><b>Pineywoods Groundwater board meeting and public hearing</b>The board that permits big water wells meets, with a <a href="https://www.pgcd.org/rules/proposed-rule-changes-for-november-9-2026-public-hearing">proposed rule change</a> up for a public hearing. Come see who’s asking for what.</li>
+    <li><span class="when">Wed., Nov. 18</span><b>GMA-11 meeting</b>The regional group of water districts that decides how far our aquifers are allowed to drop over time. Details at <a href="https://www.pgcd.org/">pgcd.org</a>.</li>
+    <li><span class="when">Tues., Jan. 12, 2027</span><b>The Texas Legislature goes back to work</b>That’s when Resolution 010-26 either becomes a bill or gathers dust.</li>
+  </ul>
+  <span class="src">Sources: <a href="https://www.pgcd.org/">Pineywoods GCD</a> (Nov. 9 and Nov. 18); <a href="https://www.kltv.com/2026/07/14/angelina-county-commissioners-vote-ask-state-authority-regulate-data-centers/">KTRE</a> (Jan. 12, 2027).</span>
+</section>
+
+<section aria-labelledby="doors" style="padding-top:0">
+  <h2 id="doors">Four doors. Here’s how to knock.</h2>
+  <ul class="doors">
+    <li>
+      <h3>Lufkin City Council</h3>
+      <dl class="facts">
+        <dt>What it controls</dt><dd>City water. A big industrial user would likely need a contract with the City to get it.</dd>
+        <dt>When</dt><dd>Usually the 1st and 3rd Tuesday of the month, 5 p.m., City Hall, 300 E. Shepherd Ave.</dd>
+        <dt>How</dt><dd>Email your council member and the mayor. Ask them to put data center water on the agenda.</dd>
+      </dl>
+      <span class="catch"><strong>The catch:</strong> At Council you can only speak on items that are on that night’s agenda. In May, residents who came to talk about data centers were sent back to their seats. So the ask is simple: put it on the agenda.</span>
+      <span class="src">Sources: <a href="https://ecode360.com/39371643">Lufkin City Charter</a> (meeting schedule); <a href="https://lufkindailynews.com/news/local/as-ai-data-centers-eye-lufkin-officials-and-residents-debate-water-use-and-oversight/article_9839f509-e9eb-500e-aad6-36237f98d224.html">Lufkin Daily News</a> (water contract); <a href="https://www.kltv.com/2026/05/20/lufkin-residents-blocked-speaking-about-ai-data-centers-city-council-meeting/">KTRE, May 2026</a> (agenda-only comment).</span>
+    </li>
+    <li>
+      <h3>Angelina County Commissioners Court</h3>
+      <dl class="facts">
+        <dt>What it controls</dt><dd>Tax breaks and road use agreements. Right now those are the county’s only real leverage over a data center.</dd>
+        <dt>When</dt><dd>Tuesday mornings at 10, usually twice a month, 211 E. Shepherd Ave. <a href="https://angelinacounty.net/events/">County calendar</a>.</dd>
+        <dt>How</dt><dd>Every regular agenda has a <strong>Public Forum</strong>. Sign in, stand up, say your piece.</dd>
+      </dl>
+      <span class="src">Sources: <a href="https://www.kltv.com/2026/07/14/angelina-county-commissioners-vote-ask-state-authority-regulate-data-centers/">KTRE</a> (county leverage); <a href="https://angelinacounty.net/files/pdf/agendas/COM-AGEN090826.pdf">County agenda, Sept. 8, 2026</a> (time, place, Public Forum).</span>
+    </li>
+    <li>
+      <h3>Pineywoods Groundwater Conservation District</h3>
+      <dl class="facts">
+        <dt>What it controls</dt><dd>Permits for big water wells in Angelina and Nacogdoches counties.</dd>
+        <dt>When</dt><dd>Next meeting: Mon., Nov. 9, 1:30 p.m., Kurth Lake Lodge.</dd>
+        <dt>How</dt><dd>Show up for the public hearing, or email the District before the meeting so your comment is on file.</dd>
+      </dl>
+      <span class="src">Source: <a href="https://www.pgcd.org/">Pineywoods GCD</a>.</span>
+    </li>
+    <li>
+      <h3>The Texas Legislature</h3>
+      <dl class="facts">
+        <dt>What it controls</dt><dd>Whether counties get any power over data centers at all.</dd>
+        <dt>When</dt><dd>Session starts Jan. 12, 2027.</dd>
+        <dt>How</dt><dd><a href="https://wrs.capitol.texas.gov/">Look up your state representative and senator</a>. Call or write and ask them to carry Resolution 010-26 into law.</dd>
+      </dl>
+      <span class="src">Source: <a href="https://www.kltv.com/2026/07/14/angelina-county-commissioners-vote-ask-state-authority-regulate-data-centers/">KTRE</a>.</span>
+    </li>
+  </ul>
+</section>
+
+<section aria-labelledby="say" style="padding-top:0">
+  <h2 id="say">What to say</h2>
+  <p>You don’t need a speech. Your name, where you live, and one sentence:</p>
+  <div class="say">“This is my home. Leave the Carrizo-Wilcox for the people who drink it, and put it in writing before anybody signs a deal.”</div>
+  <p>Say it in your own words. A grandmother talking about her well beats a lawyer every time.</p>
+</section>
+
+<section aria-labelledby="more" style="padding-top:0">
+  <h2 id="more">Want to do more?</h2>
+  <ul class="next">
+    <li><strong>Ask for the records yourself.</strong> Our <a href="https://grailsystems.io/angelina/">Angelina County Watch</a> page will help you write a public records request in a few minutes.</li>
+    <li><strong>Bring one neighbor.</strong> Ten people in a room changes the room.</li>
+    <li><strong>Join the coalition.</strong> <a href="./#help">We’ll post every meeting that matters</a>, so you don’t have to hunt for them.</li>
+  </ul>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="projects.html">The seven projects</a>&emsp;<a href="good-water.html">Leave the good water</a>&emsp;<a href="1606-lufkin.html">1606 Corp.</a><br>
+    Meeting times can change. Check each agency’s posted agenda. Last checked against sources Oct. 30, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+</body>
+</html>
