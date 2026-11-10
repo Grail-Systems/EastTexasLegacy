@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Donate | East Texas Legacy Coalition</title>
+<meta name="description" content="Every record the East Texas Legacy Coalition has pulled into the light was paid for. Help keep the requests, the maps and the meetings going.">
+<meta property="og:title" content="Keep the receipts coming">
+<meta property="og:description" content="Every record the East Texas Legacy Coalition has pulled into the light was paid for. Help keep it going.">
+<meta property="og:url" content="https://easttexaslegacy.org/donate.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/share_water.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%B2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1B4332;--green-mid:#2D6A4F;--mint:#86EFAC;--paper:#FAFAF8;--card:#FFFFFF;--ink:#1C1917;--dim:#57534E;--line:#E7E5E4;--slip:#FFFEF7;
+--serif:'Playfair Display',Georgia,serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--paper:#0F1712;--card:#16211A;--ink:#ECEAE6;--dim:#A8A29E;--line:#2A3A30;--green:#86EFAC;--green-mid:#86EFAC;--slip:#1B2820;color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.1rem/1.65 var(--sans);padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+a{color:var(--green-mid)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.top{border-bottom:1px solid var(--line)}
+.top a{display:inline-block;padding:.9rem 0;font-weight:700;text-decoration:none;color:var(--ink)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start;padding:3.5rem 0 2.5rem}
+h1{font:900 clamp(2.4rem,6vw,4.2rem)/1.02 var(--serif);margin:0 0 1.2rem;letter-spacing:-.01em;color:var(--green)}
+.lead{font-size:1.25rem;max-width:34ch;margin:0 0 1rem}
+.hero p{max-width:40ch}
+.slip{background:var(--slip);border:1px solid var(--line);padding:1.6rem 1.4rem 1.2rem;font:.95rem/1.5 var(--mono);transform:rotate(1.2deg);box-shadow:0 1px 0 var(--line),0 14px 30px -18px rgba(27,67,50,.45);position:relative}
+.slip:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,var(--slip) 0) 0 0/14px 10px,linear-gradient(45deg,transparent 7px,var(--slip) 0) 0 0/14px 10px}
+.slip h2{font:700 1rem/1.3 var(--mono);text-align:center;margin:0 0 1rem;letter-spacing:.04em}
+.row{display:flex;justify-content:space-between;gap:1rem;padding:.35rem 0;border-bottom:1px dashed var(--line)}
+.row span:last-child{white-space:nowrap}
+.tot{display:flex;justify-content:space-between;font-weight:700;padding:.8rem 0 .2rem}
+.stamp{margin:.9rem 0 0;text-align:center;color:var(--dim);font-size:.85rem}
+.give{border-top:1px solid var(--line);padding:2.5rem 0}
+.give h2,.where h2,.other h2{font:700 1.9rem/1.2 var(--serif);margin:0 0 .4rem}
+.amts{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin:1.4rem 0}
+.amts button{font:inherit;cursor:pointer;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:10px;padding:.9rem .6rem;text-align:left}
+.amts button b{display:block;font:700 1.6rem/1.1 var(--serif);color:var(--green)}
+.amts button small{color:var(--dim);font-size:.9rem;line-height:1.3;display:block;margin-top:.2rem}
+.amts button[aria-pressed=true]{border-color:var(--green-mid);background:var(--green);color:#fff}
+.amts button[aria-pressed=true] b,.amts button[aria-pressed=true] small{color:#fff}
+@media (prefers-color-scheme:dark){.amts button[aria-pressed=true]{color:#0F1712}.amts button[aria-pressed=true] b,.amts button[aria-pressed=true] small{color:#0F1712}}
+.pay{display:flex;flex-wrap:wrap;gap:.8rem}
+.pay a{flex:1 1 220px;text-align:center;text-decoration:none;font-weight:700;font-size:1.15rem;padding:1rem 1.2rem;border-radius:10px;border:2px solid var(--green)}
+.pay .ca{background:var(--green);color:#fff}
+@media (prefers-color-scheme:dark){.pay .ca{color:#0F1712}}
+.pay .vm{color:var(--green)}
+.pay a span{display:block;font-weight:400;font-size:.9rem;opacity:.85}
+.where{padding:2.5rem 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.where ul{margin:.6rem 0 0;padding-left:1.1rem}
+.where li{margin-bottom:.5rem}
+.fine{color:var(--dim);font-size:.98rem}
+.other{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem}
+.other .btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
+.other a,.other button{font:600 1rem var(--sans);padding:.75rem 1.1rem;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;cursor:pointer}
+@media (max-width:760px){.hero,.where{grid-template-columns:1fr;gap:2rem}.amts{grid-template-columns:repeat(2,1fr)}.slip{transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="./">East Texas Legacy Coalition</a></div></div>
+<main class="wrap">
+<section class="hero">
+<div>
+<h1>Keep the receipts coming.</h1>
+<p class="lead">Every record on this site was paid for. Somebody had to ask for it, drive to get it, and put down the deposit.</p>
+<p>So far that somebody has been me, out of my own pocket. I'm a mom in Huntington with a laptop and a stack of records requests, and I can't carry it alone much longer. If this work matters to you, help keep it going.</p>
+<p><strong>Fawn Elizabeth Zion</strong><br>Founder, East Texas Legacy Coalition</p>
+</div>
+<div class="slip" aria-label="What it costs to ask">
+<h2>WHAT IT COSTS TO ASK</h2>
+<div class="row"><span>City of Lufkin records deposit, CRR-2026-315, Oct. 22</span><span>$54.00</span></div>
+<div class="row"><span>Angelina County records, Oct. 2</span><span>$45.00</span></div>
+<div class="row"><span>Gas to Lufkin, Nacogdoches and Austin</span><span>every trip</span></div>
+<div class="row"><span>Printing for meetings</span><span>every meeting</span></div>
+<div class="row"><span>Keeping the map and records pages online</span><span>every month</span></div>
+<div class="tot"><span>Paid so far by</span><span>one family</span></div>
+<p class="stamp">14 public records requests filed and counting</p>
+</div>
+</section>
+
+<section class="give" aria-labelledby="give">
+<h2 id="give">Chip in</h2>
+<p>Pick an amount, then pay with Cash App or Venmo.</p>
+<div class="amts" role="group" aria-label="Choose an amount">
+<button type="button" data-amt="25" aria-pressed="false"><b>$25</b><small>gas to the next meeting</small></button>
+<button type="button" data-amt="54" aria-pressed="true"><b>$54</b><small>one records deposit</small></button>
+<button type="button" data-amt="100" aria-pressed="false"><b>$100</b><small>two requests filed</small></button>
+<button type="button" data-amt="250" aria-pressed="false"><b>$250</b><small>about five requests</small></button>
+</div>
+<div class="pay">
+<a class="ca" id="ca" href="https://cash.app/$EastTexasLegacy" target="_blank" rel="noopener">Give with Cash App<span>$EastTexasLegacy</span></a>
+<a class="vm" id="vm" href="https://venmo.com/u/EastTexasLegacy" target="_blank" rel="noopener">Give with Venmo<span>@EastTexasLegacy</span></a>
+</div>
+</section>
+
+<section class="where">
+<div>
+<h2>Where it goes</h2>
+<ul>
+<li>Records deposits and fees from the City, the County and the water district</li>
+<li>Gas and printing to get to every meeting that decides our water</li>
+<li>Keeping the Aquifer Defense Grid, the records tracker and this site online</li>
+</ul>
+</div>
+<div>
+<h2>Good to know</h2>
+<p class="fine">The East Texas Legacy Coalition is a grassroots group, not a registered 501(c)(3) charity, so gifts aren't tax-deductible. Both accounts belong to the coalition.</p>
+<p class="fine">Questions? <a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a></p>
+</div>
+</section>
+
+<section class="other" aria-labelledby="other">
+<h2 id="other">Can't give right now?</h2>
+<p>That's okay. Showing up and spreading the word matters just as much.</p>
+<div class="btns">
+<a href="https://www.facebook.com/groups/1249053690274921/" target="_blank" rel="noopener">Join the Facebook group</a>
+<button type="button" id="share">Share this page</button>
+<a href="https://grailsystems.io/carrizo_wilcox_aquifer/records.html">See every records request</a>
+</div>
+</section>
+</main>
+<script>
+(function(){
+var CA='https://cash.app/$EastTexasLegacy',VM='https://venmo.com/EastTexasLegacy?txn=pay&note='+encodeURIComponent('East Texas Legacy Coalition');
+var ca=document.getElementById('ca'),vm=document.getElementById('vm'),bs=document.querySelectorAll('.amts button');
+function set(a){ca.href=CA+'/'+a;vm.href=VM+'&amount='+a;bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.amt===a?'true':'false')});}
+bs.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.amt)})});
+set('54');
+var s=document.getElementById('share');
+s.addEventListener('click',function(){var d={title:'Keep the receipts coming',text:'Help the East Texas Legacy Coalition keep the records requests going.',url:location.href};
+if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){s.textContent='Link copied'})}});
+})();
+</script>
+<script src="/donate.js" defer></script>
+</body>
+</html>
