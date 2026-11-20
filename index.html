@@ -168,6 +168,18 @@ section{padding:4.5rem 0}
 .amts a small{display:block;font-weight:400;font-size:.74rem;color:var(--dim);margin-top:.15rem}
 .fine{font-size:.82rem;color:var(--dim);margin-top:1.2rem;max-width:720px}
 
+/* bookshelf */
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;margin-top:.4rem}
+.book{position:relative;background:var(--card);border:1px solid var(--line);border-radius:6px 14px 14px 6px;padding:1.3rem 1.3rem 1.3rem 1.7rem;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(40,30,10,.09);transition:transform .15s;display:flex;flex-direction:column}
+.book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;border-radius:6px 0 0 6px;background:var(--spine,#6B2E3E)}
+.book:hover{transform:translateY(-3px)}
+.book .by{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
+.book h3{font-size:1.35rem;margin:.35rem 0 .45rem}
+.book p{font-size:.95rem;color:var(--dim)}
+.book .more{margin-top:auto;padding-top:.8rem;font-weight:700;font-size:.92rem;color:var(--green-mid)}
+.pages{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.pages a{text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.45rem .95rem;font-weight:600;font-size:.93rem}
+.pages a:hover{border-color:var(--sap)}
 footer{background:#1B2A1F;color:rgba(255,255,255,.75);padding:3rem 0 2rem;font-size:.93rem}
 footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.6rem}
 footer strong{display:block;font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:.5rem}
@@ -185,7 +197,8 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
     <div class="quick"><a class="water" href="#act">The water</a><a class="give" href="#help">Give</a></div>
     <nav aria-label="Main">
       <a href="roots.html">Our story</a>
-      <a href="#places">Places &amp; families</a>
+      <a href="#places">Places</a>
+      <a href="#books">Families</a>
       <a href="heroes.html">Heroes</a>
       <a href="#table">From the land</a>
       <a href="events.html">Events</a>
@@ -213,6 +226,7 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
   <div class="doors" aria-label="Ways in">
     <a class="door" href="roots.html"><b>Our history</b><span>Ring by ring, Caddo to today</span></a>
     <a class="door" href="#places"><b>Our places</b><span>Towns, rivers, lost communities</span></a>
+    <a class="door" href="#books"><b>Our families</b><span>Oak Flat, pioneers, family research</span></a>
     <a class="door" href="heroes.html"><b>Our heroes</b><span>The ones who stood up</span></a>
     <a class="door" href="recipes.html"><b>Our kitchen</b><span>Mayhaw jelly to wassail</span></a>
     <a class="door w" href="#act"><b>Our water</b><span>What’s happening, what to do</span></a>
@@ -256,6 +270,23 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
     <p class="hint" style="margin-top:1rem"><a href="huntington.html">Read the family’s story →</a> &nbsp;·&nbsp; Got a photo of your people? <a href="mailto:contact@grailsystems.io?subject=Photo%20for%20Our%20History">Send it with who, where and when.</a> We’ll ask before we post and credit your family.</p>
 
     <div class="thread"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2s7 7.6 7 13a7 7 0 0 1-14 0c0-5.4 7-13 7-13z"/></svg><p><strong>The water thread:</strong> Sam Rayburn wasn’t built for the families it flooded. Its stated purpose included storing water for cities and industry. <a href="good-water.html">Lufkin already owns river and lake water bought for industry →</a></p></div>
+  </div>
+</section>
+
+<section id="books" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="eyebrow">From the family bookshelf</div>
+    <h2>Three books. 165 years. A whole county of families.</h2>
+    <p class="lead">Our founder’s kin Winnie Graham wrote down how her family lived in these woods. The county’s own 1976 history gathered every pioneer family it could find. We read them cover to cover, checked them against the record, and retold the best of them here.</p>
+    <div class="shelf">
+      <a class="book" href="oak-flat.html" style="--spine:#6B2E3E"><span class="by">Winnie Graham · 2013</span><h3>Under the Blackgum Tree</h3><p>Granny Hutch, Grandma Wade, Riding the Ring, a rose plowed around in a cornfield, and a Lufkin engineer’s pumping-jack patent. One Oak Flat family, six generations.</p><span class="more">Meet the family →</span></a>
+      <a class="book" href="county-history.html" style="--spine:#8A3B22"><span class="by">Bob Bowman, ed. · 1976</span><h3>Land of the Little Angel</h3><p>Four county seats, the county that voted no on secession, steamboats on the Angelina, schools by the spring, ghost towns and tall tales.</p><span class="more">Read the county’s story →</span></a>
+      <a class="book" href="wild-foods.html#bookshelf" style="--spine:#2D6A4F"><span class="by">Winnie Graham · 2020</span><h3>Listening to Plants</h3><p>Oak-gall ink, sweet gum chewing gum and what the old folks knew about the plants around them.</p><span class="more">Wild foods →</span></a>
+    </div>
+    <div class="pages" aria-label="Heritage pages">
+      <a href="oak-flat.html">Under the black gum tree</a><a href="old-ways.html">Piney Woods ways</a><a href="county-history.html">Land of the Little Angel</a><a href="black-heritage.html">Black heritage</a><a href="family-research.html">For family researchers</a><a href="huntington.html">Huntington</a>
+    </div>
+    <div class="thread"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2s7 7.6 7 13a7 7 0 0 1-14 0c0-5.4 7-13 7-13z"/></svg><p><strong>The water thread:</strong> Every one of these stories starts at a spring. Lufkin was born at Denman Springs, schools were built by the spring they drank from, and the county history says the river boats quit when farmers plowed up the springs that fed the Angelina. <a href="county-history.html#rivers">Read it in their words →</a></p></div>
   </div>
 </section>
 
@@ -362,7 +393,7 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
   <div class="wrap">
     <div class="cols">
       <div><strong>East Texas Legacy Coalition</strong>Founded by Fawn Elizabeth Zion.<br>Angelina County, Texas.<br><a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a></div>
-      <ul><li><strong>Our heritage</strong></li><li><a href="roots.html">Our history</a></li><li><a href="huntington.html">Huntington</a></li><li><a href="lost-to-the-lake.html">Lost to the lake</a></li><li><a href="water-record.html">Our water’s paper trail</a></li><li><a href="who-decides.html">Who decides the route</a></li><li><a href="heroes.html">Heroes and stewards</a></li></ul>
+      <ul><li><strong>Our heritage</strong></li><li><a href="roots.html">Our history</a></li><li><a href="oak-flat.html">Under the black gum tree</a></li><li><a href="old-ways.html">Piney Woods ways</a></li><li><a href="county-history.html">Land of the Little Angel</a></li><li><a href="black-heritage.html">Black heritage</a></li><li><a href="family-research.html">For family researchers</a></li><li><a href="huntington.html">Huntington</a></li><li><a href="lost-to-the-lake.html">Lost to the lake</a></li><li><a href="water-record.html">Our water’s paper trail</a></li><li><a href="who-decides.html">Who decides the route</a></li><li><a href="heroes.html">Heroes and stewards</a></li></ul>
       <ul><li><strong>Our table</strong></li><li><a href="recipes.html">Recipes</a></li><li><a href="wild-foods.html">Wild foods</a></li><li><a href="events.html">Events</a></li></ul>
       <ul><li><strong>Our water</strong></li><li><a href="water.html">The water fight</a></li><li><a href="your-say.html">Where you get a say</a></li><li><a href="projects.html">Seven big projects</a></li><li><a href="pineywoods-rules.html">Pineywoods rules</a></li><li><a href="https://grailsystems.io/carrizo_wilcox_aquifer/">Aquifer Defense Grid</a></li><li><a href="https://grailsystems.io/carrizo_wilcox_aquifer/records.html">Records requests</a></li><li><a href="library.html">Library: every source</a></li></ul>
       <ul><li><strong>Get involved</strong></li><li><a href="https://www.facebook.com/groups/1249053690274921/">Facebook group</a></li><li><a href="donate.html">Donate</a></li><li><a href="water.html#tip">Send a tip</a></li><li><a href="https://grailsystems.io/carrizo_wilcox_aquifer/founder.html">Our founder</a></li></ul>
