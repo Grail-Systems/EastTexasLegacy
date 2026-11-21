@@ -407,6 +407,7 @@ footer .small{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,2
 /* Hide any photo that fails to load so a broken link never shows */
 document.querySelectorAll('img').forEach(function(i){function h(){i.style.visibility='hidden'}if(i.complete&&i.naturalWidth===0)h();else i.addEventListener('error',h)});
 </script>
+<script>if(location.hash==="#listen")location.replace("/water.html#listen");</script>
 <script src="/donate.js" defer></script>
 <script src="/gma11-alert.js" defer></script>
 <script src="/atlas.js" defer></script>
