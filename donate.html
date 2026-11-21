@@ -88,7 +88,7 @@ h1{font:900 clamp(2.4rem,6vw,4.2rem)/1.02 var(--serif);margin:0 0 1.2rem;letter-
 <div class="row"><span>Keeping the map and records pages online</span><span>every month</span></div>
 <div class="row"><span>Unpaid work: research, records, maps, meetings</span><span>hundreds of hours</span></div>
 <div class="tot"><span>Paid so far by</span><span>one family</span></div>
-<p class="stamp">14 public records requests filed and counting</p>
+<p class="stamp"><span id="reqCount">21</span> public records requests filed and counting · <a href="https://grailsystems.io/carrizo_wilcox_aquifer/records.html">see them all</a></p>
 </div>
 </section>
 
@@ -147,6 +147,7 @@ var ca=document.getElementById('ca'),vm=document.getElementById('vm'),bs=documen
 function set(a){ca.href=CA+'/'+a;vm.href=VM+'&amount='+a;bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.amt===a?'true':'false')});}
 bs.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.amt)})});
 set('54');
+fetch('https://grailsystems.io/carrizo_wilcox_aquifer/frontend/records.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){var n=(d.requests||[]).length;if(n>0)document.getElementById('reqCount').textContent=n}).catch(function(){});
 var s=document.getElementById('share');
 s.addEventListener('click',function(){var d={title:'Keep the receipts coming',text:'Help the East Texas Legacy Coalition keep the records requests going.',url:location.href};
 if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){s.textContent='Link copied'})}});
