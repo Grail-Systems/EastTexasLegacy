@@ -46,6 +46,11 @@ h1{font:900 clamp(2.4rem,6vw,4.2rem)/1.02 var(--serif);margin:0 0 1.2rem;letter-
 .amts button[aria-pressed=true]{border-color:var(--green-mid);background:var(--green);color:#fff}
 .amts button[aria-pressed=true] b,.amts button[aria-pressed=true] small{color:#fff}
 @media (prefers-color-scheme:dark){.amts button[aria-pressed=true]{color:#0F1712}.amts button[aria-pressed=true] b,.amts button[aria-pressed=true] small{color:#0F1712}}
+.goal{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem;margin:1rem 0 1.4rem}
+.goal-h{margin:0 0 .8rem}
+.bar{height:14px;background:var(--line);border-radius:999px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--green-mid);border-radius:999px}
+.goal-n{margin:.5rem 0 0;color:var(--dim);font-size:.92rem}
 .pay{display:flex;flex-wrap:wrap;gap:.8rem}
 .pay a{flex:1 1 220px;text-align:center;text-decoration:none;font-weight:700;font-size:1.15rem;padding:1rem 1.2rem;border-radius:10px;border:2px solid var(--green)}
 .pay .ca{background:var(--green);color:#fff}
@@ -88,6 +93,11 @@ h1{font:900 clamp(2.4rem,6vw,4.2rem)/1.02 var(--serif);margin:0 0 1.2rem;letter-
 
 <section class="give" aria-labelledby="give">
 <h2 id="give">Chip in</h2>
+<div class="goal" id="goal" data-goal="1400" data-raised="700" data-by="Dec. 31">
+<p class="goal-h"><b>Help cover what 2026 cost.</b> This year's records, gas, printing and hosting came to about $<span class="g-goal">1,400</span>. Neighbors have chipped in about $<span class="g-raised">700</span>. Help us cover the rest by <span class="g-by">Dec. 31</span>.</p>
+<div class="bar" role="progressbar" aria-label="2026 costs covered" aria-valuemin="0" aria-valuemax="1400" aria-valuenow="700"><span style="width:50%"></span></div>
+<p class="goal-n"><span class="g-pct">50</span>% covered · updated by hand, Nov. 20, 2026</p>
+</div>
 <p>Pick an amount, then pay with Cash App or Venmo.</p>
 <div class="amts" role="group" aria-label="Choose an amount">
 <button type="button" data-amt="25" aria-pressed="false"><b>$25</b><small>gas to the next meeting</small></button>
