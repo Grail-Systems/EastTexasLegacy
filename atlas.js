@@ -11,6 +11,14 @@ const trees=(fill,cls)=>{const v=d.createElementNS(NS,'svg');v.setAttribute('vie
   v.setAttribute('aria-hidden','true');v.setAttribute('class',cls);v.innerHTML=`<path d="${treePath()}" fill="${fill}"/>`;return v};
 const bg=el=>{let c=getComputedStyle(el).backgroundColor;return(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent')?'#F7F3EA':c};
 
+/* 0. "All pages" link in every page's main menu (Nov. 22, 2026) */
+{const nav=d.querySelector('.top nav, nav[aria-label="Main"], header nav');
+ if(nav&&!nav.querySelector('a[href$="everything.html"]')){const a=d.createElement('a');a.href='everything.html';a.textContent='All pages';a.className='atlas-all';
+  if(/everything\.html$/.test(location.pathname))a.setAttribute('aria-current','page');nav.appendChild(a);}
+ else if(!nav&&!d.querySelector('a.atlas-all')){const home=d.querySelector('body>.top a[href="./"], body>div:first-child a[href="./"]');
+  if(home){const a=d.createElement('a');a.href='everything.html';a.textContent='All pages';a.className='atlas-all';
+   a.style.cssText='margin-left:1.1rem;font-weight:600;text-decoration:none;color:'+getComputedStyle(home).color;home.after(a);}}}
+
 /* 1. hero plates: slow zoom and a treeline edge */
 const hero=d.querySelector('.hero');
 if(hero){
