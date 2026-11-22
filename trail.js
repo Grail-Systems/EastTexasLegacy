@@ -113,6 +113,10 @@ var css='.trail-next{max-width:1000px;margin:3rem auto 2.5rem;padding:0 1.5rem;f
  '.trail-next .tx em{margin-top:1rem;font-style:normal;font-weight:700;color:#FDE68A}'+
  '.trail-next .more{display:flex;flex-wrap:wrap;gap:.5rem .6rem;margin-top:.9rem;align-items:center;font-size:.95rem}'+
  '.trail-next .more a{border:1px solid rgba(127,127,127,.4);border-radius:999px;padding:.35rem .85rem;text-decoration:none;font-weight:600}'+
+ '.trail-next .fam{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1rem;font-size:.98rem}'+
+ '.trail-next .fam label{font-weight:700}'+
+ '.trail-next .fam input{flex:1;min-width:180px;font:inherit;padding:.5rem .9rem;border:1px solid rgba(127,127,127,.45);border-radius:999px;background:transparent;color:inherit}'+
+ '.trail-next .fam button{font:inherit;font-weight:700;padding:.5rem 1.1rem;border:0;border-radius:999px;background:#1B4332;color:#fff;cursor:pointer}'+
  '@media (max-width:700px){.trail-next a.go{grid-template-columns:1fr}.trail-next .ph{aspect-ratio:16/9}}'+
  '@media (prefers-reduced-motion:reduce){.trail-next a.go,.trail-next .ph img{transition:none}.trail-next a.go:hover{transform:none}}';
 var st=d.createElement('style');st.textContent=css;d.head.appendChild(st);
@@ -120,7 +124,7 @@ var box=d.createElement('section');box.className='trail-next';box.setAttribute('
 var h='<p class="lbl">Next on the trail</p><a class="go" href="'+esc(row[0])+'"><span class="ph"><span class="bk" style="background-image:url(\''+esc(pic)+'\')"></span><img src="'+esc(pic)+'" alt="" loading="lazy"'+(POS[page]?' style="object-position:'+POS[page]+'"':'')+'></span>'+
  '<span class="tx"><small>Up next</small><b>'+esc(nx.t)+'</b><span>'+esc(nx.hook)+'</span><em>Keep going &rarr;</em></span></a><div class="more"><span>Or try:</span>';
 row.slice(1).forEach(function(p){if(P[p])h+='<a href="'+esc(p)+'">'+esc(P[p].t)+'</a>'});
-h+='<a href="everything.html">All pages</a></div>';
+h+='<a href="everything.html">All pages</a></div><form class="fam" action="names.html" method="get" role="search"><label for="famq">Find your family:</label><input id="famq" name="q" type="search" placeholder="Type a last name" autocomplete="off"><button type="submit">Search</button></form>';
 box.innerHTML=h;
 var foot=d.querySelector('.atlas-foot')||d.querySelector('body>footer');
 if(foot)foot.before(box);else d.body.appendChild(box);

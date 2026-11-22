@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Find your family | East Texas Legacy Coalition</title>
+<meta name="description" content="Type a family name and see every page on East Texas Legacy where it appears, plus whether the family is among the pioneer families in the 1976 county history.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Find your family on East Texas Legacy">
+<meta property="og:description" content="Type a family name and see every story, photo and record where it appears.">
+<meta property="og:url" content="https://easttexaslegacy.org/names.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/fam/fam-snowdens.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="legacy.css">
+<link rel="stylesheet" href="/atlas.css">
+<style>
+/* This page only */
+.banner img.bg{object-position:50% 12%}
+.fbox{display:flex;gap:.6rem;flex-wrap:wrap;margin:.8rem 0 .4rem}
+.fbox input{flex:1;min-width:220px;font:inherit;font-size:1.2rem;padding:.8rem 1.1rem;border:1.5px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink)}
+.fbox button{font:inherit;font-weight:700;font-size:1.05rem;padding:.8rem 1.5rem;border:0;border-radius:999px;background:var(--green-mid);color:var(--paper);cursor:pointer}
+.try{display:flex;flex-wrap:wrap;gap:.4rem .5rem;margin:.5rem 0 0;align-items:center}
+.try button{font:inherit;font-weight:600;font-size:.95rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:.3rem .85rem;cursor:pointer}
+.sum{margin:1.4rem 0 .4rem;font-weight:700;font-size:1.1rem}
+.pion{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sap);border-radius:6px;padding:1rem 1.2rem;margin:1rem 0}
+.grp{margin:1.6rem 0}
+.grp h3{font-family:var(--serif);font-size:1.35rem;margin:0 0 .5rem}
+.grp h3 a{text-decoration:none}
+.hit{display:block;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem 1rem;margin:.5rem 0;text-decoration:none;color:var(--ink)}
+.hit:hover,.hit:focus-visible{border-color:var(--green-mid)}
+.hit b{display:block;font-size:1rem;margin-bottom:.2rem;color:var(--green-mid)}
+.hit span{color:var(--dim);line-height:1.55}
+mark{background:#FDE68A;color:#1C1917;padding:0 .1em;border-radius:2px}
+.empty{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a class="home" href="./">East Texas Legacy Coalition</a><nav aria-label="Our roots"><a href="roots.html">Our history</a><a href="oak-flat.html">Families</a><a href="county-history.html">County history</a><a href="heroes.html">Heroes and stewards</a><a href="recipes.html">Recipes</a><a href="wild-foods.html">Wild foods</a><a href="events.html">Events</a><a href="water.html">The water</a></nav></div></div>
+
+<header class="banner">
+  <img class="bg" src="img/fam/fam-snowdens.jpg" alt="An older couple, a younger couple and a boy standing in a yard beside an old car">
+  <span class="credit">Hardy and Nettie Snowden with George, Rosa and a grandson. Family photo</span>
+  <div class="wrap"><span class="kicker">Find your family</span><h1>Is your family here?</h1><p class="lead">Type a family name, a place or a word. You’ll see every page where it shows up, and whether the family is in the 1976 county history.</p></div>
+</header>
+
+<main class="wrap"><div class="rail">
+<section class="chapter" id="search">
+  <h2>Search every page</h2>
+  <form class="fbox" id="f" role="search"><input id="q" name="q" type="search" placeholder="Try Russell, Renfro or Hackney" aria-label="Family name or word" autocomplete="off"><button type="submit">Search</button></form>
+  <div class="try"><span>Try:</span><button type="button">Russell</button><button type="button">Renfro</button><button type="button">Herrington</button><button type="button">Hackney</button><button type="button">Snowden</button><button type="button">Foster</button><button type="button">Cochran</button><button type="button">Huntington</button></div>
+  <div id="out" aria-live="polite"></div>
+</section>
+<section class="chapter" id="missing">
+  <h2>Not here yet?</h2>
+  <p>Most families’ stories aren’t on the site yet. That’s where you come in. <a href="share.html">Share your family’s story</a>, or see <a href="family-research.html">where Angelina County’s family records are</a>.</p>
+</section>
+</div></main>
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="everything.html">All pages</a>&emsp;<a href="tour.html">Take the tour</a>&emsp;<a href="family-research.html">Family research</a>&emsp;<a href="share.html">Share your story</a>&emsp;<a href="donate.html">Donate</a>&emsp;<a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a><br>
+    Updated Nov. 22, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+<script>
+(function(){
+var IDX=null,f=document.getElementById('f'),q=document.getElementById('q'),out=document.getElementById('out');
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function rx(w){return new RegExp('\\b'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(s|es|\u2019s|\'s)?\\b','i')}
+function snip(x,re){var m=re.exec(x);if(!m)return esc(x.slice(0,180))+'…';var a=Math.max(0,m.index-110),b=Math.min(x.length,m.index+m[0].length+140);
+ var s=(a>0?'…':'')+esc(x.slice(a,m.index))+'<mark>'+esc(m[0])+'</mark>'+esc(x.slice(m.index+m[0].length,b))+(b<x.length?'…':'');return s}
+function run(v){v=(v||'').trim();if(!v){out.innerHTML='';return}
+ if(!IDX){out.innerHTML='<p class="empty">Loading…</p>';return}
+ var words=v.split(/\s+/).filter(function(w){return w.length>1}),res=[],h='';if(!words.length){out.innerHTML='';return}
+ var res0=words.map(rx);
+ IDX.sections.forEach(function(s){if(res0.every(function(r){return r.test(s.x)}))res.push(s)});
+ var pion=IDX.pioneers.filter(function(n){return words.length===1&&rx(words[0]).test(n[0])});
+ var pages={};res.forEach(function(s){(pages[s.p]=pages[s.p]||{t:s.t,hits:[]}).hits.push(s)});
+ var np=Object.keys(pages).length;
+ h+='<div class="sum">'+(np?('“'+esc(v)+'” shows up on '+np+(np===1?' page':' pages')+'.'):('We didn’t find “'+esc(v)+'” on the site yet.'))+'</div>';
+ pion.forEach(function(n){h+='<div class="pion"><b>'+esc(n[0])+'</b> is among the pioneer families profiled in the 1976 county history, <em>Land of the Little Angel</em> ('+esc(n[1])+'). <a href="family-research.html#families">See the list and where to find the book</a>.</div>'});
+ Object.keys(pages).forEach(function(p){var g=pages[p];h+='<div class="grp"><h3><a href="'+esc(p)+'">'+esc(g.t)+'</a></h3>';
+  g.hits.slice(0,4).forEach(function(s){h+='<a class="hit" href="'+esc(p)+(s.id?'#'+esc(s.id):'')+'"><b>'+esc(s.h||g.t)+'</b><span>'+snip(s.x,res0[0])+'</span></a>'});
+  if(g.hits.length>4)h+='<p class="empty">and '+(g.hits.length-4)+' more on <a href="'+esc(p)+'">this page</a>.</p>';
+  h+='</div>'});
+ if(!np&&!pion.length)h+='<p>Know this family’s story? <a href="share.html">Send it to us</a>, and it could be the first one here.</p>';
+ out.innerHTML=h}
+f.addEventListener('submit',function(e){e.preventDefault();var v=q.value;try{history.replaceState(null,'','?q='+encodeURIComponent(v))}catch(x){}run(v)});
+[].forEach.call(document.querySelectorAll('.try button'),function(b){b.addEventListener('click',function(){q.value=b.textContent;f.dispatchEvent(new Event('submit',{cancelable:true}))})});
+var start=new URLSearchParams(location.search).get('q');if(start)q.value=start;
+fetch('search-index.json').then(function(r){return r.json()}).then(function(d){IDX=d;if(q.value)run(q.value)}).catch(function(){out.innerHTML='<p class="empty">Search couldn’t load. Try <a href="everything.html">All pages</a>.</p>'});
+})();
+</script>
+<script src="/donate.js" defer></script>
+<script src="/gma11-alert.js" defer></script>
+<script src="/atlas.js" defer></script>
+</body>
+</html>
