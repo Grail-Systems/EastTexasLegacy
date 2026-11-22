@@ -110,4 +110,40 @@ if(seats){
 
 /* 10. the treasure hunt and field journal (Nov. 22, 2026) */
 {if(!window.ETLHunt&&!d.querySelector('script[src$="hunt.js"]')){const t=d.createElement('script');t.src='/hunt.js';t.defer=true;d.head.appendChild(t);}}
+
+/* 11. chapter buttons you can slide with a mouse (Nov. 22, 2026): arrows at each end,
+   the mouse wheel moves the row sideways, a thin slider shows on computers, and the
+   button for the chapter you're reading slides into view. */
+{const bars=[...d.querySelectorAll('nav.toc .wrap')];
+ if(bars.length){
+  const st=d.createElement('style');
+  st.textContent='nav.toc{position:sticky}nav.toc .wrap{scrollbar-width:thin;scroll-behavior:smooth}nav.toc .wrap::-webkit-scrollbar{display:block;height:6px}nav.toc .wrap::-webkit-scrollbar-thumb{background:rgba(127,127,127,.45);border-radius:6px}'+
+   '.atlas-arr{position:absolute;top:0;bottom:0;width:3.2rem;border:0;cursor:pointer;font-size:1.5rem;font-weight:700;line-height:1;color:var(--ink,#1C1917);z-index:2;display:flex;align-items:center;padding:0 .4rem}'+
+   '.atlas-arr.l{left:0;justify-content:flex-start;background:linear-gradient(90deg,var(--paper,#F7F3EA) 55%,transparent)}'+
+   '.atlas-arr.r{right:0;justify-content:flex-end;background:linear-gradient(270deg,var(--paper,#F7F3EA) 55%,transparent)}'+
+   '.atlas-arr[hidden]{display:none}.atlas-arr:focus-visible{outline:2px solid currentColor;outline-offset:-4px}'+
+   'nav.toc a.atlas-here{border-color:currentColor;box-shadow:inset 0 0 0 1px currentColor}';
+  d.head.appendChild(st);
+  bars.forEach(bar=>{
+   const nav=bar.closest('nav.toc');
+   const mk=(c,t,lab)=>{const b=d.createElement('button');b.type='button';b.className='atlas-arr '+c;b.textContent=t;b.setAttribute('aria-label',lab);b.hidden=true;nav.appendChild(b);return b};
+   const L=mk('l','‹','Earlier chapters'),R=mk('r','›','More chapters');
+   const upd=()=>{const max=bar.scrollWidth-bar.clientWidth;L.style.left=bar.offsetLeft+'px';R.style.left=(bar.offsetLeft+bar.offsetWidth-R.offsetWidth)+'px';R.style.right='auto';L.hidden=bar.scrollLeft<4;R.hidden=max<=4||bar.scrollLeft>=max-4};
+   L.addEventListener('click',()=>bar.scrollBy({left:-bar.clientWidth*.7}));
+   R.addEventListener('click',()=>bar.scrollBy({left:bar.clientWidth*.7}));
+   bar.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
+   bar.addEventListener('wheel',e=>{const max=bar.scrollWidth-bar.clientWidth;if(max<=4||Math.abs(e.deltaY)<=Math.abs(e.deltaX))return;
+     const nx=Math.max(0,Math.min(max,bar.scrollLeft+e.deltaY));if(nx===bar.scrollLeft)return;e.preventDefault();bar.style.scrollBehavior='auto';bar.scrollLeft=nx;bar.style.scrollBehavior=''},{passive:false});
+   const links=[...bar.querySelectorAll('a[href^="#"]')],tg=links.map(a=>d.getElementById(a.getAttribute('href').slice(1)));let cur=-1;
+   const here=()=>{let i=-1;tg.forEach((t,k)=>{if(t&&t.getBoundingClientRect().top<innerHeight*.35)i=k});
+     if(i!==cur){cur=i;links.forEach((a,k)=>a.classList.toggle('atlas-here',k===i));
+      if(i>=0){const a=links[i],r=a.offsetLeft-bar.offsetLeft;if(r<bar.scrollLeft+40||r+a.offsetWidth>bar.scrollLeft+bar.clientWidth-40)bar.scrollTo({left:r-bar.clientWidth/2+a.offsetWidth/2})}}};
+   addEventListener('scroll',here,{passive:true});here();upd();setTimeout(upd,600);
+   /* land exactly on the chapter, even if photos above it finish loading on the way */
+   const land=(t,smooth)=>{const off=nav.getBoundingClientRect().bottom+10;scrollTo({top:t.getBoundingClientRect().top+scrollY-off,behavior:smooth?'smooth':'auto'})};
+   links.forEach((a,k)=>a.addEventListener('click',e=>{const t=tg[k];if(!t)return;e.preventDefault();
+     try{history.replaceState(null,'',a.getAttribute('href'))}catch(x){}land(t,true);
+     [700,1400,2200].forEach(ms=>setTimeout(()=>{const off=nav.getBoundingClientRect().bottom+10,dy=t.getBoundingClientRect().top-off;if(Math.abs(dy)>24)land(t,false)},ms))}));
+  });
+ }}
 }
