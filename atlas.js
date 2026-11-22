@@ -104,4 +104,7 @@ if(seats){
     show(0);
   }
 }
+
+/* 9. 'Next on the trail' cards (Nov. 22, 2026) */
+{if(!d.querySelector('script[src$="trail.js"]')){const t=d.createElement('script');t.src='/trail.js';t.defer=true;d.head.appendChild(t);}}
 }
