@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Take the tour | East Texas Legacy Coalition</title>
+<meta name="description" content="A guided tour of Deep East Texas, one photo at a time: the land, the families, the towns, the timber, the food and the water. Made to watch together on a big screen.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Take the tour: Deep East Texas, one photo at a time">
+<meta property="og:description" content="The land, the families, the towns, the timber, the food and the water. Made to watch together on a big screen.">
+<meta property="og:url" content="https://easttexaslegacy.org/tour.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/hist/hc-diboll-mill-aerial-1903.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#070A08;color:#F4F1EA;font-family:'Source Sans 3',system-ui,sans-serif;overflow:hidden}
+a{color:#FDE68A}
+:focus-visible{outline:3px solid #FDE68A;outline-offset:3px}
+.stage{position:fixed;inset:0}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s linear .9s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .9s ease}
+.slide .blur{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(28px) brightness(.45) saturate(1.1)}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:scale(1.0);transition:transform 14s ease-out}
+.slide.on img{transform:scale(1.04)}
+.slide.fill img{object-fit:cover}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,8,.55) 0%,rgba(7,10,8,0) 22%,rgba(7,10,8,0) 45%,rgba(7,10,8,.88) 82%,rgba(7,10,8,.96) 100%);pointer-events:none}
+.card{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 5vw 6.2rem;max-width:1100px}
+.chap{display:inline-block;font-size:clamp(.8rem,1.3vw,1.05rem);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#FDE68A;border:1px solid rgba(253,230,138,.55);padding:.3rem .9rem;border-radius:999px;margin-bottom:1rem}
+.card h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(2rem,5vw,4.4rem);line-height:1.05;text-shadow:0 2px 22px rgba(0,0,0,.6);margin-bottom:.8rem}
+.card p{font-size:clamp(1.15rem,2.1vw,1.85rem);line-height:1.45;max-width:46ch;color:#EDE9E0;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.card .more{display:inline-block;margin-top:1.1rem;font-weight:700;font-size:clamp(1rem,1.5vw,1.3rem);text-decoration:none;background:#FDE68A;color:#1B4332;padding:.6rem 1.3rem;border-radius:999px}
+.card .more.alt{background:transparent;color:#FDE68A;border:1.5px solid #FDE68A;margin-left:.5rem}
+.credit{position:absolute;z-index:2;right:1.2rem;top:4.2rem;max-width:42ch;text-align:right;font-size:clamp(.72rem,1vw,.9rem);color:rgba(244,241,234,.75);text-shadow:0 1px 6px #000}
+.top{position:fixed;z-index:5;top:0;left:0;right:0;display:flex;align-items:center;gap:1rem;padding:.9rem 1.2rem;font-size:1rem}
+.top .home{font-family:'Playfair Display',Georgia,serif;font-weight:700;color:#86EFAC;text-decoration:none;font-size:1.1rem}
+.top .sp{flex:1}
+.btn{background:rgba(7,10,8,.55);color:#F4F1EA;border:1px solid rgba(244,241,234,.35);border-radius:999px;padding:.5rem 1rem;font:inherit;font-weight:600;cursor:pointer}
+.btn:hover{background:rgba(7,10,8,.8)}
+.nav{position:fixed;z-index:5;left:0;right:0;bottom:0;display:flex;align-items:center;gap:1rem;padding:1rem 5vw 1.3rem}
+.nav .arrow{font-size:1.5rem;line-height:1;width:3.2rem;height:3.2rem;border-radius:50%;padding:0}
+.bar{flex:1;height:6px;background:rgba(244,241,234,.18);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#FDE68A;transition:width .6s ease}
+.count{font-weight:700;min-width:5.5rem;text-align:center;font-variant-numeric:tabular-nums}
+.hint{position:fixed;z-index:6;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(7,10,8,.86);border:1px solid rgba(253,230,138,.5);border-radius:14px;padding:1.6rem 2rem;max-width:34rem;text-align:center;font-size:1.15rem;line-height:1.5;transition:opacity .6s}
+.hint h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:.6rem}
+.hint .go{margin-top:1.1rem;font-size:1.2rem;background:#FDE68A;color:#1B4332;border:0;border-radius:999px;padding:.75rem 1.6rem;font-weight:700;cursor:pointer}
+.hint.gone{opacity:0;pointer-events:none}
+@media (max-width:700px){#full{display:none}.card{padding-bottom:5.4rem}.credit{top:3.6rem;left:1rem;right:1rem;text-align:left}.top .home{font-size:.95rem}.btn{padding:.4rem .8rem;font-size:.9rem}.nav .arrow{width:2.8rem;height:2.8rem}}
+@media (prefers-reduced-motion:reduce){.slide,.slide.on{transition:none}.slide img,.slide.on img{transform:none;transition:none}.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="home" href="./">East Texas Legacy Coalition</a><span class="sp"></span>
+  <button class="btn" id="play" type="button" aria-pressed="false">&#9654; Play</button>
+  <button class="btn" id="full" type="button">Full screen</button>
+</div>
+
+<main class="stage" id="stage" aria-roledescription="slideshow" aria-label="A tour of Deep East Texas"></main>
+
+<div class="nav">
+  <button class="btn arrow" id="prev" type="button" aria-label="Previous stop">&#8592;</button>
+  <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+  <span class="count" id="count" aria-live="polite"></span>
+  <button class="btn arrow" id="next" type="button" aria-label="Next stop">&#8594;</button>
+</div>
+
+<div class="hint" id="hint" role="dialog" aria-label="How the tour works">
+  <h1>Take the tour</h1>
+  <p>Deep East Texas, one photo at a time. Press the arrow keys or tap the sides of the screen to move, or press Play and sit back. Made to watch together on a big screen.</p>
+  <button class="go" id="start" type="button">Start the tour</button>
+</div>
+
+<noscript><div style="padding:2rem;position:relative;z-index:9">This tour needs JavaScript. You can read every story starting at <a href="roots.html">Our history</a>.</div></noscript>
+
+<script>
+// Every caption below comes from text already published on this site. Credits match the pages they come from.
+var HC='Courtesy of The History Center, Diboll, Texas.';
+var SLIDES=[
+ {chap:'Welcome',img:'img/hist/paddlers.jpg',title:'Our roots run deep. So does our water.',text:'The families, towns, rivers, food and history of Deep East Texas, and the water that made all of it possible.',credit:'Paddling a cypress slough on the Cooks Lake loop, Big Thicket. NPS photo by Scott Sharaga.',fill:1},
+ {chap:'The land',img:'img/hist/mission-tejas.jpg',title:'Before Texas was Texas, it was Caddo country',text:'At Mission Tejas State Park, a stretch of El Camino Real still runs through the pines.',credit:'Mission Tejas State Park. NPS photo, via National Park Service.',link:'roots.html#caddo',fill:1},
+ {chap:'The land',img:'img/hist/hc-angelina-river-2012.jpg',title:'Angelina, the little angel',text:'A young woman of the Hasinai, the Caddo people of these woods, was called Angelina, “little angel.” The river was named for her, and in 1846 the county was named for the river.',credit:'The Angelina River in fall, 2012. '+HC,link:'county-history.html#angel',fill:1},
+ {chap:'The county',img:'img/hist/hc-hewt-neches-bridge-1910.jpg',title:'A courthouse on the move',text:'Four county seats, a vote against secession, and steamboats on the Angelina carrying cotton downriver.',credit:'The Houston East & West Texas Railway bridge over the Neches River, about 1910. '+HC,link:'county-history.html#seats'},
+ {chap:'The families',img:'img/hist/staley-cabin.jpg',title:'Under the black gum tree',text:'165 years of one Piney Woods family at Oak Flat near Huntington, from Winnie Graham’s memoir, retold in our own words.',credit:'Staley Cabin, a homestead log cabin in the Big Thicket. NPS photo by Scott Sharaga.',link:'oak-flat.html',fill:1},
+ {chap:'The families',img:'img/fam/fam-dale-russell.jpg',title:'Dale Blanton Russell',text:'Dale Blanton Russell (1919–2014), Eli and Leah’s youngest, in his later years.',credit:'Family photo.',link:'oak-flat.html#eli'},
+ {chap:'The families',img:'img/fam/fam-snowdens.jpg',title:'“Big Papa” and “Big Mama”',text:'Hardy and Nettie Snowden with their son George, his wife Rosa and a grandson.',credit:'Family photo.',link:'family-research.html#ours'},
+ {chap:'The families',img:'img/fam/fam-vernice-snowden.jpg',title:'Vernice Snowden',text:'George and Rosa’s little girl, at Huntington in the early 1920s.',credit:'Family photo.',link:'family-research.html#ours'},
+ {chap:'The families',img:'img/fam/fam-thelma-forrest-baby.jpg',title:'Thelma Forrest',text:'Stella’s daughter, as a baby in the early 1920s.',credit:'Family photo.',link:'family-research.html#ours'},
+ {chap:'The families',img:'img/fam/fam-charles-foster-1950.jpg',title:'Charles Henry Foster',text:'With his firstborn, about 1950.',credit:'Family photo.',link:'family-research.html#ours'},
+ {chap:'The families',img:'img/fam/fam-mary-foster-bobby.jpg',title:'Mary Barfield Foster and Bobby',text:'Mary Barfield Foster holding her son Bobby, 1959.',credit:'Family photo.',link:'family-research.html#ours'},
+ {chap:'Our towns',img:'img/hist/hc-rockland-trestle.jpg',title:'Huntington',text:'Before the town, there was Renfro Prairie and the farms around it. Then the railroad came through, and Huntington was laid out in a single summer.',credit:'The railroad bridge over the Neches at Rockland. '+HC,link:'huntington.html',fill:1},
+ {chap:'The timber kingdom',img:'img/hist/hc-diboll-mill-aerial-1903.jpg',title:'Rails, sawdust and a brand-new town',text:'Sawmill No. 1 and the mill pond, seen from the water tower, Southern Pine Lumber Company, Diboll, 1903.',credit:'American Lumberman Photograph Collection, courtesy of The History Center, Diboll, Texas.',link:'roots.html#timber',fill:1},
+ {chap:'The timber kingdom',img:'img/hist/hc-log-train-1907.jpg',title:'Bound for Diboll',text:'A Neches Valley log train bound for Diboll, 1907.',credit:'American Lumberman Photograph Collection, courtesy of The History Center, Diboll, Texas.',link:'roots.html#timber',fill:1},
+ {chap:'The timber kingdom',img:'img/hist/hc-fastrill-mules-1930.jpg',title:'Mules on the red clay',text:'Logging crews and mules on steep red clay hills near Fastrill, about 1930.',credit:HC,link:'county-history.html#timber',fill:1},
+ {chap:'Our people',img:'img/hist/hc-hg-temple-band-1955.jpg',title:'The families who built this county',text:'George Hackney, Square Long, Long Chapel, Dunbar High School and the Black families who built Angelina County.',credit:'The H.G. Temple High School band, 1955. '+HC,link:'black-heritage.html'},
+ {chap:'The old ways',img:'img/hist/hc-fastrill-mule-1928.jpg',title:'Piney Woods ways',text:'Riding the Ring, party lines, dog-trot houses, cane syrup, shape notes and Piney Woods talk.',credit:'Pauline Durham and Elmer Ray Wells on Baalam the mule at Fastrill, about 1928. '+HC,link:'old-ways.html'},
+ {chap:'From the land',img:'img/mayhaw-jelly.jpg',title:'Mayhaw jelly and biscuits',text:'If there’s one taste that belongs to Deep East Texas, it’s this one.',credit:'Mayhaw jelly and biscuits.',link:'recipes.html',fill:1},
+ {chap:'From the land',img:'img/hist/hc-fastrill-berries-1935.jpg',title:'Berry season',text:'Della Burchfield and Gertrude Waltman White picking berries along the railroad near Fastrill, 1935.',credit:'A hand-tinted print. '+HC,link:'wild-foods.html'},
+ {chap:'Good stewards',img:'img/hero-ladybird.jpg',title:'The ones who stood up for this place',text:'Heroes in Deep East Texas don’t usually get statues. They get a road named after them, or a patch of woods that’s still standing because they wouldn’t let it go.',credit:'Lady Bird Johnson among bluebonnets and Indian paintbrush, Central Texas, 1968. Photo by Robert Knudsen, LBJ Presidential Library, public domain.',link:'heroes.html',fill:1},
+ {chap:'Good stewards',img:'img/hist/cypress-knees.jpg',title:'East Texans saved the Big Thicket',text:'Lance Rosier, Geraldine Watson and the neighbors who wouldn’t quit.',credit:'Cypress knees in the Big Thicket. NPS photo by Scott Sharaga.',link:'roots.html#thicket',fill:1},
+ {chap:'What we lost',img:'img/hist/neches-canoe.jpg',title:'Lost to the lake',text:'Sam Rayburn Reservoir is beautiful. It also sits on top of a community, family farms and graves.',credit:'Canoeing the Neches River, Davy Crockett National Forest. U.S. Forest Service, via SFA ScholarWorks (CC BY-ND 4.0).',link:'lost-to-the-lake.html',fill:1},
+ {chap:'The water',img:'img/hist/hc-rocky-shoals-2009.jpg',title:'We’ve watched our water drop before',text:'For 60 years the Lufkin paper mill was the biggest straw in the county. State reports measured our water dropping nearly 500 feet, and recovering when the mill cut back.',credit:'Rocky Shoals on the Neches River, July 2009. '+HC,link:'water-history.html',fill:1},
+ {chap:'The water',img:'img/hist/hc-neches-mist.jpg',title:'Leave the good water for the people',text:'Data centers can cool with river and lake water, or with reused water. Leave the Carrizo-Wilcox for the people who drink it.',credit:'October morning mist on the Neches River. '+HC,link:'good-water.html',fill:1},
+ {chap:'Your turn',img:'img/hist/longleaf.jpg',title:'The next ring is ours to write',text:'Every family here has stories, recipes and photos worth keeping. Add yours, so our grandchildren have them too.',credit:'A longleaf pine plantation on the Angelina National Forest. U.S. Forest Service, via SFA ScholarWorks (CC BY-ND 4.0).',link:'share.html',linkText:'Share your family’s story',end:1,fill:1}
+];
+
+var stage=document.getElementById('stage'),bar=document.getElementById('bar'),count=document.getElementById('count');
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+SLIDES.forEach(function(s,i){
+  var d=document.createElement('section');
+  d.className='slide'+(s.fill?' fill':'');d.setAttribute('aria-roledescription','slide');d.setAttribute('aria-label',(i+1)+' of '+SLIDES.length);d.setAttribute('aria-hidden','true');
+  var h='<div class="blur" data-bg="'+esc(s.img)+'"></div><img data-src="'+esc(s.img)+'" alt="">'+
+    '<span class="credit">'+esc(s.credit)+'</span>'+
+    '<div class="card"><span class="chap">'+esc(s.chap)+'</span><h2>'+esc(s.title)+'</h2><p>'+esc(s.text)+'</p>';
+  if(s.link)h+='<a class="more" href="'+esc(s.link)+'">'+esc(s.linkText||'Read the full story')+' &rarr;</a>';
+  if(s.end)h+='<button class="more alt" type="button" onclick="go(0)">Start over</button>';
+  d.innerHTML=h+'</div>';
+  stage.appendChild(d);
+});
+var slides=stage.children,cur=-1,timer=null;
+function load(i){if(i<0||i>=slides.length)return;var el=slides[i],im=el.querySelector('img'),bg=el.querySelector('.blur');
+  if(!im.src){im.src=im.getAttribute('data-src');im.alt=SLIDES[i].title;bg.style.backgroundImage='url("'+bg.getAttribute('data-bg')+'")';}}
+function go(i){
+  i=Math.max(0,Math.min(slides.length-1,i)); if(i===cur)return;
+  load(i);load(i+1);load(i-1);
+  if(cur>=0){slides[cur].classList.remove('on');slides[cur].setAttribute('aria-hidden','true');}
+  slides[i].classList.add('on');slides[i].setAttribute('aria-hidden','false');cur=i;
+  bar.style.width=((i+1)/slides.length*100)+'%';count.textContent=(i+1)+' of '+slides.length;
+  try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+  if(i===slides.length-1)stopPlay();
+}
+function next(){go(cur+1)}function prev(){go(cur-1)}
+var playBtn=document.getElementById('play');
+function stopPlay(){clearInterval(timer);timer=null;playBtn.innerHTML='&#9654; Play';playBtn.setAttribute('aria-pressed','false')}
+playBtn.onclick=function(){hideHint();if(timer){stopPlay();return}timer=setInterval(next,14000);playBtn.innerHTML='&#10074;&#10074; Pause';playBtn.setAttribute('aria-pressed','true')};
+document.getElementById('next').onclick=function(){hideHint();next()};
+document.getElementById('prev').onclick=function(){hideHint();prev()};
+stage.addEventListener('click',function(e){if(e.target.closest('a,button'))return;var x=e.clientX/window.innerWidth;if(x>0.6){hideHint();next()}else if(x<0.4){hideHint();prev()}});
+document.getElementById('full').onclick=function(){var r=document.documentElement;try{if(document.fullscreenElement){document.exitFullscreen()}else if(r.requestFullscreen){r.requestFullscreen()}}catch(e){}};
+var hint=document.getElementById('hint');
+function hideHint(){hint.classList.add('gone')}
+document.getElementById('start').onclick=function(){hideHint();document.getElementById('next').focus()};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='PageDown'||(e.key===' '&&e.target.tagName!=='BUTTON')){e.preventDefault();hideHint();next()}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();hideHint();prev()}
+  else if(e.key==='Home'){hideHint();go(0)}else if(e.key==='End'){hideHint();go(slides.length-1)}
+  else if(e.key==='Escape'){hideHint()}
+});
+var sx=null;
+document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50){hideHint();dx<0?next():prev()}sx=null},{passive:true});
+var start=parseInt((location.hash||'').slice(1),10);
+go(start>0?start-1:0);
+if(start>1)hideHint();
+</script>
+</body>
+</html>
