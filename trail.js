@@ -85,13 +85,14 @@ var IMG={
  'water-record.html':'img/hist/hc-rocky-shoals-2009.jpg',
  'water-history.html':'img/hist/cypress-knees.jpg',
  'good-water.html':'img/hero-rosier-unit.jpg',
- 'drawdown.html':'img/hist/hc-camp1-1907.jpg',
+ 'drawdown.html':'img/hist/hc-fastrill-mules-1930.jpg',
  'projects.html':'img/hist/ccc-pavilion.jpg',
  'your-say.html':'img/hist/longleaf.jpg',
  'pineywoods-rules.html':'img/hist/hc-commissary-1903.jpg',
  'mill-creek.html':'img/hist/bouton-1938.jpg',
  '1606-lufkin.html':'img/hist/hc-aldridge-ruins.jpg'
 };
+var POS={'drawdown.html':'50% 85%'};
 var page=(location.pathname.split('/').pop()||'index.html');
 var row=T[page]; if(!row||d.querySelector('.trail-next'))return;
 var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
@@ -116,7 +117,7 @@ var css='.trail-next{max-width:1000px;margin:3rem auto 2.5rem;padding:0 1.5rem;f
  '@media (prefers-reduced-motion:reduce){.trail-next a.go,.trail-next .ph img{transition:none}.trail-next a.go:hover{transform:none}}';
 var st=d.createElement('style');st.textContent=css;d.head.appendChild(st);
 var box=d.createElement('section');box.className='trail-next';box.setAttribute('aria-label','Next on the trail');
-var h='<p class="lbl">Next on the trail</p><a class="go" href="'+esc(row[0])+'"><span class="ph"><span class="bk" style="background-image:url(\''+esc(pic)+'\')"></span><img src="'+esc(pic)+'" alt="" loading="lazy"></span>'+
+var h='<p class="lbl">Next on the trail</p><a class="go" href="'+esc(row[0])+'"><span class="ph"><span class="bk" style="background-image:url(\''+esc(pic)+'\')"></span><img src="'+esc(pic)+'" alt="" loading="lazy"'+(POS[page]?' style="object-position:'+POS[page]+'"':'')+'></span>'+
  '<span class="tx"><small>Up next</small><b>'+esc(nx.t)+'</b><span>'+esc(nx.hook)+'</span><em>Keep going &rarr;</em></span></a><div class="more"><span>Or try:</span>';
 row.slice(1).forEach(function(p){if(P[p])h+='<a href="'+esc(p)+'">'+esc(P[p].t)+'</a>'});
 h+='<a href="everything.html">All pages</a></div>';
