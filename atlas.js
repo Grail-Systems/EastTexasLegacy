@@ -107,4 +107,7 @@ if(seats){
 
 /* 9. 'Next on the trail' cards (Nov. 22, 2026) */
 {if(!d.querySelector('script[src$="trail.js"]')){const t=d.createElement('script');t.src='/trail.js';t.defer=true;d.head.appendChild(t);}}
+
+/* 10. the treasure hunt and field journal (Nov. 22, 2026) */
+{if(!window.ETLHunt&&!d.querySelector('script[src$="hunt.js"]')){const t=d.createElement('script');t.src='/hunt.js';t.defer=true;d.head.appendChild(t);}}
 }

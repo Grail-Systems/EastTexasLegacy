@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your field journal | East Texas Legacy Coalition</title>
+<meta name="description" content="Twelve treasures are hidden beside real stories across East Texas Legacy. Find them all and fill your field journal.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The East Texas Legacy treasure hunt">
+<meta property="og:description" content="Twelve treasures are hidden beside real stories of Deep East Texas. How many can you find?">
+<meta property="og:url" content="https://easttexaslegacy.org/journal.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/hist/staley-cabin.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="legacy.css">
+<link rel="stylesheet" href="/atlas.css">
+<style>
+/* This page only */
+.banner img.bg{object-position:50% 45%}
+.prog{margin:1rem 0 .3rem;font-weight:700;font-size:1.15rem}
+.bar{height:.8rem;border-radius:999px;background:var(--card);border:1px solid var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#B08A3E,#D9B867);transition:width .6s}
+.jgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;margin:1.4rem 0}
+.jc{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.5rem}
+.jc .ic{width:3.2rem;height:3.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid #B08A3E;background:radial-gradient(circle at 35% 30%,#F6E7BF,#D9B867 70%,#B08A3E);color:#5B4316}
+.jc .ic svg{width:1.8rem;height:1.8rem}
+.jc h3{font-family:var(--serif);font-size:1.2rem;margin:.2rem 0 0;line-height:1.25}
+.jc q{display:block;line-height:1.55;font-style:italic}
+.jc .from{margin-top:auto;font-size:.95rem;font-weight:600}
+.jc.no{border-style:dashed}
+.jc.no .ic{background:none;border:1.5px dashed var(--dim);color:var(--dim);font:700 1.5rem/1 var(--serif)}
+.jc.no h3{color:var(--dim)}
+.jc.no p{margin:0;line-height:1.5}
+.done{display:none;background:var(--card);border:2px solid #B08A3E;border-radius:10px;padding:1.4rem 1.5rem;margin:1.4rem 0;text-align:center}
+.done.on{display:block}
+.done h3{font-family:var(--serif);font-size:1.7rem;margin:.2rem 0 .5rem}
+.done input{font:inherit;font-size:1.1rem;padding:.6rem 1rem;border:1.5px solid var(--line);border-radius:999px;min-width:min(260px,80vw);margin:.4rem}
+.jbtn{font:inherit;font-weight:700;font-size:1rem;padding:.7rem 1.3rem;border:0;border-radius:999px;background:var(--green-mid);color:var(--paper);cursor:pointer;margin:.3rem;text-decoration:none;display:inline-block}
+.jbtn.ghost{background:none;border:1.5px solid var(--line);color:var(--ink)}
+.cert{display:none}
+.small{color:var(--dim);font-size:.95rem}
+@media print{
+ body>*:not(.cert){display:none!important}
+ .cert{display:block!important;text-align:center;padding:3rem 2rem;border:6px double #B08A3E;margin:2rem;font-family:Georgia,serif;color:#1C1917}
+ .cert h1{font-size:2.4rem;margin:.5rem auto;max-width:none;text-align:center;width:100%}.cert .nm{font-size:2rem;font-style:italic;margin:1.2rem 0;border-bottom:1px solid #999;display:inline-block;padding:0 2rem .3rem}
+ .cert .ics{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin:1.5rem 0}.cert .ics svg{width:2rem;height:2rem;color:#5B4316}
+}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a class="home" href="./">East Texas Legacy Coalition</a><nav aria-label="Our roots"><a href="roots.html">Our history</a><a href="oak-flat.html">Families</a><a href="county-history.html">County history</a><a href="heroes.html">Heroes and stewards</a><a href="recipes.html">Recipes</a><a href="wild-foods.html">Wild foods</a><a href="events.html">Events</a><a href="water.html">The water</a></nav></div></div>
+<header class="banner">
+  <img class="bg" src="img/hist/staley-cabin.jpg" alt="A weathered log homestead cabin in the East Texas woods">
+  <span class="credit">Staley Cabin, a homestead log cabin in the Big Thicket. NPS photo by Scott Sharaga.</span>
+  <div class="wrap"><span class="kicker">The treasure hunt</span><h1>Your field journal</h1><p class="lead">Twelve treasures are hidden beside real stories across this site. Look for the little gold seal. Tap it, and it goes in your journal.</p></div>
+</header>
+<main class="wrap"><div class="rail">
+<section class="chapter" id="journal">
+  <h2>What you’ve found</h2>
+  <div class="prog" id="prog" aria-live="polite">Loading your journal…</div>
+  <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+  <div class="done" id="done">
+    <span class="kicker">All twelve</span>
+    <h3>You walked the whole trail.</h3>
+    <div style="margin:.4rem 0">Type the name you want on your certificate, then print it or save it as a PDF.</div>
+    <input id="nm" type="text" placeholder="Your name" aria-label="Name for the certificate" maxlength="60">
+    <div><button class="jbtn" type="button" id="print">Print my certificate</button><a class="jbtn ghost" href="share.html">Now add your family’s story</a></div>
+  </div>
+  <div class="jgrid" id="grid"></div>
+  <div class="small">Your journal is kept only in this browser, on this device. Nothing is sent to us. If you clear your browser, the journal starts fresh. <button class="jbtn ghost" type="button" id="reset" style="font-size:.9rem;padding:.35rem .9rem">Start over</button></div>
+</section>
+<section class="chapter" id="how">
+  <h2>How the hunt works</h2>
+  <p>Each treasure sits right next to a true piece of Deep East Texas history, on twelve different pages. The clues in your journal tell you which page to visit. Read along, and when you spot the gold seal, tap it.</p>
+  <p>Hunting with grandkids? Cast the site to the TV, or <a href="tour.html">take the tour</a> together first, then go treasure hunting.</p>
+</section>
+</div></main>
+<div class="cert" aria-hidden="true">
+  <div>East Texas Legacy Coalition</div>
+  <h1>Trail Walker</h1>
+  <div>This certifies that</div>
+  <div class="nm" id="cnm">&nbsp;</div>
+  <div>found all twelve treasures on the East Texas Legacy trail,<br>from the Caddo mounds to the steamboat Laura.</div>
+  <div class="ics" id="cics"></div>
+  <div id="cdt"></div>
+  <div style="margin-top:1rem">easttexaslegacy.org</div>
+</div>
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="everything.html">All pages</a>&emsp;<a href="tour.html">Take the tour</a>&emsp;<a href="names.html">Find your family</a>&emsp;<a href="share.html">Share your story</a>&emsp;<a href="donate.html">Donate</a>&emsp;
+    Updated Nov. 22, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+<script src="/hunt.js"></script>
+<script>
+(function(){
+var H=window.ETLHunt,grid=document.getElementById('grid');
+if(!H){document.getElementById('prog').textContent='The journal couldn’t load. Try refreshing the page.';return}
+var TITLE={'roots.html':'Our history','county-history.html':'County history','black-heritage.html':'The families who built the county','oak-flat.html':'Under the black gum tree','huntington.html':'Huntington','old-ways.html':'Piney Woods ways','lost-to-the-lake.html':'Lost to the lake','heroes.html':'Heroes and stewards','recipes.html':'Recipes','wild-foods.html':'Wild foods','water-record.html':'The water record'};
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function draw(){var f=H.found(),n=f.length,T=H.list.length,h='';
+ document.getElementById('prog').textContent=n?(n+' of '+T+' treasures found'+(n===T?'. Every one!':'.')):'No treasures yet. Pick a clue below and go looking.';
+ document.getElementById('bar').style.width=(100*n/T)+'%';
+ H.list.forEach(function(t){var got=f.indexOf(t.id)>-1,ttl=TITLE[t.p]||t.p;
+  if(got)h+='<article class="jc"><span class="ic">'+H.icon(t.i)+'</span><h3>'+esc(t.n)+'</h3><q>'+esc(t.x)+'</q><a class="from" href="'+t.p+'#'+t.s+'">From '+esc(ttl)+' →</a></article>';
+  else h+='<article class="jc no"><span class="ic" aria-hidden="true">?</span><h3>Not found yet</h3><p>'+esc(t.c)+'</p><a class="from" href="'+t.p+'">Go look: '+esc(ttl)+' →</a></article>'});
+ grid.innerHTML=h;
+ document.getElementById('done').classList.toggle('on',n===T);
+ document.getElementById('cics').innerHTML=H.list.map(function(t){return H.icon(t.i)}).join('')}
+draw();
+var nm=document.getElementById('nm');try{nm.value=localStorage.getItem('etl-hunt-name')||''}catch(e){}
+document.getElementById('print').addEventListener('click',function(){var v=nm.value.trim();try{localStorage.setItem('etl-hunt-name',v)}catch(e){}
+ document.getElementById('cnm').textContent=v||' ';
+ document.getElementById('cdt').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});window.print()});
+document.getElementById('reset').addEventListener('click',function(){if(confirm('Empty your field journal and start the hunt over?')){H.clear();draw()}});
+addEventListener('pageshow',draw);
+})();
+</script>
+<script src="/donate.js" defer></script>
+<script src="/gma11-alert.js" defer></script>
+<script src="/atlas.js" defer></script>
+</body>
+</html>
