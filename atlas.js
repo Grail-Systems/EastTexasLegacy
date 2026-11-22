@@ -147,3 +147,11 @@ if(seats){
   });
  }}
 }
+
+/* 12. who's who, and a link for reporters, at the foot of every page (Nov. 22, 2026) */
+{const f=document.querySelector('body>footer')||document.querySelector('footer');
+ if(f&&!document.getElementById('etl-whos')){const p=document.createElement('p');p.id='etl-whos';
+  p.style.cssText='margin:1rem 0 0;font-size:.92rem;line-height:1.5';
+  p.append('East Texas Legacy Coalition is the cause. Ground Truth Texas is the free public tool. Grail Systems builds it. ');
+  const a=document.createElement('a');a.href='/press.html';a.textContent='For reporters \u2192';p.append(a);
+  (f.querySelector('.wrap')||f).appendChild(p);}}
