@@ -65,25 +65,25 @@ var T={
 };
 /* the photo on each page's card: one different photo per page, so no two cards repeat */
 var IMG={
- 'roots.html':'img/hist/hc-log-train-1907.jpg',
- 'county-history.html':'img/hist/hc-hg-temple-band-1955.jpg',
+ 'roots.html':'img/hist/hc-al-camp2-mule-teams-1907.jpg',
+ 'county-history.html':'img/hist/hc-al-hogg-school-1907.jpg',
  'black-heritage.html':'img/fam/fam-dale-russell.jpg',
  'oak-flat.html':'img/fam/fam-snowdens.jpg',
  'family-research.html':'img/hist/hc-rockland-trestle.jpg',
- 'huntington.html':'img/hist/hc-fastrill-mule-1928.jpg',
+ 'huntington.html':'img/hist/hc-al-high-wheel-cart-1903.jpg',
  'old-ways.html':'img/hist/paddlers.jpg',
  'lost-to-the-lake.html':'img/hist/hc-neches-mist.jpg',
  'candy-man.html':'img/hero-rosier.jpg',
  'heroes.html':'img/mayhaw-jelly.jpg',
  'recipes.html':'img/plants/persimmon.jpg',
- 'wild-foods.html':'img/hist/hc-fastrill-berries-1935.jpg',
+ 'wild-foods.html':'img/fam/fam-thelma-forrest-baby.jpg',
  'events.html':'img/fam/fam-vernice-snowden.jpg',
- 'share.html':'img/hist/hc-diboll-mill-aerial-1903.jpg',
- 'library.html':'img/hist/mission-tejas.jpg',
+ 'share.html':'img/hist/hc-al-employees-1907.jpg',
+ 'library.html':'img/hist/hc-al-lumber-yard-1903.jpg',
  'who-decides.html':'img/hist/hc-lufkin-depot-1959.jpg',
  'water.html':'img/hero-watson.jpg',
  'water-record.html':'img/hist/hc-rocky-shoals-2009.jpg',
- 'water-history.html':'img/hist/cypress-knees.jpg',
+ 'water-history.html':'img/hist/hc-al-unloading-pond-1907.jpg',
  'good-water.html':'img/hero-rosier-unit.jpg',
  'drawdown.html':'img/hist/hc-fastrill-mules-1930.jpg',
  'projects.html':'img/hist/ccc-pavilion.jpg',
@@ -92,7 +92,7 @@ var IMG={
  'mill-creek.html':'img/hist/bouton-1938.jpg',
  '1606-lufkin.html':'img/hist/hc-aldridge-ruins.jpg'
 };
-var POS={'drawdown.html':'50% 85%'};
+var POS={'drawdown.html':'50% 85%','roots.html':'50% 40%','county-history.html':'50% 92%','share.html':'50% 40%','library.html':'50% 40%','huntington.html':'50% 45%','water-history.html':'50% 35%'};
 var page=(location.pathname.split('/').pop()||'index.html');
 var row=T[page]; if(!row||d.querySelector('.trail-next'))return;
 var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
@@ -106,6 +106,7 @@ var css='.trail-next{max-width:1000px;margin:3rem auto 2.5rem;padding:0 1.5rem;f
  '.trail-next a.go:hover .ph img{transform:scale(1.04)}'+
  '.trail-next .ph .bk{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(22px) brightness(.55)}'+
  '.trail-next .ph.fit img{object-fit:contain}'+
+ '.trail-next .ph .cr{position:absolute;right:0;top:0;max-width:85%;padding:.2rem .5rem;font-size:.66rem;line-height:1.3;color:#F4F1EA;background:rgba(0,0,0,.5);border-bottom-left-radius:6px;text-align:right}'+
  '.trail-next .tx{padding:1.6rem 1.7rem;display:flex;flex-direction:column;justify-content:center}'+
  '.trail-next .tx small{color:#FDE68A;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.75rem}'+
  '.trail-next .tx b{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.15;margin:.4rem 0 .6rem;color:#fff}'+
@@ -121,7 +122,7 @@ var css='.trail-next{max-width:1000px;margin:3rem auto 2.5rem;padding:0 1.5rem;f
  '@media (prefers-reduced-motion:reduce){.trail-next a.go,.trail-next .ph img{transition:none}.trail-next a.go:hover{transform:none}}';
 var st=d.createElement('style');st.textContent=css;d.head.appendChild(st);
 var box=d.createElement('section');box.className='trail-next';box.setAttribute('aria-label','Next on the trail');
-var h='<p class="lbl">Next on the trail</p><a class="go" href="'+esc(row[0])+'"><span class="ph"><span class="bk" style="background-image:url(\''+esc(pic)+'\')"></span><img src="'+esc(pic)+'" alt="" loading="lazy"'+(POS[page]?' style="object-position:'+POS[page]+'"':'')+'></span>'+
+var h='<p class="lbl">Next on the trail</p><a class="go" href="'+esc(row[0])+'"><span class="ph"><span class="bk" style="background-image:url(\''+esc(pic)+'\')"></span><img src="'+esc(pic)+'" alt="" loading="lazy"'+(POS[page]?' style="object-position:'+POS[page]+'"':'')+'>'+(/\/hc-al-/.test(pic)?'<span class="cr">American Lumberman Collection, courtesy of The History Center, Diboll</span>':/\/hc-/.test(pic)?'<span class="cr">Courtesy of The History Center, Diboll</span>':'')+'</span>'+
  '<span class="tx"><small>Up next</small><b>'+esc(nx.t)+'</b><span>'+esc(nx.hook)+'</span><em>Keep going &rarr;</em></span></a><div class="more"><span>Or try:</span>';
 row.slice(1).forEach(function(p){if(P[p])h+='<a href="'+esc(p)+'">'+esc(P[p].t)+'</a>'});
 h+='<a href="everything.html">All pages</a></div><form class="fam" action="names.html" method="get" role="search"><label for="famq">Find your family:</label><input id="famq" name="q" type="search" placeholder="Type a last name" autocomplete="off"><button type="submit">Search</button></form>';
