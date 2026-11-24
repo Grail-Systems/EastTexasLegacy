@@ -13,10 +13,10 @@ const bg=el=>{let c=getComputedStyle(el).backgroundColor;return(!c||c==='rgba(0,
 
 /* 0. "All pages" link in every page's main menu (Nov. 22, 2026) */
 {const nav=d.querySelector('.top nav, nav[aria-label="Main"], header nav');
- if(nav&&!nav.querySelector('a[href$="everything.html"]')){const a=d.createElement('a');a.href='everything.html';a.textContent='All pages';a.className='atlas-all';
+ if(nav&&!nav.querySelector('a[href$="everything.html"]')){const a=d.createElement('a');a.href='everything';a.textContent='All pages';a.className='atlas-all';
   if(/everything\.html$/.test(location.pathname))a.setAttribute('aria-current','page');nav.appendChild(a);}
  else if(!nav&&!d.querySelector('a.atlas-all')){const home=d.querySelector('body>.top a[href="./"], body>div:first-child a[href="./"]');
-  if(home){const a=d.createElement('a');a.href='everything.html';a.textContent='All pages';a.className='atlas-all';
+  if(home){const a=d.createElement('a');a.href='everything';a.textContent='All pages';a.className='atlas-all';
    a.style.cssText='margin-left:1.1rem;font-weight:600;text-decoration:none;color:'+getComputedStyle(home).color;home.after(a);}}}
 
 /* 1. hero plates: slow zoom and a treeline edge */
@@ -153,5 +153,5 @@ if(seats){
  if(f&&!document.getElementById('etl-whos')){const p=document.createElement('p');p.id='etl-whos';
   p.style.cssText='margin:1rem 0 0;font-size:.92rem;line-height:1.5';
   p.append('East Texas Legacy Coalition is the cause. Ground Truth Texas is the free public tool. Grail Systems builds it. ');
-  const a=document.createElement('a');a.href='/press.html';a.textContent='For reporters \u2192';p.append(a);
+  const a=document.createElement('a');a.href='/press';a.textContent='For reporters \u2192';p.append(a);
   (f.querySelector('.wrap')||f).appendChild(p);}}

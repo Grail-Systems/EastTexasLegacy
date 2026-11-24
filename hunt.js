@@ -83,7 +83,7 @@ function toast(t,n){var old=d.querySelector('.hunt-toast');if(old)old.remove();
  var b=d.createElement('div');b.className='hunt-toast';b.setAttribute('role','status');
  var done=n>=L.length;
  b.innerHTML='<span class="ic">'+icon(t.i)+'</span><div><b>You found '+t.n.replace(/^The /,'the ').replace(/^A /,'a ')+'.</b>'+
-  (done?'That’s all '+L.length+'. You walked the whole trail! <a href="journal.html">Open your field journal</a>':'Your <a href="journal.html">field journal</a>: '+n+' of '+L.length+'.')+
+  (done?'That’s all '+L.length+'. You walked the whole trail! <a href="journal">Open your field journal</a>':'Your <a href="journal">field journal</a>: '+n+' of '+L.length+'.')+
   '</div><button type="button" aria-label="Close">×</button>';
  d.body.appendChild(b);b.querySelector('button').onclick=function(){b.remove()};
  setTimeout(function(){if(b.parentNode)b.remove()},9000)}
@@ -103,7 +103,7 @@ L.forEach(function(t){if(t.p!==page)return;var sec=d.getElementById(t.s);if(!sec
 /* a field-journal line on the 'Next on the trail' card */
 if(page!=='journal.html'){var tries=0,iv=setInterval(function(){var c=d.querySelector('.trail-next');
  if(c&&!c.querySelector('.hunt-line')){clearInterval(iv);var n=found().length,p=d.createElement('p');p.className='hunt-line';
-  p.innerHTML=n?('Field journal: '+n+' of '+L.length+' treasures found. <a href="journal.html">Open it</a>'):(L.length+' treasures are hidden on these pages. Look for the gold seal. <a href="journal.html">Start your field journal</a>');
+  p.innerHTML=n?('Field journal: '+n+' of '+L.length+' treasures found. <a href="journal">Open it</a>'):(L.length+' treasures are hidden on these pages. Look for the gold seal. <a href="journal">Start your field journal</a>');
   c.appendChild(p)}
  if(++tries>40)clearInterval(iv)},150)}
 })();

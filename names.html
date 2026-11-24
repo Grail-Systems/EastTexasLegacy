@@ -38,7 +38,7 @@ mark{background:#FDE68A;color:#1C1917;padding:0 .1em;border-radius:2px}
 </style>
 </head>
 <body>
-<div class="top"><div class="wrap"><a class="home" href="./">East Texas Legacy Coalition</a><nav aria-label="Our roots"><a href="roots.html">Our history</a><a href="oak-flat.html">Families</a><a href="county-history.html">County history</a><a href="heroes.html">Heroes and stewards</a><a href="recipes.html">Recipes</a><a href="wild-foods.html">Wild foods</a><a href="events.html">Events</a><a href="water.html">The water</a></nav></div></div>
+<div class="top"><div class="wrap"><a class="home" href="./">East Texas Legacy Coalition</a><nav aria-label="Our roots"><a href="roots">Our history</a><a href="oak-flat">Families</a><a href="county-history">County history</a><a href="heroes">Heroes and stewards</a><a href="recipes">Recipes</a><a href="wild-foods">Wild foods</a><a href="events">Events</a><a href="water">The water</a></nav></div></div>
 
 <header class="banner">
   <img class="bg" src="img/fam/fam-snowdens.jpg" alt="An older couple, a younger couple and a boy standing in a yard beside an old car">
@@ -55,14 +55,14 @@ mark{background:#FDE68A;color:#1C1917;padding:0 .1em;border-radius:2px}
 </section>
 <section class="chapter" id="missing">
   <h2>Not here yet?</h2>
-  <p>Most families’ stories aren’t on the site yet. That’s where you come in. <a href="share.html">Share your family’s story</a>, or see <a href="family-research.html">where Angelina County’s family records are</a>.</p>
+  <p>Most families’ stories aren’t on the site yet. That’s where you come in. <a href="share">Share your family’s story</a>, or see <a href="family-research">where Angelina County’s family records are</a>.</p>
 </section>
 </div></main>
 <footer>
   <div class="wrap">
     <strong>East Texas Legacy Coalition</strong>
     Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
-    <a href="./">Home</a>&emsp;<a href="everything.html">All pages</a>&emsp;<a href="tour.html">Take the tour</a>&emsp;<a href="family-research.html">Family research</a>&emsp;<a href="share.html">Share your story</a>&emsp;<a href="donate.html">Donate</a>&emsp;<a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a><br>
+    <a href="./">Home</a>&emsp;<a href="everything">All pages</a>&emsp;<a href="tour">Take the tour</a>&emsp;<a href="family-research">Family research</a>&emsp;<a href="share">Share your story</a>&emsp;<a href="donate">Donate</a>&emsp;<a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a><br>
     Updated Nov. 22, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
   </div>
 </footer>
@@ -82,17 +82,17 @@ function run(v){v=(v||'').trim();if(!v){out.innerHTML='';return}
  var pages={};res.forEach(function(s){(pages[s.p]=pages[s.p]||{t:s.t,hits:[]}).hits.push(s)});
  var np=Object.keys(pages).length;
  h+='<div class="sum">'+(np?('“'+esc(v)+'” shows up on '+np+(np===1?' page':' pages')+'.'):('We didn’t find “'+esc(v)+'” on the site yet.'))+'</div>';
- pion.forEach(function(n){h+='<div class="pion"><b>'+esc(n[0])+'</b> is among the pioneer families profiled in the 1976 county history, <em>Land of the Little Angel</em> ('+esc(n[1])+'). <a href="family-research.html#families">See the list and where to find the book</a>.</div>'});
+ pion.forEach(function(n){h+='<div class="pion"><b>'+esc(n[0])+'</b> is among the pioneer families profiled in the 1976 county history, <em>Land of the Little Angel</em> ('+esc(n[1])+'). <a href="family-research#families">See the list and where to find the book</a>.</div>'});
  Object.keys(pages).forEach(function(p){var g=pages[p];h+='<div class="grp"><h3><a href="'+esc(p)+'">'+esc(g.t)+'</a></h3>';
   g.hits.slice(0,4).forEach(function(s){h+='<a class="hit" href="'+esc(p)+(s.id?'#'+esc(s.id):'')+'"><b>'+esc(s.h||g.t)+'</b><span>'+snip(s.x,res0[0])+'</span></a>'});
   if(g.hits.length>4)h+='<p class="empty">and '+(g.hits.length-4)+' more on <a href="'+esc(p)+'">this page</a>.</p>';
   h+='</div>'});
- if(!np&&!pion.length)h+='<p>Know this family’s story? <a href="share.html">Send it to us</a>, and it could be the first one here.</p>';
+ if(!np&&!pion.length)h+='<p>Know this family’s story? <a href="share">Send it to us</a>, and it could be the first one here.</p>';
  out.innerHTML=h}
 f.addEventListener('submit',function(e){e.preventDefault();var v=q.value;try{history.replaceState(null,'','?q='+encodeURIComponent(v))}catch(x){}run(v)});
 [].forEach.call(document.querySelectorAll('.try button'),function(b){b.addEventListener('click',function(){q.value=b.textContent;f.dispatchEvent(new Event('submit',{cancelable:true}))})});
 var start=new URLSearchParams(location.search).get('q');if(start)q.value=start;
-fetch('search-index.json').then(function(r){return r.json()}).then(function(d){IDX=d;if(q.value)run(q.value)}).catch(function(){out.innerHTML='<p class="empty">Search couldn’t load. Try <a href="everything.html">All pages</a>.</p>'});
+fetch('search-index.json').then(function(r){return r.json()}).then(function(d){IDX=d;if(q.value)run(q.value)}).catch(function(){out.innerHTML='<p class="empty">Search couldn’t load. Try <a href="everything">All pages</a>.</p>'});
 })();
 </script>
 <script src="/donate.js" defer></script>

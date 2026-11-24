@@ -70,7 +70,7 @@
 </style>
 </head>
 <body>
-<div class="top"><div class="wrap"><a class="home" href="./">East Texas Legacy Coalition</a><nav aria-label="Our roots"><a href="roots.html">Our history</a><a href="oak-flat.html">Families</a><a href="county-history.html">County history</a><a href="heroes.html">Heroes and stewards</a><a href="recipes.html">Recipes</a><a href="wild-foods.html">Wild foods</a><a href="events.html">Events</a><a href="water.html">The water</a></nav></div></div>
+<div class="top"><div class="wrap"><a class="home" href="./">East Texas Legacy Coalition</a><nav aria-label="Our roots"><a href="roots">Our history</a><a href="oak-flat">Families</a><a href="county-history">County history</a><a href="heroes">Heroes and stewards</a><a href="recipes">Recipes</a><a href="wild-foods">Wild foods</a><a href="events">Events</a><a href="water">The water</a></nav></div></div>
 <main>
 <div class="wrap mhead"><span class="kicker">The map</span><h1>Angelina County, story by story</h1>
 <p>Tap a town, a river or the lake. You’ll see what happened there, and every page on this site that mentions it.</p></div>
@@ -99,7 +99,7 @@
   <div class="wrap">
     <strong>East Texas Legacy Coalition</strong>
     Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
-    <a href="./">Home</a>&emsp;<a href="everything.html">All pages</a>&emsp;<a href="tour.html">Take the tour</a>&emsp;<a href="names.html">Find your family</a>&emsp;<a href="journal.html">Treasure hunt</a>&emsp;<a href="share.html">Share your story</a>&emsp;<a href="donate.html">Donate</a>&emsp;
+    <a href="./">Home</a>&emsp;<a href="everything">All pages</a>&emsp;<a href="tour">Take the tour</a>&emsp;<a href="names">Find your family</a>&emsp;<a href="journal">Treasure hunt</a>&emsp;<a href="share">Share your story</a>&emsp;<a href="donate">Donate</a>&emsp;
     Updated Nov. 22, 2026. Built by <a href="https://grailsystems.io/">Grail Systems</a>.
   </div>
 </footer>
@@ -116,12 +116,12 @@ function show(id,push){var p=PL.filter(function(x){return x.id===id})[0];if(!p)r
  [].forEach.call(d.querySelectorAll('[data-id]'),function(el){el.classList.toggle('on',el.getAttribute('data-id')===id)});
  var h='<h2>'+esc(p.n)+'</h2>';
  if(p.img)h+='<figure class="ph"><img src="'+esc(p.img)+'" alt="'+esc(p.alt)+'"><figcaption>'+esc(p.cr)+'</figcaption></figure>';
- else h+='<p class="noph">No old photo of '+esc(p.n)+' on the site yet. Have one? <a href="share.html">Share it</a>, and it could go right here.</p>';
+ else h+='<p class="noph">No old photo of '+esc(p.n)+' on the site yet. Have one? <a href="share">Share it</a>, and it could go right here.</p>';
  h+='<q>'+esc(p.x)+'</q><a class="from" href="'+esc(p.src[0])+'">Read it on '+esc(p.src[1])+' &rarr;</a>';
  if(p.near)h+='<h3>Nearby</h3><ul>'+p.near.map(function(n){return '<li><a href="'+esc(n[0])+'">'+esc(n[1])+'</a></li>'}).join('')+'</ul>';
  var H=hits(p);
  if(H&&H.length){h+='<h3>On '+H.length+(H.length===1?' page':' pages')+'</h3><ul>'+H.slice(0,8).map(function(g){var s=g.s[0];return '<li><a href="'+esc(g.p)+(s.id?'#'+esc(s.id):'')+'">'+esc(g.t)+(s.h?'<span>'+esc(s.h)+'</span>':'')+'</a></li>'}).join('')+'</ul>';
-  h+='<a class="all" href="names.html?q='+encodeURIComponent(p.q)+'">See every mention of '+esc(p.q)+' &rarr;</a>'}
+  h+='<a class="all" href="names?q='+encodeURIComponent(p.q)+'">See every mention of '+esc(p.q)+' &rarr;</a>'}
  else if(!IDX)h+='<p class="hint" style="margin-top:1rem">Loading the pages…</p>';
  panel.innerHTML=h;
  if(push!==false){try{history.replaceState(null,'','#'+id)}catch(e){}}

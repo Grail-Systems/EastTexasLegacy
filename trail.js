@@ -125,7 +125,7 @@ var box=d.createElement('section');box.className='trail-next';box.setAttribute('
 var h='<p class="lbl">Next on the trail</p><a class="go" href="'+esc(row[0])+'"><span class="ph"><span class="bk" style="background-image:url(\''+esc(pic)+'\')"></span><img src="'+esc(pic)+'" alt="" loading="lazy"'+(POS[page]?' style="object-position:'+POS[page]+'"':'')+'>'+(/\/hc-al-/.test(pic)?'<span class="cr">American Lumberman Collection, courtesy of The History Center, Diboll</span>':/\/hc-/.test(pic)?'<span class="cr">Courtesy of The History Center, Diboll</span>':'')+'</span>'+
  '<span class="tx"><small>Up next</small><b>'+esc(nx.t)+'</b><span>'+esc(nx.hook)+'</span><em>Keep going &rarr;</em></span></a><div class="more"><span>Or try:</span>';
 row.slice(1).forEach(function(p){if(P[p])h+='<a href="'+esc(p)+'">'+esc(P[p].t)+'</a>'});
-h+='<a href="everything.html">All pages</a></div><form class="fam" action="names.html" method="get" role="search"><label for="famq">Find your family:</label><input id="famq" name="q" type="search" placeholder="Type a last name" autocomplete="off"><button type="submit">Search</button></form>';
+h+='<a href="everything">All pages</a></div><form class="fam" action="names.html" method="get" role="search"><label for="famq">Find your family:</label><input id="famq" name="q" type="search" placeholder="Type a last name" autocomplete="off"><button type="submit">Search</button></form>';
 box.innerHTML=h;
 var foot=d.querySelector('.atlas-foot')||d.querySelector('body>footer');
 if(foot)foot.before(box);else d.body.appendChild(box);
