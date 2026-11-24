@@ -130,8 +130,8 @@ table.hist td.n{text-align:center;font-weight:700}
   function nice(iso, withDay){ var x = d(iso); if(!x) return ""; return (withDay ? DAY[x.getDay()] + ", " : "") + MON[x.getMonth()] + " " + x.getDate() + ", " + x.getFullYear(); }
   function clock(iso){ if(!iso || iso.length < 16) return ""; var h = +iso.slice(11,13), m = iso.slice(14,16); var ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12; return h + ":" + m + " " + ap; }
   function todayCT(){ try { return new Intl.DateTimeFormat("en-CA",{timeZone:"America/Chicago"}).format(new Date()); } catch(e){ return new Date().toISOString().slice(0,10); } }
-  function meetingDate(f){ return (f.meeting_printed || f.meeting_date_in_file_name || (f.meeting_read && f.meeting_read.date) || "").slice(0,10); }
-  function meetingTime(f){ if (f.meeting_printed) return clock(f.meeting_printed); var t = f.meeting_read && f.meeting_read.time; if (!t) return ""; var h = +t.slice(0,2); return (h % 12 || 12) + ":" + t.slice(3,5) + (h >= 12 ? " PM" : " AM"); }
+  function meetingDate(f){ return (f.meeting_printed || f.meeting_date || f.meeting_date_in_file_name || (f.meeting_read && f.meeting_read.date) || "").slice(0,10); }
+  function meetingTime(f){ if (f.meeting_printed) return clock(f.meeting_printed); var t = (f.meeting_listed && f.meeting_listed.time) || (f.meeting_read && !f.meeting_read.note && f.meeting_read.time); if (!t) return ""; var h = +t.slice(0,2); return (h % 12 || 12) + ":" + t.slice(3,5) + (h >= 12 ? " PM" : " AM"); }
   function posted(f){ if (f.clerk_stamp && f.clerk_stamp.date) return {date: f.clerk_stamp.date, label: "Clerk's filed stamp"}; if (f.posting_certified) return {date: f.posting_certified.date, time: f.posting_certified.time, label: "Notice says it was posted"}; return null; }
   function counts(f){ var b = f.business_days_before_meeting || {}; return {a: b.from_clerk_stamp || b.from_posting_certified || null, w: b.from_website_file_date || b.from_link_timestamp || null}; }
   function webDate(f){ return f.website_file_date || (f.link_timestamp ? f.link_timestamp.replace(" ", "T") : ""); }
