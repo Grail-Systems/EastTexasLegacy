@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meeting Watch | East Texas Legacy Coalition</title>
+<meta name="description" content="Every Angelina County Commissioners Court agenda, checked every hour: when the Clerk stamped it filed, when the meeting is, and the business days in between. Facts, not verdicts.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meeting Watch: when was it posted, and when is the meeting?">
+<meta property="og:description" content="Every Angelina County Commissioners Court agenda, checked every hour, with the business days counted and every date shown.">
+<meta property="og:url" content="https://easttexaslegacy.org/meeting-watch.html">
+<meta property="og:image" content="https://easttexaslegacy.org/img/hist/hc-lufkin-depot-1959.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="legacy.css">
+<link rel="stylesheet" href="/atlas.css">
+<style>
+/* This page only */
+.banner img.bg{object-position:50% 75%}
+.asof{color:var(--dim);font-size:.95rem}
+.status{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green-mid);border-radius:6px;padding:.8rem 1rem;margin:1rem 0}
+.status.bad{border-left-color:var(--mayhaw)}
+.mtg{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.9rem}
+.mtg li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem}
+.mtg li.soon{border-left:4px solid var(--green-mid)}
+.mtg h3{margin:0 0 .35rem;font-family:var(--serif);font-size:1.2rem}
+.mtg .kind{display:inline-block;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--dim);margin-left:.4rem}
+.mtg dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem .9rem;margin:.5rem 0 0}
+.mtg dt{color:var(--dim)}
+.mtg dd{margin:0}
+.mtg .days{font-family:var(--serif);font-weight:900;font-size:1.25rem}
+.mtg .links{margin-top:.6rem;font-size:.95rem}
+.mtg .links a{margin-right:1rem}
+.mtg .note{display:block;color:var(--dim);font-size:.9rem;margin-top:.4rem}
+table.hist{width:100%;border-collapse:collapse;font-size:.93rem;margin:1rem 0}
+table.hist th,table.hist td{border-bottom:1px solid var(--line);padding:.45rem .4rem;text-align:left;vertical-align:top}
+table.hist th{font-size:.82rem;text-transform:uppercase;letter-spacing:.03em;color:var(--dim)}
+table.hist td.n{text-align:center;font-weight:700}
+.tablewrap{overflow-x:auto}
+.tally{display:flex;flex-wrap:wrap;gap:.8rem;margin:1rem 0}
+.tally div{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.7rem 1rem;min-width:7.5rem}
+.tally b{display:block;font-family:var(--serif);font-size:1.6rem}
+.signup{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.2rem;margin:1rem 0}
+.signup label{display:block;font-weight:600;margin:.6rem 0 .25rem}
+.signup input[type=email],.signup input[type=text]{width:100%;max-width:26rem;padding:.6rem .7rem;border:1px solid var(--line);border-radius:6px;font:inherit}
+.signup button{margin-top:.9rem;padding:.8rem 1.4rem;border:0;border-radius:999px;font-weight:700;background:var(--green-mid);color:var(--paper);font:inherit;cursor:pointer}
+.signup .hp{position:absolute;left:-9999px}
+.signup .msg{margin-top:.7rem;font-weight:600}
+.src{color:var(--dim);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a class="home" href="./">East Texas Legacy Coalition</a><nav aria-label="Our roots"><a href="roots">Our history</a><a href="oak-flat">Families</a><a href="county-history">County history</a><a href="heroes">Heroes and stewards</a><a href="recipes">Recipes</a><a href="wild-foods">Wild foods</a><a href="events">Events</a><a href="water">The water</a></nav></div></div>
+<header class="banner">
+  <img class="bg" src="img/hist/hc-lufkin-depot-1959.jpg" alt="Lufkin's Southern Pacific passenger depot, about 1959">
+  <span class="credit">Lufkin's Southern Pacific passenger depot, about 1959. Courtesy of The History Center, Diboll, Texas.</span>
+  <div class="wrap"><span class="kicker">Meeting Watch</span><h1>You can't show up to a meeting you didn't know about.</h1><p class="lead">Every Angelina County Commissioners Court agenda, checked every hour. When it was stamped filed, when the meeting is, and the business days in between. Facts, not verdicts.</p></div>
+</header>
+<main class="wrap"><div class="rail">
+
+<section class="chapter" id="next">
+  <h2>Coming up</h2>
+  <div id="status" class="status" role="status">Loading the latest check…</div>
+  <ul class="mtg" id="upcoming"></ul>
+</section>
+
+<section class="chapter" id="alerts">
+  <h2>Get an email when a meeting is posted</h2>
+  <p>We'll email you when a new agenda goes up, with the meeting date, the filed date and a link to the agenda. Nothing else, and you can leave any time.</p>
+  <div class="signup" id="signup"></div>
+</section>
+
+<section class="chapter" id="rule">
+  <h2>The rule, and the open question</h2>
+  <p>Since Sept. 1, 2025, Texas law says a meeting notice must be posted "at least three business days before the scheduled date of the meeting" (<a href="https://capitol.texas.gov/tlodocs/89R/billtext/html/HB01522F.htm">Gov't Code 551.043(a), as amended by HB 1522</a>). The law doesn't say how to count those days.</p>
+  <p><b>How we count:</b> only full business days between the filed date and the meeting date. We skip weekends and the days the County is closed. That's the method the <a href="https://www.county.org/resources/news/legalease-faqs-by-subject/open-meetings-act/new-posting-deadline">Texas Association of Counties</a> recommends to its members. Every card shows exactly which days were counted and which were skipped, so you can count it your own way.</p>
+  <p><b>Closed days:</b> 2026 dates come from the <a href="https://www.angelinacounty.net/files/pdf/2026closure.pdf">Angelina County 2026 Holiday Schedule</a>, approved by Commissioners Court Oct. 28, 2025. Dates before 2026 use the Texas state holiday list until we check the County's own 2025 list.</p>
+  <p>On Nov. 24, 2026, we asked State Rep. Trent Ashby and State Sen. Robert Nichols to have a legislative committee ask the Texas Attorney General to settle how the days are counted. When there's an answer, it'll be here.</p>
+</section>
+
+<section class="chapter" id="history">
+  <h2>Every agenda we've saved</h2>
+  <p class="asof" id="histnote"></p>
+  <div class="tally" id="tally"></div>
+  <div class="tablewrap"><table class="hist" id="hist"><thead><tr><th>Meeting</th><th>Session</th><th>Clerk's filed stamp</th><th>County web file date</th><th>Business days (stamp)</th><th>Business days (web file)</th><th>Closed days skipped</th><th>Agenda</th></tr></thead><tbody></tbody></table></div>
+  <p class="src">"Unreadable" means the stamp on the scanned agenda couldn't be read with confidence, so we don't guess. The County web file date is when the County's web server says the file was last saved: a second record of posting, but a later re-upload can move it forward.</p>
+</section>
+
+<section class="chapter" id="how">
+  <h2>How it works</h2>
+  <ul>
+    <li>Every hour it checks the County's agenda folder for new and changed agendas.</li>
+    <li>It saves a copy of each agenda with a digital fingerprint, so any later change to the file shows up.</li>
+    <li>It reads the Clerk's filed stamp and the printed meeting date. Before every run it checks itself against agendas with known answers, and if any check fails, nothing is published.</li>
+    <li>It never calls a notice "late" or "illegal." It shows the dates and the count, and you decide.</li>
+  </ul>
+  <p>Angelina County Commissioners Court is first. City councils, school boards and the groundwater district are next. The saved copies and the full data are public on <a href="https://github.com/Grail-Systems/carrizo_wilcox_aquifer/tree/main/data-engine/meeting_watch">GitHub</a>.</p>
+  <p>Want to speak at a meeting? <a href="your-say">Where you get a say →</a></p>
+</section>
+
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <strong>East Texas Legacy Coalition</strong>
+    Founded by Fawn Elizabeth Zion. Angelina County, Texas.<br>
+    <a href="./">Home</a>&emsp;<a href="water">The water fight</a>&emsp;<a href="your-say">Where you get a say</a>&emsp;<a href="press">For reporters</a>&emsp;<a href="donate">Donate</a>&emsp;<a href="mailto:contact@grailsystems.io">contact@grailsystems.io</a><br>
+    Built by <a href="https://grailsystems.io/">Grail Systems</a>.
+  </div>
+</footer>
+<script>
+(function(){
+  var BASE = "https://raw.githubusercontent.com/Grail-Systems/carrizo_wilcox_aquifer/main/data-engine/meeting_watch/";
+  var REPO = "https://github.com/Grail-Systems/carrizo_wilcox_aquifer/blob/main/data-engine/meeting_watch/";
+  // Email alerts: paste the Brevo form's action URL here once the list is set up. Until then the page says so plainly.
+  var ALERT_FORM = "";
+  var MON = ["Jan.","Feb.","March","April","May","June","July","Aug.","Sept.","Oct.","Nov.","Dec."];
+  var DAY = ["Sun.","Mon.","Tue.","Wed.","Thu.","Fri.","Sat."];
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+  function d(iso){ if(!iso) return null; var p = iso.slice(0,10).split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+  function nice(iso, withDay){ var x = d(iso); if(!x) return ""; return (withDay ? DAY[x.getDay()] + ", " : "") + MON[x.getMonth()] + " " + x.getDate() + ", " + x.getFullYear(); }
+  function clock(iso){ if(!iso || iso.length < 16) return ""; var h = +iso.slice(11,13), m = iso.slice(14,16); var ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12; return h + ":" + m + " " + ap; }
+  function todayCT(){ try { return new Intl.DateTimeFormat("en-CA",{timeZone:"America/Chicago"}).format(new Date()); } catch(e){ return new Date().toISOString().slice(0,10); } }
+  function meetingDate(f){ return (f.meeting_printed || f.meeting_date_in_file_name || "").slice(0,10); }
+  function listDays(a){ return (a || []).map(function(x){ return nice(x).replace(/, \d{4}$/,""); }).join(", "); }
+
+  // Sign-up box
+  var box = document.getElementById("signup");
+  if (ALERT_FORM) {
+    box.innerHTML = '<form id="f" method="post" action="' + esc(ALERT_FORM) + '">' +
+      '<label for="em">Your email</label><input id="em" name="EMAIL" type="email" autocomplete="email" required>' +
+      '<label for="co">Your county (optional)</label><input id="co" name="COUNTY" type="text" autocomplete="address-level2">' +
+      '<input class="hp" name="email_address_check" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+      '<input type="hidden" name="locale" value="en">' +
+      '<button type="submit">Email me new meetings</button><p class="msg" id="msg" role="status"></p></form>';
+  } else {
+    box.innerHTML = '<p><b>Email alerts are being set up now.</b> Until they open, this page updates every hour on its own. Bookmark it, or join the coalition on <a href="https://www.facebook.com/groups/1249053690274921">Facebook</a> and we\'ll post when alerts go live.</p>';
+  }
+
+  function render(data, health){
+    var docs = Object.keys(data.documents || {}).map(function(k){ return data.documents[k]; })
+      .filter(function(x){ return x.facts && meetingDate(x.facts); });
+    docs.sort(function(a,b){ return meetingDate(b.facts).localeCompare(meetingDate(a.facts)) || (b.url||"").localeCompare(a.url||""); });
+    var today = todayCT();
+
+    var st = document.getElementById("status");
+    var ok = health && health.sources ? Object.keys(health.sources).every(function(k){ return health.sources[k].ok; }) : true;
+    st.innerHTML = "Last checked " + esc(nice(data.updated, true)) + ", " + esc(clock(data.updated)) + " Central." +
+      (ok ? " All sources answered." : " One source didn't answer on the last check; we'll keep trying every hour.");
+    if (!ok) st.className = "status bad";
+
+    var up = docs.filter(function(x){ return meetingDate(x.facts) >= today; }).reverse();
+    var ul = document.getElementById("upcoming");
+    if (!up.length) ul.innerHTML = "<li>No upcoming Commissioners Court meeting is posted yet. This page checks every hour.</li>";
+    up.forEach(function(x){ ul.appendChild(card(x, true)); });
+
+    var tally = {};
+    var tb = document.querySelector("#hist tbody");
+    docs.forEach(function(x){
+      var f = x.facts, b = f.business_days_before_meeting || {}, s = f.clerk_stamp || {};
+      var a = b.from_clerk_stamp, w = b.from_website_file_date;
+      var key = a ? String(a.count) : "unreadable"; tally[key] = (tally[key] || 0) + 1;
+      var hol = {}; [a, w].forEach(function(v){ if (v && v.holidays_skipped) Object.keys(v.holidays_skipped).forEach(function(k){ hol[k] = v.holidays_skipped[k]; }); });
+      var holTxt = Object.keys(hol).sort().map(function(k){ return '<span title="' + esc(hol[k]) + '">' + esc(nice(k).replace(/, \d{4}$/,"")) + "</span>"; }).join(", ");
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<td>" + esc(nice(meetingDate(f), true)) + "</td><td>" + esc(f.session || "") + (f.emergency_cited ? "<br><small>emergency wording in agenda</small>" : "") + "</td>" +
+        "<td>" + (s.date ? esc(nice(s.date)) : "unreadable") + "</td><td>" + (f.website_file_date ? esc(nice(f.website_file_date)) + "<br><small>" + esc(clock(f.website_file_date)) + "</small>" : "") + "</td>" +
+        '<td class="n">' + (a ? a.count : "–") + '</td><td class="n">' + (w ? w.count : "–") + "</td><td>" + holTxt + "</td>" +
+        '<td><a href="' + esc(x.url) + '">County</a>' + (x.versions && x.versions.length ? ' · <a href="' + esc(REPO + x.versions[x.versions.length-1].copy) + '">saved copy</a>' : "") + "</td>";
+      tb.appendChild(tr);
+    });
+    var t = document.getElementById("tally");
+    ["2","3","4","5","unreadable"].concat(Object.keys(tally).filter(function(k){ return ["2","3","4","5","unreadable"].indexOf(k) < 0; })).forEach(function(k){
+      if (!tally[k]) return;
+      var div = document.createElement("div");
+      div.innerHTML = "<b>" + tally[k] + "</b>" + (k === "unreadable" ? "stamp unreadable" : k + " business day" + (k === "1" ? "" : "s"));
+      t.appendChild(div);
+    });
+    document.getElementById("histnote").textContent = docs.length + " agendas saved, newest first. Counts use the Clerk's filed stamp where it could be read.";
+  }
+
+  function card(x, soon){
+    var f = x.facts, b = f.business_days_before_meeting || {}, s = f.clerk_stamp || {};
+    var a = b.from_clerk_stamp, w = b.from_website_file_date;
+    var li = document.createElement("li"); if (soon) li.className = "soon";
+    var html = "<h3>" + esc(nice(meetingDate(f), true)) + (f.meeting_printed ? ", " + esc(clock(f.meeting_printed)) : "") + '<span class="kind">' + esc(f.session ? f.session + " session" : "") + "</span></h3>" +
+      "<dl><dt>Body</dt><dd>" + esc(x.body) + "</dd>" +
+      "<dt>Clerk's filed stamp</dt><dd>" + (s.date ? esc(nice(s.date, true)) : "couldn't be read") + "</dd>" +
+      (f.website_file_date ? "<dt>County web file date</dt><dd>" + esc(nice(f.website_file_date, true)) + ", " + esc(clock(f.website_file_date)) + "</dd>" : "") +
+      "<dt>Business days between</dt><dd>" + (a ? '<span class="days">' + a.count + "</span> (" + (a.counted.length ? esc(listDays(a.counted)) : "none") + ")" : (w ? '<span class="days">' + w.count + "</span> by the web file date (" + esc(listDays(w.counted)) + ")" : "not counted yet")) + "</dd></dl>";
+    var skipped = (a || w || {}).holidays_skipped || {};
+    var ks = Object.keys(skipped);
+    if (ks.length) html += '<span class="note">Skipped as closed: ' + ks.map(function(k){ return esc(nice(k, true)) + " (" + esc(skipped[k]) + ")"; }).join("; ") + "</span>";
+    if (f.emergency_cited) html += '<span class="note">This agenda includes emergency wording. Emergency meetings follow a different notice rule (Gov\'t Code 551.045).</span>';
+    html += '<div class="links"><a href="' + esc(x.url) + '">Open the agenda</a>' + (x.versions && x.versions.length ? '<a href="' + esc(REPO + x.versions[x.versions.length-1].copy) + '">Our saved copy</a>' : "") + "</div>";
+    li.innerHTML = html;
+    return li;
+  }
+
+  function fail(){
+    var st = document.getElementById("status");
+    st.className = "status bad";
+    st.innerHTML = 'The latest check didn\'t load. You can see the same data on <a href="' + REPO + 'report.md">GitHub</a>.';
+  }
+  var bust = "?t=" + Math.floor(Date.now() / 300000);
+  Promise.all([
+    fetch(BASE + "meetings.json" + bust).then(function(r){ if(!r.ok) throw 0; return r.json(); }),
+    fetch(BASE + "health.json" + bust).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+  ]).then(function(v){ render(v[0], v[1]); }).catch(fail);
+})();
+</script>
+<script src="/donate.js" defer></script>
+<script src="/atlas.js" defer></script>
+</body>
+</html>
